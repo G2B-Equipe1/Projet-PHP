@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="9d117b9e-7d2d-4be5-bac3-724b30fec213" name="projet-php" url="http://projet-php-g2b-equipe1.alwaysdata.net">
+        <fileTransfer host="ssh-projet-php-g2b-equipe1.alwaysdata.net" port="22" rootFolder="/home/projet-php-g2b-equipe1/www" accessType="SFTP">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" />
+          </advancedOptions>
+          <option name="port" value="22" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
