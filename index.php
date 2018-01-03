@@ -3,19 +3,16 @@
     start_page();
     nav_bar();
 ?>
-        <header></header>
 
         <div class="container-fluid section">
             <section class="row">
                 <article class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed posuere feugiat enim eget posuere. Sed tincidunt mauris est, sit amet porttitor arcu dignissim iaculis. Praesent sagittis nibh enim, sed maximus arcu sollicitudin convallis. Praesent condimentum mauris et tellus sollicitudin, in tincidunt diam venenatis. Nam consectetur dolor eget leo malesuada, id porta purus imperdiet. Duis finibus velit dolor, id pharetra ex ornare non. Integer dictum convallis faucibus.
-                    </p>
+                    <img src="img/woman-writing-on-a-notebook.jpeg" class="img-fluid rounded" alt="Responsive image">
                 </article>
 
                 <article class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed posuere feugiat enim eget posuere. Sed tincidunt mauris est, sit amet porttitor arcu dignissim iaculis. Praesent sagittis nibh enim, sed maximus arcu sollicitudin convallis. Praesent condimentum mauris et tellus sollicitudin, in tincidunt diam venenatis. Nam consectetur dolor eget leo malesuada, id porta purus imperdiet. Duis finibus velit dolor, id pharetra ex ornare non. Integer dictum convallis faucibus.
+                    <p class="text-center">
+                        Dans le but de vous aider a rédiger vos documents, Virtuo Linguo vous propose ses services de traduction simple et intuitif.
                     </p>
                 </article>
             </section>
@@ -24,21 +21,44 @@
         <div class="container-fluid section">
             <section class="row">
                 <article class="col-xs-12 col-sm-4 col-md-64 col-lg-4">
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed posuere feugiat enim eget posuere. Sed tincidunt mauris est, sit amet porttitor arcu dignissim iaculis. Praesent sagittis nibh enim, sed maximus arcu sollicitudin convallis. Praesent condimentum mauris et tellus sollicitudin, in tincidunt diam venenatis. Nam consectetur dolor eget leo malesuada, id porta purus imperdiet. Duis finibus velit dolor, id pharetra ex ornare non. Integer dictum convallis faucibus.
-                    </p>
+                    <div class="article-img-overlay">
+                        <img src="img/woman-writing-on-a-notebook.jpeg" class="img-fluid rounded" alt="Responsive image">
+                        <div class="overlay">
+                            <div class="text">Simplicité</div>
+                        </div>
+                    </div>
                 </article>
 
                 <article class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed posuere feugiat enim eget posuere. Sed tincidunt mauris est, sit amet porttitor arcu dignissim iaculis. Praesent sagittis nibh enim, sed maximus arcu sollicitudin convallis. Praesent condimentum mauris et tellus sollicitudin, in tincidunt diam venenatis. Nam consectetur dolor eget leo malesuada, id porta purus imperdiet. Duis finibus velit dolor, id pharetra ex ornare non. Integer dictum convallis faucibus.
-                    </p>
+                    <div class="article-img-overlay">
+                        <img src="img/woman-writing-on-a-notebook.jpeg" class="img-fluid rounded" alt="Responsive image">
+                        <div class="overlay">
+                            <div class="text">Rapidité</div>
+                        </div>
+                    </div>
                 </article>
 
                 <article class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed posuere feugiat enim eget posuere. Sed tincidunt mauris est, sit amet porttitor arcu dignissim iaculis. Praesent sagittis nibh enim, sed maximus arcu sollicitudin convallis. Praesent condimentum mauris et tellus sollicitudin, in tincidunt diam venenatis. Nam consectetur dolor eget leo malesuada, id porta purus imperdiet. Duis finibus velit dolor, id pharetra ex ornare non. Integer dictum convallis faucibus.
+                    <div class="article-img-overlay">
+                        <img src="img/woman-writing-on-a-notebook.jpeg" class="img-fluid rounded" alt="Responsive image">
+                        <div class="overlay">
+                            <div class="text">Ecoute</div>
+                        </div>
+                    </div>
+                </article>
+            </section>
+        </div>
+
+        <div class="container-fluid section">
+            <section class="row">
+                <article class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                    <p class="text-center">
+                        Suivez nous sur les réseaux sociaux.
                     </p>
+                </article>
+
+                <article class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                    <img src="img/facebook-instagram-network-notebook.jpeg" class="img-fluid rounded" alt="Responsive image">
                 </article>
             </section>
         </div>
