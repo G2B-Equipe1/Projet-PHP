@@ -4,22 +4,51 @@ session_start();
 $action = $_POST['action'];
 if($action == 'S\'inscrire')
 {
-    $today = date('Y-m-d');
-    $query = 'INSERT INTO user (identifiant, sexe, mail, password, telephone, pays, date ) 
-    VALUES (\'' . $id . '\', \'' . $sexe . '\', \'' . $email . '\', \'' . $password . '\', \'' .
-        $téléphone . '\', \'' . $pays . '\', \'' . $today . '\')';
-
-    if(!($dbResult = mysqli_query($dbLink, $query)))
+    if(!mysqli_num_rows(mysqli_query($dbLink, 'SELECT email FROM user WHERE email = \''. $_POST['mail']. '\'')))
     {
-        echo 'Erreur dans requête<br />';
-// Affiche le type d'erreur.
-        echo 'Erreur : ' . mysqli_error($dbLink) . '<br/>';
-// Affiche la requête envoyée.
-        echo 'Requête : ' . $query . '<br/>';
-        exit();
+        if(!mysqli_num_rows(mysqli_query($dbLink, 'SELECT email FROM user WHERE pseudo = \''. $_POST['pseudo']. '\'')))
+        {
+            if($_POST['mdp'] === $_POST['confirmationmdp'])
+            {
+                $today = date('Y-m-d');
+                $query = 'INSERT INTO user (email, pseudo, mdp, date, categorie ) 
+                      VALUES (\'' . $_POST['mail'] . '\', \'' . $_POST['pseudo'] . '\', \''
+                    . $_POST['mdp'] . '\', \'' . $today . '\', \'standard\' )';
+
+                if(!($dbResult = mysqli_query($dbLink, $query)))
+                {
+                    echo 'Erreur dans requête<br />';
+                    // Affiche le type d'erreur.
+                    echo 'Erreur : ' . mysqli_error($dbLink) . '<br/>';
+                    // Affiche la requête envoyée.
+                    echo 'Requête : ' . $query . '<br/>';
+                    exit();
+                }
+                $_SESSION['mail'] = $_POST['mail'];
+                $_SESSION['password'] = $_POST['mdp'];
+                $_SESSION['pseudo'] = $_POST['pseudo'];
+                $_SESSION['categorie'] = 'standard';
+                $_SESSION['inscriptionreussie'] = '';
+                header('Location: user_space.php');
+            }
+            else
+            {
+                $_SESSION['mauvaismdp'] = '';
+                header('Location: user_space.php');
+            }
+        }
+        else
+        {
+            $_SESSION['pseudopris'] = '';
+            header('Location: user_space.php');
+        }
+    }
+    else
+    {
+        $_SESSION['mailpris'] = '';
+        header('Location: user_space.php');
     }
 
-    echo 'Enregistrement en base de données effectuée <br>';
 }
 else if ($action == 'Se connecter')
 {
@@ -58,16 +87,11 @@ else if ($action == 'Se connecter')
 }
 else if($action == 'Changer mot de passe')
 {
-    $ancienmdp = $_POST['ancienmdp'];
-    $nouveaumdp = $_POST['nouveaumdp'];
-    $confirmationmdp = $_POST['confirmationmdp'];
-    $pass = $_SESSION['password'];
-    if( $ancienmdp === $pass ){
-        if(strcmp($nouveaumdp , $confirmationmdp ) === 0)
+    if( $_POST['ancienmdp'] === $_SESSION['password'] ){
+        if($_POST['nouveaumdp'] ===  $_POST['confirmationmdp'] )
         {
-            unset($_SESSION['changefail1']);
-            unset($_SESSION['changefail2']);
-            $query = 'UPDATE user SET mdp = \'' . $_POST['nouveaumdp'] . '\' WHERE email = \'' . $_SESSION['mail'] . '\'';
+            $query = 'UPDATE user SET mdp = \'' . $_POST['nouveaumdp'] .
+                    '\' WHERE email = \'' . $_SESSION['mail'] . '\'';
             if(!($dbResult = mysqli_query($dbLink, $query)))
             {
                 echo 'Erreur dans requête<br />';
@@ -88,8 +112,6 @@ else if($action == 'Changer mot de passe')
         }
         else
         {
-            unset($_SESSION['changefail1']);
-            unset($_SESSION['changesuccess']);
             $_SESSION['changefail2'] = '';
             header('Location: user_space.php');
         }
@@ -97,8 +119,6 @@ else if($action == 'Changer mot de passe')
     }
     else
     {
-        unset($_SESSION['changefail2']);
-        unset($_SESSION['changesuccess']);
         $_SESSION['changefail1'] = '';
         header('Location: user_space.php');
     }

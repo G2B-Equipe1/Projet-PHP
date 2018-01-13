@@ -6,7 +6,6 @@
     nav_bar();
     if(!isset($_SESSION['mail']))
     {
-
         ?>
 
 
@@ -21,8 +20,29 @@
                 </article>
 
                 <article class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-                    <p class="text-center">
+                    <form action="data-processing.php" method="post">
+                        <label>Pseudo : <input type="text" name="pseudo"/></label>
+                        <label>E-mail : <input type="text" name="mail"/></label>
+                        <label>Mot de passe : <input type="password" name="mdp"/></label>
+                        <label>Confirmer mot de passe : <input type="password" name="confirmationmdp"/></label>
                         <input type="submit" name="action" value="S'inscrire"/>
+                    </form>
+
+                    <p style="display:<?php echo isset($_SESSION['mailpris']) ? '' : 'none';
+                    unset($_SESSION['mailpris']) ?>;">
+                        Cet email est déjà utilisé sur ce site.
+                    </p>
+
+                    <p style="display:<?php echo isset($_SESSION['pseudopris']) ? '' : 'none';
+                    unset($_SESSION['pseudopris']) ?>;">
+                        Ce pseudo est déjà pris par un autre utilisateur.
+                    </p>
+
+                    <p style="display:<?php echo isset($_SESSION['mauvaismdp']) ? '' : 'none';
+                    unset($_SESSION['mauvaismdp']) ?>;">
+                        Le mot de passe et la confirmation ne correspondent pas.
+                    </p>
+
                 </article>
             </section>
         </div>
@@ -31,10 +51,13 @@
     }
     else
         {
-
-
             ?>
             <script type="text/javascript" src="js/functions.js"> </script>
+
+            <p style="display:<?php echo isset($_SESSION['inscriptionreussie']) ? '' : 'none';
+            unset($_SESSION['inscriptionreussie']) ?>;">
+                Bienvenue sur notre site ! <br>
+            </p>
 
             <h1>Votre espace perso :</h1><br>
             Votre email : <?php echo $_SESSION['mail'] ?><br>
@@ -50,40 +73,17 @@
                 </form>
             </div>
 
-            <p style="display:<?php
-            if(isset($_SESSION['changesuccess']))
-                echo $_SESSION['changesuccess'];
-            else
-                echo 'none';
-            unset($_SESSION['changesuccess'])
-            ?>;">
+            <p style="display:<?php echo isset($_SESSION['changesuccess']) ? '' : 'none';
+                                unset($_SESSION['changesuccess']) ?>;">
                 Changement de mot de passe réussi
             </p>
-            <p style="display:<?php
-            if(isset($_SESSION['changefail1']))
-                echo $_SESSION['changefail1'];
-            else
-                echo 'none';
-
-            ?>;">
-                <?php echo '<br>' . $_SESSION['changefail1'] . '<br>' ?>
+            <p style="display:<?php echo isset($_SESSION['changefail1']) ? '' : 'none';
+            unset($_SESSION['changefail1']) ?>;">
                 L'ancien mot de passe est incorrect.
             </p>
-            <p style="display:<?php
-            if(isset($_SESSION['changefail2']))
-                echo $_SESSION['changefail2'];
-            else
-                echo 'none';
-            ?>;">
+            <p style="display:<?php echo isset($_SESSION['changefail2']) ? '' : 'none';
+            unset($_SESSION['changefail2']) ?>;">
                 Le nouveau mot de passe et la confirmation ne correspondent pas.
-            </p>
-            <p style="display:<?php
-            if(isset($_SESSION['Nomatch'])) // N'est jamais censé arriver
-                echo $_SESSION['Nomatch'];
-            else
-                echo 'none';
-            ?>;">
-                Pas de correspondance dans la base de données. (debug)
             </p>
 
             <form action="data-processing.php" method="post" >
