@@ -36,8 +36,10 @@
             ?>
             <script type="text/javascript" src="js/functions.js"> </script>
 
-            Votre espace perso :
-            <p>Votre email : <?php $_SESSION['mail'] ?></p>
+            <h1>Votre espace perso :</h1><br>
+            Votre email : <?php echo $_SESSION['mail'] ?><br>
+            Votre pseudo : <?php echo $_SESSION['pseudo'] ?><br>
+            Votre catégorie : <?php echo $_SESSION['categorie'] ?><br>
             <a href="#" onclick="toggleDisplay(changemdp);return false;" >Changer de mot de passe</a>
             <div id="changemdp" style="display:none;">
                 <form action="data-processing.php" method="post">
@@ -53,6 +55,7 @@
                 echo $_SESSION['changesuccess'];
             else
                 echo 'none';
+            unset($_SESSION['changesuccess'])
             ?>;">
                 Changement de mot de passe réussi
             </p>

@@ -25,7 +25,7 @@ else if ($action == 'Se connecter')
 {
     $mail = $_POST['id'];
     $mdp = $_POST['mdp'];
-    $query = 'SELECT mdp FROM user WHERE email = \'' . $mail . '\'';
+    $query = 'SELECT * FROM user WHERE email = \'' . $mail . '\'';
 
     if(!($dbResult = mysqli_query($dbLink, $query)))
     {
@@ -47,6 +47,8 @@ else if ($action == 'Se connecter')
 
         $_SESSION['mail'] = $mail;
         $_SESSION['password'] = $mdp;
+        $_SESSION['categorie'] = $row['categorie'];
+        $_SESSION['pseudo'] = $row['pseudo'];
         header('Location: user_space.php');
 
     }
