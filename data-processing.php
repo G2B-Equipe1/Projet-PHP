@@ -1,5 +1,6 @@
 <?php
 require 'base.php';
+session_start();
 $action = $_POST['action'];
 if($action == 'S\'inscrire')
 {
@@ -43,7 +44,7 @@ else if ($action == 'Se connecter')
     $row = mysqli_fetch_assoc($dbResult);
     if( $mdp == $row['mdp'])
     {
-        session_start();
+
         $_SESSION['mail'] = $mail;
         $_SESSION['password'] = $mdp;
         header('Location: user_space.php');
@@ -52,4 +53,56 @@ else if ($action == 'Se connecter')
     else {
         echo 'NOON';
     }
+}
+else if($action == 'Changer mot de passe')
+{
+    $ancienmdp = $_POST['ancienmdp'];
+    $nouveaumdp = $_POST['nouveaumdp'];
+    $confirmationmdp = $_POST['confirmationmdp'];
+    $pass = $_SESSION['password'];
+    if( $ancienmdp === $pass ){
+        if(strcmp($nouveaumdp , $confirmationmdp ) === 0)
+        {
+            unset($_SESSION['changefail1']);
+            unset($_SESSION['changefail2']);
+            $query = 'UPDATE user SET mdp = \'' . $_POST['nouveaumdp'] . '\' WHERE email = \'' . $_SESSION['mail'] . '\'';
+            if(!($dbResult = mysqli_query($dbLink, $query)))
+            {
+                echo 'Erreur dans requête<br />';
+                // Affiche le type d'erreur.
+                echo 'Erreur : ' . mysqli_error($dbLink) . '<br/>';
+                // Affiche la requête envoyée.
+                echo 'Requête : ' . $query . '<br/>';
+                exit();
+            }
+            if(!mysqli_affected_rows($dbLink)) // N'est jamais censé arriver
+            {
+                $_SESSION['Nomatch'] = '';
+                header('Location: user_space.php');
+            }
+            $_SESSION['password'] = $_POST['nouveaumdp'];
+            $_SESSION['changesuccess'] = '';
+            header('Location: user_space.php');
+        }
+        else
+        {
+            unset($_SESSION['changefail1']);
+            unset($_SESSION['changesuccess']);
+            $_SESSION['changefail2'] = '';
+            header('Location: user_space.php');
+        }
+
+    }
+    else
+    {
+        unset($_SESSION['changefail2']);
+        unset($_SESSION['changesuccess']);
+        $_SESSION['changefail1'] = '';
+        header('Location: user_space.php');
+    }
+}
+else if($action == 'Se déconnecter')
+{
+    $_SESSION = array();
+    header('Location: user_space.php');
 }
