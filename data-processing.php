@@ -13,7 +13,7 @@ if($action == 'S\'inscrire')
                 $today = date('Y-m-d');
                 $query = 'INSERT INTO user (email, pseudo, mdp, date, categorie ) 
                       VALUES (\'' . $_POST['mail'] . '\', \'' . $_POST['pseudo'] . '\', \''
-                    . $_POST['mdp'] . '\', \'' . $today . '\', \'standard\' )';
+                    . md5($_POST['mdp']) . '\', \'' . $today . '\', \'standard\' )';
 
                 if(!($dbResult = mysqli_query($dbLink, $query)))
                 {
@@ -25,7 +25,7 @@ if($action == 'S\'inscrire')
                     exit();
                 }
                 $_SESSION['mail'] = $_POST['mail'];
-                $_SESSION['password'] = $_POST['mdp'];
+                $_SESSION['password'] = md5($_POST['mdp']);
                 $_SESSION['pseudo'] = $_POST['pseudo'];
                 $_SESSION['categorie'] = 'standard';
                 $_SESSION['inscriptionreussie'] = '';
@@ -70,11 +70,11 @@ else if ($action == 'Se connecter')
     }
 
     $row = mysqli_fetch_assoc($dbResult);
-    if( $mdp == $row['mdp'])
+    if( md5($mdp) === $row['mdp'])
     {
 
         $_SESSION['mail'] = $mail;
-        $_SESSION['password'] = $mdp;
+        $_SESSION['password'] = md5($mdp);
         $_SESSION['categorie'] = $row['categorie'];
         $_SESSION['pseudo'] = $row['pseudo'];
         header('Location: user_space.php');
@@ -86,10 +86,10 @@ else if ($action == 'Se connecter')
 }
 else if($action == 'Changer mot de passe')
 {
-    if( $_POST['ancienmdp'] === $_SESSION['password'] ){
+    if( md5($_POST['ancienmdp']) === $_SESSION['password'] ){
         if($_POST['nouveaumdp'] ===  $_POST['confirmationmdp'] )
         {
-            $query = 'UPDATE user SET mdp = \'' . $_POST['nouveaumdp'] .
+            $query = 'UPDATE user SET mdp = \'' . md5($_POST['nouveaumdp']) .
                     '\' WHERE email = \'' . $_SESSION['mail'] . '\'';
             if(!($dbResult = mysqli_query($dbLink, $query)))
             {
@@ -100,7 +100,7 @@ else if($action == 'Changer mot de passe')
                 echo 'Requête : ' . $query . '<br/>';
                 exit();
             }
-            $_SESSION['password'] = $_POST['nouveaumdp'];
+            $_SESSION['password'] = md5($_POST['nouveaumdp']);
             $_SESSION['changesuccess'] = '';
             header('Location: user_space.php');
         }
@@ -124,7 +124,7 @@ else if($action == 'Se déconnecter')
 }
 else if($action == 'Confirmer la suppression du compte')
 {
-    if($_POST['mdp'] === $_SESSION['password'])
+    if(md5($_POST['mdp']) === $_SESSION['password'])
     {
         $query = 'DELETE FROM user WHERE email = \'' . $_SESSION['mail'] . '\'';
         if(!($dbResult = mysqli_query($dbLink, $query)))
