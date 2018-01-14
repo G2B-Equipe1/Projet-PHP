@@ -4,32 +4,19 @@ session_start();
 $action = $_POST['action'];
 if($action == 'S\'inscrire')
 {
-    if(!mysqli_num_rows(mysqli_query($dbLink, 'SELECT email FROM user WHERE email = \''. $_POST['mail']. '\'')))
+    if(!mysqli_num_rows(mysqli_query($dbLink, 'SELECT email FROM user WHERE email = \''. $_POST['mail']. '\''))
+        && preg_match("/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,})$/i", $_POST['mail'] ))
     {
         if(!mysqli_num_rows(mysqli_query($dbLink, 'SELECT email FROM user WHERE pseudo = \''. $_POST['pseudo']. '\'')))
         {
             if($_POST['mdp'] === $_POST['confirmationmdp'])
             {
-                $today = date('Y-m-d');
-                $query = 'INSERT INTO user (email, pseudo, mdp, date, categorie ) 
-                      VALUES (\'' . $_POST['mail'] . '\', \'' . $_POST['pseudo'] . '\', \''
-                    . md5($_POST['mdp']) . '\', \'' . $today . '\', \'standard\' )';
-
-                if(!($dbResult = mysqli_query($dbLink, $query)))
-                {
-                    echo 'Erreur dans requête<br />';
-                    // Affiche le type d'erreur.
-                    echo 'Erreur : ' . mysqli_error($dbLink) . '<br/>';
-                    // Affiche la requête envoyée.
-                    echo 'Requête : ' . $query . '<br/>';
-                    exit();
-                }
-                $_SESSION['mail'] = $_POST['mail'];
-                $_SESSION['password'] = md5($_POST['mdp']);
-                $_SESSION['pseudo'] = $_POST['pseudo'];
-                $_SESSION['categorie'] = 'standard';
-                $_SESSION['inscriptionreussie'] = '';
-                header('Location: user_space.php');
+                $_SESSION = array();
+                $_SESSION['mailtemp'] = $_POST['mail'];
+                $_SESSION['pseudotemp'] = $_POST['pseudo'];
+                $_SESSION['mdptemp'] = $_POST['mdp'];
+                $_SESSION["valid_until"] = time() + 60 * 5;
+                header('Location: activate.php');
             }
             else
             {
@@ -165,6 +152,48 @@ else if(preg_match('/^Passer /',$action))
         exit();
     }
     $_SESSION['categorie'] = $cat;
+    header('Location: user_space.php');
+
+}
+else if($action == 'Activer mon compte')
+{
+    if($_POST['code'] === $_POST['realcode'])
+    {
+        $today = date('Y-m-d');
+        $query = 'INSERT INTO user (email, pseudo, mdp, date, categorie ) 
+                      VALUES (\'' . $_POST['mail'] . '\', \'' . $_POST['pseudo'] . '\', \''
+            . md5($_POST['mdp']) . '\', \'' . $today . '\', \'standard\' )';
+
+        if(!($dbResult = mysqli_query($dbLink, $query)))
+        {
+            echo 'Erreur dans requête<br />';
+            // Affiche le type d'erreur.
+            echo 'Erreur : ' . mysqli_error($dbLink) . '<br/>';
+            // Affiche la requête envoyée.
+            echo 'Requête : ' . $query . '<br/>';
+            exit();
+        }
+        $_SESSION = array();
+        $_SESSION['mail'] = $_POST['mail'];
+        $_SESSION['password'] = md5($_POST['mdp']);
+        $_SESSION['pseudo'] = $_POST['pseudo'];
+        $_SESSION['categorie'] = 'standard';
+        $_SESSION['inscriptionreussie'] = '';
+        setcookie('confirmail', $data_crypt, -1);
+        header('Location: user_space.php');
+    }
+    else
+    {
+        $_SESSION['wrongcode'] = '';
+        header('Location: activate.php');
+    }
+
+
+}
+else if($action == 'Annuler l\'activation')
+{
+    setcookie('confirmail', $data_crypt, -1);
+    $_SESSION = array();
     header('Location: user_space.php');
 
 }

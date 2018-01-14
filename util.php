@@ -48,3 +48,17 @@ function end_page() {
 EOT;
     echo $end;
 }
+
+function confirm_mail($to, $pseudo, $code) {
+    $from = 'mysql-projet-php-g2b-equipe1@alwaysdata.net';
+    $reply = 'no-reply@always.net';
+    $subject = 'Mail de confirmation';
+
+    $headers = 'From: Name <' . $from . '>' . "\n";
+    $headers .= 'Return-Path: <' . $reply . '>' . "\n";
+    $headers .= 'Content-type: text/plain; charset=utf-8';
+    $message = "Salutations  $pseudo ! \n Voici le code à copier/coller sur la page d'activation du mail : 
+         $code \n A très vite sur notre site ! \n\n";
+
+    mail($to, $subject, $message, $headers);
+}

@@ -1,4 +1,8 @@
 <?php
+    if(isset($_COOKIE['confirmail']))
+    {
+        header('Location: activate.php');
+    }
     include_once 'util.php';
     require 'base.php';
     session_start();
@@ -35,7 +39,7 @@
 
                     <p style="display:<?php echo isset($_SESSION['mailpris']) ? '' : 'none';
                     unset($_SESSION['mailpris']) ?>;">
-                        Cet email est déjà utilisé sur ce site.
+                        Cet email n'est pas conforme ou est déjà utilisé sur le site.
                     </p>
 
                     <p style="display:<?php echo isset($_SESSION['pseudopris']) ? '' : 'none';
