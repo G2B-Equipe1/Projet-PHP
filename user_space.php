@@ -17,6 +17,11 @@
                         <label>Mot de passe : <input type="password" name="mdp"/></label>
                         <input type="submit" name="action" value="Se connecter"/>
                     </form>
+                    </p>
+                    <p style="display:<?php echo isset($_SESSION['connexionfailed']) ? '' : 'none';
+                    unset($_SESSION['connexionfailed']) ?>;">
+                        Le mail et/ou le mot de passe est incorrect.
+                    </p>
                 </article>
 
                 <article class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
@@ -63,7 +68,15 @@
             Votre email : <?php echo $_SESSION['mail'] ?><br>
             Votre pseudo : <?php echo $_SESSION['pseudo'] ?><br>
             Votre catégorie : <?php echo $_SESSION['categorie'] ?><br>
-            <a href="#" onclick="toggleDisplay(changemdp);return false;" >Changer de mot de passe</a>
+            Changer de catégorie : <br>
+            <form action="data-processing.php" method="post">
+                <input type="submit" name="action" value="Passer en standard">
+                <input type="submit" name="action" value="Passer en premium">
+                <input type="submit" name="action" value="Passer en traducteur">
+                <input type="submit" name="action" value="Passer en administrateur">
+            </form>
+
+            <button href="#" onclick="toggleDisplay(changemdp);return false;" >Changer de mot de passe</button>
             <div id="changemdp" style="display:none;">
                 <form action="data-processing.php" method="post">
                     <label>Mot de passe actuel : <input type="password" name="ancienmdp"/></label>
@@ -89,6 +102,22 @@
             <form action="data-processing.php" method="post" >
                 <input type="submit" name="action" value="Se déconnecter">
             </form>
+
+            <button href="#" onclick="toggleDisplay(supprcompte);return false;" >Supprimer mon compte</button>
+            <div id="supprcompte" style="display:<?php echo isset($_SESSION['wrongmdp']) ? '' : 'none'; ?>;">
+                <form action="data-processing.php" method="post">
+                    <label>Veuillez entrer votre mot de passe actuel : <input type="password" name="mdp"/></label>
+
+                    <p style="display:<?php echo isset($_SESSION['wrongmdp']) ? '' : 'none';
+                    unset($_SESSION['wrongmdp']) ?>;">
+                        Le mot de passe est incorrect.
+                    </p>
+
+                    <br>Attention, cette opération est irréversible,
+                    la suppression du compte et de ses données est définitive.
+                    <input type="submit" name="action" value="Confirmer la suppression du compte">
+                </form>
+            </div>
         <?php
     }
     end_page();

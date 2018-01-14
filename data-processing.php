@@ -65,9 +65,8 @@ else if ($action == 'Se connecter')
 
     if(!mysqli_num_rows($dbResult))
     {
-        echo 'Pas de correspondance dans la base de données<br />';
-        echo '<a href="user_space.php">Revenir à l\'authetification</a>';
-        exit();
+        $_SESSION['connexionfailed'] = '';
+        header('Location: user_space.php');
     }
 
     $row = mysqli_fetch_assoc($dbResult);
@@ -101,11 +100,6 @@ else if($action == 'Changer mot de passe')
                 echo 'Requête : ' . $query . '<br/>';
                 exit();
             }
-            if(!mysqli_affected_rows($dbLink)) // N'est jamais censé arriver
-            {
-                $_SESSION['Nomatch'] = '';
-                header('Location: user_space.php');
-            }
             $_SESSION['password'] = $_POST['nouveaumdp'];
             $_SESSION['changesuccess'] = '';
             header('Location: user_space.php');
@@ -127,4 +121,55 @@ else if($action == 'Se déconnecter')
 {
     $_SESSION = array();
     header('Location: user_space.php');
+}
+else if($action == 'Confirmer la suppression du compte')
+{
+    if($_POST['mdp'] === $_SESSION['password'])
+    {
+        $query = 'DELETE FROM user WHERE email = \'' . $_SESSION['mail'] . '\'';
+        if(!($dbResult = mysqli_query($dbLink, $query)))
+        {
+            echo 'Erreur dans requête<br />';
+            // Affiche le type d'erreur.
+            echo 'Erreur : ' . mysqli_error($dbLink) . '<br/>';
+            // Affiche la requête envoyée.
+            echo 'Requête : ' . $query . '<br/>';
+            exit();
+        }
+        $_SESSION = array();
+        echo 'Compte supprimé avec succès<br />';
+        echo '<a href="index.php">Revenir à l\'acceuil</a>';
+        exit();
+
+    }
+    else
+    {
+        $_SESSION['wrongmdp'] = '';
+        header('Location: user_space.php');
+    }
+}
+else if(preg_match('/^Passer /',$action))
+{
+    $pieces = explode(' ', $action);
+    $cat = array_pop($pieces);
+
+    $query = 'UPDATE user SET categorie = \'' . $cat .
+        '\' WHERE email = \'' . $_SESSION['mail'] . '\'';
+    if(!($dbResult = mysqli_query($dbLink, $query)))
+    {
+        echo 'Erreur dans requête<br />';
+        // Affiche le type d'erreur.
+        echo 'Erreur : ' . mysqli_error($dbLink) . '<br/>';
+        // Affiche la requête envoyée.
+        echo 'Requête : ' . $query . '<br/>';
+        exit();
+    }
+    $_SESSION['categorie'] = $cat;
+    header('Location: user_space.php');
+
+}
+else
+{
+    echo 'loupé';
+    exit();
 }
