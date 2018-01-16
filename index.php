@@ -1,7 +1,8 @@
 <?php
-    include 'util.php';
-    start_page();
-    nav_bar();
+include 'util.php';
+start_page();
+set_gettext();
+nav_bar();
 ?>
 
         <div class="container-fluid section">
@@ -12,7 +13,7 @@
 
                 <article class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                     <p class="text-center">
-                        Dans le but de vous aider a rédiger vos documents, Virtuo Linguo vous propose ses services de traduction simples et intuitifs.
+                        <?php echo _('Presentation du site')?>
                     </p>
                 </article>
             </section>
@@ -53,7 +54,7 @@
             <section class="row">
                 <article class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                     <p class="text-center">
-                        Suivez nous sur les réseaux sociaux.
+                        <?php echo _('Reseaux sociaux')?>
                     </p>
                 </article>
 
