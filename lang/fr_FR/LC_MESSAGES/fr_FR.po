@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2018-01-16 14:10+0100\n"
-"PO-Revision-Date: 2018-01-16 14:10+0100\n"
+"POT-Creation-Date: 2018-01-16 17:55+0100\n"
+"PO-Revision-Date: 2018-01-16 17:55+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: fr_FR\n"
@@ -15,28 +15,152 @@ msgstr ""
 "X-Poedit-KeywordsList: _\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: util.php:41
+#: user_space.php:20 user_space.php:34
+msgid "E-mail : "
+msgstr "E-mail : "
+
+#: user_space.php:21 user_space.php:35
+msgid "Password : "
+msgstr "Mot de passe : "
+
+#: user_space.php:27
+msgid "Wrong e-mail or password"
+msgstr "Mauvais e-mail et/ou mot de passe"
+
+#: user_space.php:33
+msgid "Username : "
+msgstr "Pseudo : "
+
+#: user_space.php:36
+msgid "Password verification"
+msgstr "Confirmer le mot de passe : "
+
+#: user_space.php:42
+msgid "Invalid E-mail"
+msgstr "E-mail invalide"
+
+#: user_space.php:47
+msgid "Username already taken"
+msgstr "Pseudo déjà utilisé"
+
+#: user_space.php:52
+msgid "Password verification fail"
+msgstr "Le mot de passe et sa confirmation ne correspondent pas"
+
+#: user_space.php:71
+msgid "Personal space : "
+msgstr "Votre espace personnel"
+
+#: user_space.php:72
+msgid "Your E-mail : "
+msgstr "Votre e-mail : "
+
+#: user_space.php:73
+msgid "Your User-name : "
+msgstr "Votre pseudo : "
+
+#: user_space.php:74
+msgid "Your grade : "
+msgstr "Votre catégorie : "
+
+#: user_space.php:75
+msgid "Change grade : "
+msgstr "Changer de catégorie : "
+
+#: user_space.php:77
+msgid "Change to standard"
+msgstr "Passer en standard"
+
+#: user_space.php:78
+msgid "Change to premium"
+msgstr "Passer en préviligié"
+
+#: user_space.php:79
+msgid "Change to traductor"
+msgstr "Passer en traducteur"
+
+#: user_space.php:80
+msgid "Change to administrator"
+msgstr "Passer en administrateur"
+
+#: user_space.php:83
+msgid "Change password"
+msgstr "Changer de mot de passe"
+
+#: user_space.php:86
+msgid "Actual password : "
+msgstr "Mot de passe actuel"
+
+#: user_space.php:87
+msgid "New password : "
+msgstr "Nouveau mot de passe : "
+
+#: user_space.php:88
+msgid "New password verifiaction"
+msgstr "Répéter le nouveau mot de passe : "
+
+#: user_space.php:95
+msgid "Password change sucess"
+msgstr "Changement de mot de passe réussi"
+
+#: user_space.php:99
+msgid "Wrong old password"
+msgstr "L'ancien mot de passe est incorrect"
+
+#: user_space.php:103
+msgid "New password confirmation fail"
+msgstr " Le nouveau mot de passe et la confirmation ne correspondent pas"
+
+#: user_space.php:107
+msgid "Log out"
+msgstr "Se déconnecter"
+
+#: user_space.php:110
+msgid "Delete my account"
+msgstr "Supprimer mon compte"
+
+#: user_space.php:113
+msgid "New password input : "
+msgstr "Veuillez entrer votre mot de passe actuel : "
+
+#: user_space.php:117
+msgid "Wrong password"
+msgstr "Le mot de passe est incorrect"
+
+#: user_space.php:120
+msgid "Account deletion warning"
+msgstr ""
+"Attention, cette opération est irréversible,  la suppression du compte et de "
+"ses données est définitive."
+
+#: util.php:42
 msgid "Home"
 msgstr "Accueil"
 
-#: util.php:42
+#: util.php:43
 msgid "About"
 msgstr "A propos"
 
-#: util.php:43
+#: util.php:44
 msgid "Contact"
 msgstr "Nous contacter"
 
-#: util.php:49
+#: util.php:50
 msgid "French"
 msgstr "Français"
 
-#: util.php:53
+#: util.php:54
 msgid "English"
 msgstr "Anglais"
+
+#: util.php:55
+msgid "User"
+msgstr "Utilisateur"
 
 #~ msgid "test"
 #~ msgstr "ceci est un test"
 
 #~ msgid "Presentation"
-#~ msgstr "Dans le but de vous aider a rédiger vos documents, Virtuo Linguo vous propose ses services de traduction simples et intuitifs."
+#~ msgstr ""
+#~ "Dans le but de vous aider a rédiger vos documents, Virtuo Linguo vous "
+#~ "propose ses services de traduction simples et intuitifs."

@@ -52,7 +52,7 @@ function nav_bar() {
                 $query_result = http_build_query($query);
                 echo $_SERVER['PHP_SELF'] . '?' . $query_result ?>'">
                     <?php echo _('English')?></button>
-                <button class="btn btn-default button_nav hvr-bubble-left" type="button" onclick="window.location.href = 'user_space.php';">User</button>
+                <button class="btn btn-default button_nav hvr-bubble-left" type="button" onclick="window.location.href = 'user_space.php';"><?php echo _('User')?></button>
             </div>
         </div>
     </nav>
