@@ -1,0 +1,42 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: 2018-01-16 14:10+0100\n"
+"PO-Revision-Date: 2018-01-16 14:10+0100\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: fr_FR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.0.5\n"
+"X-Poedit-Basepath: ../../..\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Poedit-KeywordsList: _\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: util.php:41
+msgid "Home"
+msgstr "Accueil"
+
+#: util.php:42
+msgid "About"
+msgstr "A propos"
+
+#: util.php:43
+msgid "Contact"
+msgstr "Nous contacter"
+
+#: util.php:49
+msgid "French"
+msgstr "Français"
+
+#: util.php:53
+msgid "English"
+msgstr "Anglais"
+
+#~ msgid "test"
+#~ msgstr "ceci est un test"
+
+#~ msgid "Presentation"
+#~ msgstr "Dans le but de vous aider a rédiger vos documents, Virtuo Linguo vous propose ses services de traduction simples et intuitifs."

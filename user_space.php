@@ -24,7 +24,7 @@
                     </p>
                     <p style="display:<?php echo isset($_SESSION['connexionfailed']) ? '' : 'none';
                     unset($_SESSION['connexionfailed']) ?>;">
-                        <?php echo _('Le mail et/ou le mot de passe est incorrect.') ?>
+                        <?php echo _('Wrong e-mail or password') ?>
                     </p>
                 </article>
 
