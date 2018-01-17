@@ -56,7 +56,7 @@ function nav_bar() {
                     <button type="submit" class="btn btn-default">Submit</button>
                 </form>
                 <li><a href="user_space.php"><span class="glyphicon glyphicon-user"></span> <?php echo _('User')?></a></li>
-                <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-flag"></span> Language</a>
+                <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-flag"></span> <?php echo _('Language')?></a>
                     <ul class="dropdown-menu">
                         <li><a href="<?php $query = $_GET; $query['lang'] = 'en';
                             $query_result = http_build_query($query);

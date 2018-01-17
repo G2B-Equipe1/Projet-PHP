@@ -16,7 +16,7 @@
                 <div class="item active">
                     <img src="img/facebook-instagram-network-notebook.jpeg" alt="Image">
                     <div class="carousel-caption">
-                        <h3>Collaborative</h3>
+                        <h3><?php echo _('Collaborative')?></h3>
                         <p>Ego vero sic intellego, Patres conscripti, nos hoc tempore in provinciis decernendis perpetuae pacis habere oportere rationem. Nam quis hoc non sentit omnia alia esse nobis vacua ab omni periculo atque etiam suspicione belli?</p>
                     </div>
                 </div>
@@ -24,7 +24,7 @@
                 <div class="item">
                     <img src="img/woman-writing-on-a-notebook.jpeg" alt="Image">
                     <div class="carousel-caption">
-                        <h3>Simple</h3>
+                        <h3><?php echo _('Simple')?></h3>
                         <p>Ego vero sic intellego, Patres conscripti, nos hoc tempore in provinciis decernendis perpetuae pacis habere oportere rationem. Nam quis hoc non sentit omnia alia esse nobis vacua ab omni periculo atque etiam suspicione belli?</p>
                     </div>
                 </div>
@@ -32,7 +32,7 @@
                 <div class="item">
                     <img src="img/stock-iphone-business-mobile.jpeg" alt="Image">
                     <div class="carousel-caption">
-                        <h3>Everywhere</h3>
+                        <h3><?php echo _('Everywhere')?></h3>
                         <p>Ego vero sic intellego, Patres conscripti, nos hoc tempore in provinciis decernendis perpetuae pacis habere oportere rationem. Nam quis hoc non sentit omnia alia esse nobis vacua ab omni periculo atque etiam suspicione belli?</p>
                     </div>
                 </div>
@@ -50,7 +50,7 @@
         </div>
 
         <div class="container text-center">
-            <h2>WHAT THE FUCK IS THIS SHIT ?!</h2><br>
+            <h2><?php echo _('wtf')?></h2><br>
             <div class="row">
                 <div class="col-sm-4">
                     <img src="img/facebook-instagram-network-notebook.jpeg" class="img-responsive img-rounded" style="width:100%" alt="Image">
