@@ -42,11 +42,11 @@ function nav_bar() {
     <nav class="navbar navbar-inverse">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a class="navbar-brand" href="index.php">Virtuo Linguo</a>
+                <a class="navbar-brand" href="<?php echo 'index.php?lang=' . $_GET[lang] ?>">Virtuo Linguo</a>
             </div>
             <ul class="nav navbar-nav">
-                <li><a href="about.php">About</a></li>
-                <li><a href="translation.php">Translation</a></li>
+                <li><a href="<?php echo 'about.php?lang=' . $_GET[lang] ?>"><?php echo _('About')?></a></li>
+                <li><a href="<?php echo 'translation.php?lang=' . $_GET[lang] ?>"><?php echo _('Translation')?></a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <form class="navbar-form navbar-left" action="/action_page.php">
@@ -56,7 +56,7 @@ function nav_bar() {
                     <button type="submit" class="btn btn-default">Submit</button>
                 </form>
                 <li><a href="user_space.php"><span class="glyphicon glyphicon-user"></span> <?php echo _('User')?></a></li>
-                <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-flag"></span> Language</a>
+                <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-flag"></span> <?php echo _('Language')?></a>
                     <ul class="dropdown-menu">
                         <li><a href="<?php $query = $_GET; $query['lang'] = 'en';
                             $query_result = http_build_query($query);

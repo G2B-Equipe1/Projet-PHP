@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2018-01-16 17:55+0100\n"
-"PO-Revision-Date: 2018-01-16 17:56+0100\n"
+"POT-Creation-Date: 2018-01-17 10:26+0100\n"
+"PO-Revision-Date: 2018-01-17 10:27+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: en_US\n"
@@ -14,6 +14,22 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Poedit-KeywordsList: _\n"
 "X-Poedit-SearchPath-0: .\n"
+
+#: index.php:19
+msgid "Collaborative"
+msgstr "Collaborative"
+
+#: index.php:27
+msgid "Simple"
+msgstr "Simple"
+
+#: index.php:35
+msgid "Everywhere"
+msgstr "Everywhere"
+
+#: index.php:53
+msgid "wtf"
+msgstr "WHAT THE FUCK IS THIS SHIT ?!"
 
 #: user_space.php:20 user_space.php:34
 msgid "E-mail : "
@@ -133,32 +149,39 @@ msgstr ""
 "Be careful, this operation is irreversible,\n"
 "  the deletion of the account and its data is final."
 
-#: util.php:42
-msgid "Home"
-msgstr "Home"
-
-#: util.php:43
+#: util.php:48
 msgid "About"
 msgstr "About"
 
-#: util.php:44
-msgid "Contact"
-msgstr "Contact us"
+#: util.php:49
+#, fuzzy
+#| msgid "Presentation"
+msgid "Translation"
+msgstr ""
+"In order to help you write your documents, Virtuo Linguo offers you simple "
+"and intuitive translation services."
 
-#: util.php:50
-msgid "French"
-msgstr "French"
-
-#: util.php:54
-msgid "English"
-msgstr "English"
-
-#: util.php:55
+#: util.php:58
 msgid "User"
 msgstr "User"
 
+#: util.php:59
+msgid "Language"
+msgstr "Language"
+
+#: util.php:63
+msgid "English"
+msgstr "English"
+
+#: util.php:66
+msgid "French"
+msgstr "French"
+
+#~ msgid "Home"
+#~ msgstr "Home"
+
+#~ msgid "Contact"
+#~ msgstr "Contact us"
+
 #~ msgid "test"
 #~ msgstr "this is a test"
-
-#~ msgid "Presentation"
-#~ msgstr "In order to help you write your documents, Virtuo Linguo offers you simple and intuitive translation services."
