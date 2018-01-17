@@ -2,6 +2,8 @@
 
 session_start();
 
+/* Fonction permettant de chercher la traduction d'un mot dans la base de donnée
+   renvoie le résultat de la requete en tant que string */
 function search_translation() {
 
     $from = $_GET['from'];
@@ -10,12 +12,14 @@ function search_translation() {
 
     mb_strtolower($to_translate);
 
+    /* Connexion à la base de donnée */
     $dbLink = mysqli_connect("mysql-projet-php-g2b-equipe1.alwaysdata.net", "149737_user", "joyeuxnoel")
     or die('Erreur de connexion au serveur : ' . mysqli_connect_error());
 
     mysqli_select_db($dbLink , "projet-php-g2b-equipe1_database")
     or die('Erreur dans la sélection de la base : ' . mysqli_error($dbLink));
 
+    /* requetes a effectue suivant les cas */
     if ($from == 'french' && $to == 'english') {
 
         $query = 'SELECT user_id, translation, word, date, notation, nb_notation
@@ -69,9 +73,13 @@ function search_translation() {
     }
 }
 
+/* Sauvegarde des éléments clés de la recherche dans $_SESSION pour pouvoir l'utliser dans plusieurs pages */
+
 $_SESSION['from'] = $from;
 $_SESSION['to'] = $to;
 $_SESSION['to_translate'] = $to_translate;
+
+/* Action a suivre suivant les différents utilisateurs */
 
 if (!(isset($_SESSION['categorie']))) {
     $_SESSION['resultat'] = search_translation();
