@@ -5,13 +5,16 @@ function start_page() {
     <!DOCTYPE>
     <html>
     <head>
-        <title>Virtuo Linguo</title>
+        <title>Vituo Linguo</title>
         <meta charset="utf-8">
-        <link rel="stylesheet" href="css/bootstrap.css"/>
-        <link rel="stylesheet" href="css/style.css"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/style.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     </head>
 
-    <body class="container-fluid">
+    <body>
     <?php
     set_gettext();
 }
@@ -36,24 +39,34 @@ function set_gettext() {
 
 function nav_bar() {
     ?>
-    <nav class="container-fluid nav">
-        <div class="row">
-            <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9 nav_col_1">
-                <button class="btn btn-default button_nav" type="button" onclick="window.location.href = 'index.php';"><?php echo _('Home')?></button>
-                <button class="btn btn-default button_nav" type="button" onclick="window.location.href = 'about.php';"><?php echo _('About')?></button>
-                <button class="btn btn-default button_nav" type="button" onclick="window.location.href = 'contact.php';"><?php echo _('Contact')?></button>
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="index.php">Virtuo Linguo</a>
             </div>
-            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 nav_col_2">
-                <button class="btn btn-default button_nav hvr-bubble-left" type="button" onclick="window.location.href = '<?php $query = $_GET; $query['lang'] = 'fr';
-                $query_result = http_build_query($query);
-                echo $_SERVER['PHP_SELF'] . '?' . $query_result ?>' ">
-                    <?php echo _('French')?></button>
-                <button class="btn btn-default button_nav hvr-bubble-left" type="button" onclick="window.location.href = '<?php $query = $_GET; $query['lang'] = 'en';
-                $query_result = http_build_query($query);
-                echo $_SERVER['PHP_SELF'] . '?' . $query_result ?>'">
-                    <?php echo _('English')?></button>
-                <button class="btn btn-default button_nav hvr-bubble-left" type="button" onclick="window.location.href = 'user_space.php';"><?php echo _('User')?></button>
-            </div>
+            <ul class="nav navbar-nav">
+                <li><a href="about.php">About</a></li>
+                <li><a href="translation.php">Translation</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <form class="navbar-form navbar-left" action="/action_page.php">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search">
+                    </div>
+                    <button type="submit" class="btn btn-default">Submit</button>
+                </form>
+                <li><a href="user_space.php"><span class="glyphicon glyphicon-user"></span> <?php echo _('User')?></a></li>
+                <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-flag"></span> Language</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="<?php $query = $_GET; $query['lang'] = 'en';
+                            $query_result = http_build_query($query);
+                            echo $_SERVER['PHP_SELF'] . '?' . $query_result ?>"><?php echo _('English')?></a></li>
+                        <li><a href="<?php $query = $_GET; $query['lang'] = 'fr';
+                            $query_result = http_build_query($query);
+                            echo $_SERVER['PHP_SELF'] . '?' . $query_result ?>"><?php echo _('French')?></a></li>
+                    </ul>
+                </li>
+            </ul>
         </div>
     </nav>
     <?php

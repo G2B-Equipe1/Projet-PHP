@@ -1,76 +1,13 @@
 /* BARRE DE NAVIGATION */
 
-nav {
-    height: 6em;
-    background-color: greenyellow;
-    margin: 0.5em;
-}
-
-.nav {
-    flex-wrap: nowrap;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.button_nav {
-    height: auto;
-    background-color: ghostwhite;
-    border: 2px solid forestgreen;
-    border-radius: 12px;
-    color: black;
-    margin-right: 1em;
-}
-
-.nav_col_1 .button_nav:first-child {
-    margin-left: 3em;
-}
-
-.nav_col_2 .button_nav {
-    margin-right: 2.5em;
-}
-
-.button_nav:hover {
-    background-color: forestgreen;
-    color: white;
-}
-
-.nav_col_1 {
-    text-align: start;
-}
-
-.nav_col_2 {
-    text-align: end;
-}
-
 /* CORPS DE PAGE */
-
-.section {
-    padding: 2em 5em 2em 5em;
-}
-
-article {
-    padding: 1em;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-article:first-child {
-    border-top: solid 0.1em lightgreen;
-    border-left: solid 0.1em lightgreen;
-}
-
-article:last-child {
-    border-bottom: solid 0.1em lightgreen;
-    border-right: solid 0.1em lightgreen;
-}
 
 .article-img-overlay{
     position: relative;
 }
 
 .article-img-overlay:hover .overlay {
-    opacity: 0.5;
+    opacity: 1;
 }
 
 .overlay {
@@ -83,14 +20,13 @@ article:last-child {
     width: 100%;
     opacity: 0;
     transition: .5s ease;
-    background-color: wheat;
+    background-color: rgba(245,222,179,0.5); /* WHEAT */
     border-radius: 0.25em;
 }
 
-.text {
+.overlay-text {
     opacity: 1;
     color: white;
-    font-size: 20px;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -114,22 +50,40 @@ article:last-child {
     display: table;
 }
 
-.title {
+.about-title {
     color: grey;
 }
 
-.button {
-    border: none;
-    outline: 0;
-    display: inline-block;
-    padding: 8px;
-    color: white;
-    background-color: #000;
-    text-align: center;
-    cursor: pointer;
-    width: 100%;
+.about-descitpion {
+    font-size: 3vmin;
 }
 
-.button:hover {
-    background-color: #555;
+.about-mail {
+    font-size: 5vmin;
+}
+
+/* BODY MIN-HEIGHT */
+
+body {
+    min-height: 100%;
+}
+
+/* CAROUSSEL */
+
+.carousel-inner img {
+    width: 100%; /* Set width to 100% */
+    margin: auto;
+    min-height:200px;
+}
+@media (max-width: 600px) {
+    .carousel-caption {
+        display: none;
+    }
+}
+
+/* FOOTER */
+
+footer {
+    height: 3em;
+    background-color: rgb(34,34,34);
 }
