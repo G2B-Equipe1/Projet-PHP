@@ -1,0 +1,164 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: 2018-01-16 17:55+0100\n"
+"PO-Revision-Date: 2018-01-16 17:56+0100\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: en_US\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.0.5\n"
+"X-Poedit-Basepath: ../../..\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Poedit-KeywordsList: _\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: user_space.php:20 user_space.php:34
+msgid "E-mail : "
+msgstr "E-mail : "
+
+#: user_space.php:21 user_space.php:35
+msgid "Password : "
+msgstr "Password : "
+
+#: user_space.php:27
+msgid "Wrong e-mail or password"
+msgstr "Wrong e-mail and/or password"
+
+#: user_space.php:33
+msgid "Username : "
+msgstr "Username : "
+
+#: user_space.php:36
+msgid "Password verification"
+msgstr "Retype the password"
+
+#: user_space.php:42
+msgid "Invalid E-mail"
+msgstr "Invalid E-mail"
+
+#: user_space.php:47
+msgid "Username already taken"
+msgstr "Username already taken"
+
+#: user_space.php:52
+msgid "Password verification fail"
+msgstr "The password don't match with its verification"
+
+#: user_space.php:71
+msgid "Personal space : "
+msgstr "Personal space:"
+
+#: user_space.php:72
+msgid "Your E-mail : "
+msgstr "Your E-mail : "
+
+#: user_space.php:73
+msgid "Your User-name : "
+msgstr "Your Username : "
+
+#: user_space.php:74
+msgid "Your grade : "
+msgstr "Your grade : "
+
+#: user_space.php:75
+msgid "Change grade : "
+msgstr "Change grade : "
+
+#: user_space.php:77
+msgid "Change to standard"
+msgstr "Change to standard"
+
+#: user_space.php:78
+msgid "Change to premium"
+msgstr "Changer to prenium"
+
+#: user_space.php:79
+msgid "Change to traductor"
+msgstr "Change to traductor"
+
+#: user_space.php:80
+msgid "Change to administrator"
+msgstr "Change to administrator"
+
+#: user_space.php:83
+msgid "Change password"
+msgstr "Change password"
+
+#: user_space.php:86
+msgid "Actual password : "
+msgstr "Actual password : "
+
+#: user_space.php:87
+msgid "New password : "
+msgstr "New password : "
+
+#: user_space.php:88
+msgid "New password verifiaction"
+msgstr "Retype your new password  : "
+
+#: user_space.php:95
+msgid "Password change sucess"
+msgstr "Password change successful"
+
+#: user_space.php:99
+msgid "Wrong old password"
+msgstr "Wrong old password"
+
+#: user_space.php:103
+msgid "New password confirmation fail"
+msgstr "The new password doesn't match with its verification"
+
+#: user_space.php:107
+msgid "Log out"
+msgstr "Log out"
+
+#: user_space.php:110
+msgid "Delete my account"
+msgstr "Delete my account"
+
+#: user_space.php:113
+msgid "New password input : "
+msgstr "Password : "
+
+#: user_space.php:117
+msgid "Wrong password"
+msgstr "Wrong password"
+
+#: user_space.php:120
+msgid "Account deletion warning"
+msgstr ""
+"Be careful, this operation is irreversible,\n"
+"  the deletion of the account and its data is final."
+
+#: util.php:42
+msgid "Home"
+msgstr "Home"
+
+#: util.php:43
+msgid "About"
+msgstr "About"
+
+#: util.php:44
+msgid "Contact"
+msgstr "Contact us"
+
+#: util.php:50
+msgid "French"
+msgstr "French"
+
+#: util.php:54
+msgid "English"
+msgstr "English"
+
+#: util.php:55
+msgid "User"
+msgstr "User"
+
+#~ msgid "test"
+#~ msgstr "this is a test"
+
+#~ msgid "Presentation"
+#~ msgstr "In order to help you write your documents, Virtuo Linguo offers you simple and intuitive translation services."
