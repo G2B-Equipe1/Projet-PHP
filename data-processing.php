@@ -2,7 +2,7 @@
 require 'base.php';
 session_start();
 $action = $_POST['action'];
-if($action == 'S\'inscrire')
+if($action == 'a_sign_in')
 {
     if(!mysqli_num_rows(mysqli_query($dbLink, 'SELECT email FROM user WHERE email = \''. $_POST['mail']. '\''))
         && preg_match("/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,})$/i", $_POST['mail'] ))
@@ -37,7 +37,7 @@ if($action == 'S\'inscrire')
     }
 
 }
-else if ($action == 'Se connecter')
+else if ($action == 'a_log_in')
 {
     $mail = $_POST['id'];
     $mdp = $_POST['mdp'];
@@ -68,10 +68,11 @@ else if ($action == 'Se connecter')
 
     }
     else {
-        echo 'NOON';
+        $_SESSION['connexionfailed'] = '';
+        header('Location: user_space.php');
     }
 }
-else if($action == 'Changer mot de passe')
+else if($action == 'a_change_password')
 {
     if( md5($_POST['ancienmdp']) === $_SESSION['password'] ){
         if($_POST['nouveaumdp'] ===  $_POST['confirmationmdp'] )
@@ -104,12 +105,12 @@ else if($action == 'Changer mot de passe')
         header('Location: user_space.php');
     }
 }
-else if($action == 'Se déconnecter')
+else if($action == 'a_log_out')
 {
     $_SESSION = array();
     header('Location: user_space.php');
 }
-else if($action == 'Confirmer la suppression du compte')
+else if($action == 'a_delete_account')
 {
     if(md5($_POST['mdp']) === $_SESSION['password'])
     {
@@ -155,7 +156,7 @@ else if(preg_match('/^Passer /',$action))
     header('Location: user_space.php');
 
 }
-else if($action == 'Activer mon compte')
+else if($action == 'a_activate_account')
 {
     if($_POST['code'] === $_POST['realcode'])
     {
@@ -190,7 +191,7 @@ else if($action == 'Activer mon compte')
 
 
 }
-else if($action == 'Annuler l\'activation')
+else if($action == 'a_cancel_activation')
 {
     setcookie('confirmail', $data_crypt, -1);
     $_SESSION = array();
@@ -199,6 +200,6 @@ else if($action == 'Annuler l\'activation')
 }
 else
 {
-    echo 'loupé';
+    echo 'L\'action demandée n\'existe pas';
     exit();
 }

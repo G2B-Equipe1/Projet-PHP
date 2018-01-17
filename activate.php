@@ -19,7 +19,7 @@ if(!isset($_COOKIE['confirmail']))
     $_SESSION['tag'] = $tag;
     setcookie('confirmail', $data_crypt, time() + 60 * 5);
     confirm_mail($_SESSION['mailtemp'], $_SESSION['pseudotemp'], $code );
-
+    header('Location: activate.php');
 }
 $data_decrypt = openssl_decrypt ( $_COOKIE['confirmail'] , "aes-128-gcm" , 'datacookie',
                                     $options=0, $_SESSION['iv'], $_SESSION['tag'] );
@@ -41,7 +41,8 @@ votre compte dans ce temps, vous devrez réitérer l'inscription.
     <input type="hidden" name="mail" value="<?php echo $mail; ?>">
     <input type="hidden" name="pseudo" value="<?php echo $pseudo; ?>">
     <input type="hidden" name="mdp" value="<?php echo $mdp; ?>">
-    <input type="submit" name="action" value="Activer mon compte">
+    <input type="hidden" name="action" value="a_activate_account">
+    <input type="submit" value="<?php echo _('Activate account') ?>">
 </form>
 
 <p style="display:<?php echo isset($_SESSION['wrongcode']) ? '' : 'none';
@@ -50,6 +51,7 @@ unset($_SESSION['wrongcode']) ?>;">
 </p>
 
 <form action="data-processing.php" method="post">
-    <input type="submit" name="action" value="Annuler l'activation">
+    <input type="hidden" name="action" value="a_cancel_activation">
+    <input type="submit" value="Annuler l'activation">
 </form>
 

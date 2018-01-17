@@ -19,7 +19,8 @@
                     <form action="data-processing.php" method="post">
                         <label><?php echo _('E-mail : ') ?><input type="text" name="id"/></label>
                         <label><?php echo _('Password : ') ?><input type="password" name="mdp"/></label>
-                        <input type="submit" name="action" value="Se connecter"/>
+                        <input type="hidden" name="action" value="a_log_in">
+                        <input type="submit" value="<?php echo _('Log in ')?>"/>
                     </form>
                     </p>
                     <p style="display:<?php echo isset($_SESSION['connexionfailed']) ? '' : 'none';
@@ -34,7 +35,8 @@
                         <label><?php echo _('E-mail : ')?><input type="text" name="mail"/></label>
                         <label><?php echo _('Password : ')?><input type="password" name="mdp"/></label>
                         <label><?php echo _('Password verification')?><input type="password" name="confirmationmdp"/></label>
-                        <input type="submit" name="action" value="S'inscrire"/>
+                        <input type="hidden" name="action" value="a_sign_in">
+                        <input type="submit" value="<?php echo _('Sign in ')?>"/>
                     </form>
 
                     <p style="display:<?php echo isset($_SESSION['mailpris']) ? '' : 'none';
@@ -65,7 +67,7 @@
 
             <p style="display:<?php echo isset($_SESSION['inscriptionreussie']) ? '' : 'none';
             unset($_SESSION['inscriptionreussie']) ?>;">
-                Bienvenue sur notre site ! ') ?><br>
+                <?php echo _('Welcome to our Web Site ! ')?> <br>
             </p>
 
             <h1><?php echo _('Personal space : ') ?></h1><br>
@@ -86,7 +88,8 @@
                     <label><?php echo _('Actual password : ') ?><input type="password" name="ancienmdp"/></label>
                     <label><?php echo _('New password : ') ?><input type="password" name="nouveaumdp"/></label>
                     <label><?php echo _('New password verifiaction') ?><input type="password" name="confirmationmdp"/></label>
-                    <input type="submit" name="action" value="Changer mot de passe">
+                    <input type="hidden" name="action" value="a_change_password">
+                    <input type="submit" value="<?php echo _('Change password') ?>">
                 </form>
             </div>
 
@@ -104,7 +107,8 @@
             </p>
 
             <form action="data-processing.php" method="post" >
-                <input type="submit" name="action" value="<?php echo _('Log out')?>">
+                <input type="hidden" name="action" value="a_log_out">
+                <input type="submit" value="<?php echo _('Log out')?>">
             </form>
 
             <button href="#" onclick="toggleDisplay(supprcompte);return false;" ><?php echo _('Delete my account')?></button>
@@ -118,7 +122,8 @@
                     </p>
 
                     <br><?php echo _('Account deletion warning') ?>
-                    <input type="submit" name="action" value="Confirmer la suppression du compte">
+                    <input type="hidden" name="action" value="a_delete_account">
+                    <input type="submit" value="<?php echo _('Delete my account') ?>">
                 </form>
             </div>
         <?php
