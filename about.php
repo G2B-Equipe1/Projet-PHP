@@ -51,8 +51,8 @@ nav_bar();
                         <div class="about-crew-member">
                             <h2>Joe Doe</h2>
                             <p class="about-title">CEO & Founder</p>
-                            <p class="about-descitpion">Some text that describes me lorem ipsum ipsum lorem.</p>
-                            <p class="about-mail">example@example.com</p>
+                            <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+                            <p>example@example.com</p>
                             <p><button class="button">Contact</button></p>
                         </div>
                     </div>
