@@ -1,6 +1,7 @@
 <?php
-require 'base.php';
+
 session_start();
+
 function search_translation() {
 
     $from = $_GET['from'];
@@ -36,7 +37,7 @@ function search_translation() {
             exit();
         }
 
-        $query_result = "";
+        $query_result = null;
         while ($dbRow = mysqli_fetch_assoc($dbResult)) {
             $rowResult = 'User n°'.$dbRow['user_id'].' propose '.$dbRow['word'].' (ajouté le '.$dbRow['date'].') Evaluée à '.$dbRow['notation'].' par '.$dbRow['nb_notation'].' personnes </br>';
             $query_result = $query_result . $rowResult . "\n";
@@ -44,10 +45,10 @@ function search_translation() {
         return $query_result;
     }
 
-    if ($from == 'english' && $to == 'french') {
+    if ($from == 'english') {
         $query = 'SELECT user_id, word, translation, lang, date, notation, nb_notation
               FROM `translation`
-              WHERE word = \''.$to_translate.'\'';
+              WHERE word = \''.$to_translate.'\' AND lang= \''.$to.'\'';
 
         if(!($dbResult = mysqli_query($dbLink, $query)))
         {
@@ -59,7 +60,7 @@ function search_translation() {
             exit();
         }
 
-        $query_result = "";
+        $query_result = null;
         while ($dbRow = mysqli_fetch_assoc($dbResult)) {
             $rowResult = 'User n°'.$dbRow['user_id'].' propose '.$dbRow['translation'].' (ajouté le '.$dbRow['date'].') Evaluée à '.$dbRow['notation'].' par '.$dbRow['nb_notation'].' personnes </br>';
             $query_result = $query_result . $rowResult . "\n";
@@ -68,18 +69,24 @@ function search_translation() {
     }
 }
 
+$_SESSION['from'] = $from;
+$_SESSION['to'] = $to;
+$_SESSION['to_translate'] = $to_translate;
+
 if (!(isset($_SESSION['categorie']))) {
     $_SESSION['resultat'] = search_translation();
-    header('Location: translation.php');
+    $_SESSION['get_trad'] = '<a href="get_translation.php?lang=en" class="btn">Donner une traduction</a>';
+    header('Location: translation.php?lang=en');
 }
 else if ($_SESSION['categorie'] == 'standar') {
     $_SESSION['resultat'] = search_translation();
-    header('Location: translation.php');
+    $_SESSION['get_trad'] = '<a href="get_translation.php?lang=en" class="btn">Donner une traduction</a>';
+    header('Location: translation.php?lang=en');
 }
 else if ($_SESSION['categorie'] == 'prenium') {
     $_SESSION['resultat'] = search_translation();
-    header('Location: translation.php');
+    $_SESSION['get_trad'] = '<a href="get_translation.php?lang=en" class="btn">Donner une traduction</a>';
+    header('Location: translation.php?lang=en');
 }
-
 
 ?>

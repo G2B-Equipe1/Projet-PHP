@@ -18,7 +18,12 @@ nav_bar();
         </form>
 
 <?php
-echo $_SESSION['resultat'];
+if (isset($_SESSION['resultat'])) {
+    echo $_SESSION['resultat'];
+}
+if (isset($_SESSION['get_trad'])) {
+    echo $_SESSION['get_trad'];
+}
 footer();
 end_page();
 ?>
