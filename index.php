@@ -3,15 +3,16 @@
     start_page();
     nav_bar();
 ?>
+        <!-- COAROUSSEL -->
         <div id="myCarousel" class="carousel slide" data-ride="carousel">
-            <!-- Indicators -->
+            <!-- INDICATEUR CAROUSSEL -->
             <ol class="carousel-indicators">
                 <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
                 <li data-target="#myCarousel" data-slide-to="1"></li>
                 <li data-target="#myCarousel" data-slide-to="2"></li>
             </ol>
 
-            <!-- Wrapper for slides -->
+            <!-- CAROUSSEL CONTENT -->
             <div class="carousel-inner" role="listbox">
                 <div class="item active">
                     <img src="img/facebook-instagram-network-notebook.jpeg" alt="Image">
@@ -38,7 +39,7 @@
                 </div>
             </div>
 
-            <!-- Left and right controls -->
+            <!-- CONTROLES CAROUSSEL -->
             <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
                 <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
                 <span class="sr-only">Previous</span>
@@ -49,6 +50,7 @@
             </a>
         </div>
 
+        <!-- CORPS DE PAGE -->
         <div class="container text-center">
             <h2><?php echo _('wtf')?></h2><br>
             <div class="row">
