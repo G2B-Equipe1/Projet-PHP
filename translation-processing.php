@@ -20,6 +20,7 @@ function search_translation() {
     or die('Erreur dans la sélection de la base : ' . mysqli_error($dbLink));
 
     /* requetes a effectue suivant les cas */
+    /* cas de demande de traduction d'un mot anglais */
     if ($from == 'french' && $to == 'english') {
 
         $query = 'SELECT user_id, translation, word, date, notation, nb_notation
@@ -49,6 +50,7 @@ function search_translation() {
         return $query_result;
     }
 
+    /* cas de demande pour un mot pas anglais */
     if ($from == 'english') {
         $query = 'SELECT user_id, word, translation, lang, date, notation, nb_notation
               FROM `translation`
@@ -75,6 +77,12 @@ function search_translation() {
 
 /* Sauvegarde des éléments clés de la recherche dans $_SESSION pour pouvoir l'utliser dans plusieurs pages */
 
+$from = $_GET['from'];
+$to = $_GET['to'];
+$to_translate = $_GET['to_translate'];
+
+mb_strtolower($to_translate);
+
 $_SESSION['from'] = $from;
 $_SESSION['to'] = $to;
 $_SESSION['to_translate'] = $to_translate;
@@ -86,7 +94,7 @@ if (!(isset($_SESSION['categorie']))) {
     $_SESSION['get_trad'] = '<a href="get_translation.php?lang=en" class="btn">Donner une traduction</a>';
     header('Location: translation.php?lang=en');
 }
-else if ($_SESSION['categorie'] == 'standar') {
+else if ($_SESSION['categorie'] == 'standard') {
     $_SESSION['resultat'] = search_translation();
     $_SESSION['get_trad'] = '<a href="get_translation.php?lang=en" class="btn">Donner une traduction</a>';
     header('Location: translation.php?lang=en');

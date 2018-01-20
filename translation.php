@@ -21,6 +21,9 @@ nav_bar();
 if (isset($_SESSION['resultat'])) {
     echo $_SESSION['resultat'];
 }
+if (isset($_SESSION['resultat'])) {
+    echo '<p> Woops, nous n\'avons pas de traduction de ce mot. </p>';
+}
 if (isset($_SESSION['get_trad'])) {
     echo $_SESSION['get_trad'];
 }
