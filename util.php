@@ -1,5 +1,26 @@
 <?php
 
+function get_lang() {
+    if  (isset($_GET['lang']) && $_GET['lang'] == 'fr') {
+        return $lang = 'fr_FR';
+
+    } else if  (isset($_GET['lang']) && $_GET['lang'] == 'en') {
+        return $lang = 'en_US';
+    } else {
+        return $lang = 'fr_FR';
+    }
+}
+
+function set_filename($lang) {
+    if ($lang == 'fr_FR') {
+        return $filename = 'fr_FR';
+    } else if ($lang == 'us_US') {
+        return $filename = 'us_US';
+    } else {
+        return $filename = 'fr_FR';
+    }
+}
+
 function start_page() {
     ?>
     <!DOCTYPE>
@@ -20,16 +41,8 @@ function start_page() {
 }
 
 function set_gettext() {
-    if  ($_GET["lang"] == "fr") {
-        $lang = 'fr_FR';
-        $filename = 'fr_FR';
-    } else if  ($_GET["lang"] == "en") {
-        $lang = 'en_US';
-        $filename = 'en_US';
-    } else {
-        $lang = 'fr_FR';
-        $filename = 'fr_FR';
-    }
+    $lang = get_lang();
+    $filename = get_filename($lang);
     putenv("LC_ALL=$lang");
     setlocale(LC_ALL, $lang);
     bindtextdomain($filename, 'lang');
@@ -38,15 +51,16 @@ function set_gettext() {
 }
 
 function nav_bar() {
+    $lang = get_lang();
     ?>
     <nav class="navbar navbar-inverse">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a class="navbar-brand" href="<?php echo 'index.php?lang=' . $_GET['lang'] ?>">Virtuo Linguo</a>
+                <a class="navbar-brand" href="<?php echo 'index.php?lang=' . $lang ?>">Virtuo Linguo</a>
             </div>
             <ul class="nav navbar-nav">
-                <li><a href="<?php echo 'about.php?lang=' . $_GET['lang'] ?>"><?php echo _('About')?></a></li>
-                <li><a href="<?php echo 'translation.php?lang=' . $_GET['lang'] ?>"><?php echo _('Translation')?></a></li>
+                <li><a href="<?php echo 'about.php?lang=' . $lang ?>"><?php echo _('About')?></a></li>
+                <li><a href="<?php echo 'translation.php?lang=' . $lang ?>"><?php echo _('Translation')?></a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <form class="navbar-form navbar-left" action="/action_page.php">
