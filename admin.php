@@ -1,8 +1,9 @@
 <?php
 session_start();
-if(!isset($_SESSION['categorie']) || $_SESSION['categorie'] != 'administrateur' )
+if(!isset($_SESSION['categorie']) || $_SESSION['categorie'] != 'Admin' )
 {
     header('Location: user_space.php');
+    exit();
 }
 require_once('util.php');
 require ('base.php');

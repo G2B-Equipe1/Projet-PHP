@@ -1,10 +1,11 @@
 <?php
 session_start();
 require ('base.php');
-if(!isset($_SESSION['categorie']) || $_SESSION['categorie'] != 'administrateur' )
+if(!isset($_SESSION['categorie']) || $_SESSION['categorie'] != 'Admin' )
 {
 
     header('Location: user_space.php');
+    exit();
 }
 if(isset($_POST['mail']))
 {
@@ -25,6 +26,10 @@ if(isset($_POST['mail']))
         exit();
     }
     header('Location: admin.php');
+    exit();
 }
 else
-    echo 'Echec';
+{
+    echo 'Erreur : aucune action de type : ' . $action . ' dans le fichier admin_processing.php';
+    exit();
+}
