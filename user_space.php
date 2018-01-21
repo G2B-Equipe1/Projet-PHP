@@ -17,10 +17,17 @@
             <section class="row">
                 <article class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                     <form action="data-processing.php" method="post">
-                        <label><?php echo _('E-mail : ') ?><input type="text" name="id"/></label>
-                        <label><?php echo _('Password : ') ?><input type="password" name="mdp"/></label>
+                        <div class="form-group">
+                            <label><?php echo _('E-mail : ') ?></label>
+                            <input class="form-control" type="email" name="id"/>
+                            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                        </div>
+                        <div class="form-group">
+                            <label><?php echo _('Password : ') ?></label>
+                            <input class="form-control" type="password" name="mdp"/>
+                        </div>
                         <input type="hidden" name="action" value="a_log_in">
-                        <input type="submit" value="<?php echo _('Log in ')?>"/>
+                        <input class="btn btn-primary" type="submit" value="<?php echo _('Log in ')?>"/>
                     </form>
                     </p>
                     <p style="display:<?php echo isset($_SESSION['connexionfailed']) ? '' : 'none';
@@ -31,12 +38,26 @@
 
                 <article class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                     <form action="data-processing.php" method="post">
-                        <label><?php echo _('Username : ')?><input type="text" name="pseudo"/></label>
-                        <label><?php echo _('E-mail : ')?><input type="text" name="mail"/></label>
-                        <label><?php echo _('Password : ')?><input type="password" name="mdp"/></label>
-                        <label><?php echo _('Password verification')?><input type="password" name="confirmationmdp"/></label>
+                        <div class="form-group">
+                            <label><?php echo _('Username')?></label>
+                            <input class="form-control" type="text" name="pseudo"/>
+                        </div>
+                        <div class="form-group">
+                            <label><?php echo _('E-mail')?></label>
+                            <input class="form-control" type="text" name="mail"/>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label><?php echo _('Password')?></label>
+                                <input class="form-control" type="password" name="mdp"/>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label><?php echo _('Password verification')?></label>
+                                <input class="form-control" type="password" name="confirmationmdp"/>
+                            </div>
+                        </div>
                         <input type="hidden" name="action" value="a_sign_in">
-                        <input type="submit" value="<?php echo _('Sign in ')?>"/>
+                        <input class="btn btn-primary" type="submit" value="<?php echo _('Sign in ')?>"/>
                     </form>
 
                     <p style="display:<?php echo isset($_SESSION['mailpris']) ? '' : 'none';
