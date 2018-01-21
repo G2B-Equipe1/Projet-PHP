@@ -42,7 +42,7 @@ function start_page() {
 
 function set_gettext() {
     $lang = get_lang();
-    $filename = get_filename($lang);
+    $filename = set_filename($lang);
     putenv("LC_ALL=$lang");
     setlocale(LC_ALL, $lang);
     bindtextdomain($filename, 'lang');
