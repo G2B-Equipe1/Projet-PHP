@@ -47,6 +47,9 @@ function nav_bar() {
             <ul class="nav navbar-nav">
                 <li><a href="<?php echo 'about.php?lang=' . $_GET['lang'] ?>"><?php echo _('About')?></a></li>
                 <li><a href="<?php echo 'translation.php?lang=' . $_GET['lang'] ?>"><?php echo _('Translation')?></a></li>
+                <li><a href="<?php echo 'translator.php?lang=' . $_GET['lang'] ?>"
+                        style="display:<?php if($_SESSION['categorie'] == "translator" || $_SESSION['categorie'] == "administrator") echo ''; else echo 'none';?>">
+                    <?php echo _('Translator')?></a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <form class="navbar-form navbar-left" action="/action_page.php">

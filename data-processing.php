@@ -2,6 +2,7 @@
 require 'base.php';
 session_start();
 $action = $_POST['action'];
+
 if($action == 'a_sign_in')
 {
     if(!mysqli_num_rows(mysqli_query($dbLink, 'SELECT email FROM user WHERE email = \''. $_POST['mail']. '\''))
@@ -136,7 +137,7 @@ else if($action == 'a_delete_account')
         header('Location: user_space.php');
     }
 }
-else if(preg_match('/^Passer /',$action))
+else if(preg_match('/^Passer /',$action) || preg_match('/^Change to /',$action))
 {
     $pieces = explode(' ', $action);
     $cat = array_pop($pieces);
