@@ -1,6 +1,20 @@
 <?php
 session_start();
 
+if(!isset($_GET['from']) || !isset($_GET['to']) || !isset($_GET['to_translate'])){
+    header('Location: translation.php');
+    exit();
+}
+
+if(strpos($_GET['to_translate'], "'") !== FALSE)
+    $_GET['to_translate'] = str_replace("'", "\'", $_GET['to_translate']);
+
+if($_GET['to'] == $_GET['from'] ){
+    $_SESSION['samelang'] = 'Ne pas selectionner deux fois la même langue <br>';
+    header('Location: translation.php');
+    exit();
+}
+
 /* Fonction permettant de chercher la traduction d'un mot dans la base de donnée
    Renvoie le résultat de la requete en tant que string */
 function search_translation() {
@@ -69,20 +83,21 @@ function search_translation() {
             return $query_result = '<p> Woops, nous n\'avons pas de traduction de \''.$to_translate.'\' en '.$to.'. </p>';
         }
         while ($dbRow = mysqli_fetch_assoc($dbResult)) {
-            $rowResult = 'User n°'.$dbRow['user_id'].' propose '.$dbRow['translation'].' (ajouté le '.$dbRow['date'].') Evaluée à '.$dbRow['notation'].' par '.$dbRow['nb_notation'].' personnes </br>';
+            $rowResult = 'User n°'.$dbRow['user_id'].' propose '.$dbRow['word'].' (ajouté le '.$dbRow['date'].') Evaluée à '.$dbRow['notation'].' par '.$dbRow['nb_notation'].' personnes </br>';
             $query_result = $query_result . $rowResult . "\n";
         }
         return $query_result;
     }
 
-    // cas de demande de traducion pour un mot pas anglais vers un mot pas anglais non plus
+    // cas de demande de traduction pour un mot pas anglais vers un mot pas anglais non plus
     if ($from != 'english' && $to != 'english') {
         $query = 'SELECT user_id, word, translation, lang, date, notation, nb_notation
                       FROM translation
                       WHERE lang=\'' . $to . '\'
                       AND word IN (SELECT word
                                    FROM translation
-                                   WHERE lang=\'' . $from . '\')';
+                                   WHERE lang=\'' . $from . '\'
+                                   AND translation = \'' . $to_translate . '\')';
 
         if (!($dbResult = mysqli_query($dbLink, $query))) {
             echo 'Erreur dans requête<br />';
@@ -119,21 +134,18 @@ $_SESSION['to_translate'] = $to_translate;
 
 // Action a suivre suivant les différents utilisateurs
 
-if (!(isset($_SESSION['categorie']))) {
-    $_SESSION['resultat'] = search_translation();
-    $_SESSION['get_trad'] = '<a href="get_translation.php?lang=en" class="btn">Donner une traduction</a>';
-    header('Location: translation.php?lang=en');
+$_SESSION['resultat'] = search_translation();
+if( $_SESSION['resultat'][0] != 'U'  ){
+    if ($_SESSION['categorie'] == 'Premium' ) {
+        $_SESSION['ask_trad'] = '<a href="ask_translation.php"class="btn">Demander une traduction</a>';
+    }
+    else if ($_SESSION['categorie'] == 'Admin' || $_SESSION['categorie'] == 'Trad') {
+        $_SESSION['get_trad'] = '<a href="get_translation.php" class="btn">Donner une traduction</a>';
+        $_SESSION['ask_trad'] = '<a href="ask_translation.php" class="btn">Demander une traduction</a>';
+    }
 }
-else if ($_SESSION['categorie'] == 'Standard') {
-    $_SESSION['resultat'] = search_translation();
-    $_SESSION['get_trad'] = '<a href="get_translation.php?lang=en" class="btn">Donner une traduction</a>';
-    header('Location: translation.php?lang=en');
-}
-else if ($_SESSION['categorie'] == 'Premium') {
-    $_SESSION['resultat'] = search_translation();
-    $_SESSION['get_trad'] = '<a href="get_translation.php?lang=en" class="btn">Donner une traduction</a>';
-    $_SESSION['ask_trad'] = '<a href="ask_translation.php" class="btn">Demander une traduction</a>';
-    header('Location: translation.php?lang=en');
-}
+
+
+header('Location: translation.php');
 
 ?>
