@@ -7,6 +7,7 @@ start_page();
 nav_bar();
 
 
+
 if (!isset($_SESSION['categorie']) || $_SESSION['categorie'] != 'Admin' && $_SESSION['categorie'] != 'Trad') {
     header('Location: translation.php');
     exit();
@@ -66,8 +67,23 @@ while ($dbRow = mysqli_fetch_assoc($dbResult)) {
                                 <input type="submit" name="action" value="Refuser">
                         </form>' . '<br>';
 }
+?>
+<br>Exporter une langue
+            <form action="get_translation-processing.php" method="post">
+                <select name="language">
+                    <option value="english"><?php echo _('English');?></option>
+<option value="french"><?php echo _('French');?></option>
+</select>
+<input type="hidden" name="action" value="export">
+<input type="submit" value=<?php echo _('Export traduction');?>/>
+</form>
+<a href="<?php echo isset($_SESSION['tradfilename']) ? $_SESSION['tradfilename'] : "#"?>"
+   style="display:<?php echo isset($_SESSION['tradfilename']) ? '' : 'none'; unset($_SESSION['tradfilename'])?>;"
+   download>
+    <?php echo _('Download')?>
+</a><br>
 
-echo '<br>Traductions présentes en base de donnée : <br><br>';
+<?php echo '<br>Traductions présentes en base de donnée : <br><br>';
 
 $query = 'SELECT * FROM translation';
 $dbResult = mysqli_query($dbLink, $query);
