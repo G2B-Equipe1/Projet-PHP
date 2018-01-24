@@ -60,7 +60,7 @@ else if ($action == 'a_log_in')
     $row = mysqli_fetch_assoc($dbResult);
     if( md5($mdp) === $row['mdp'])
     {
-
+        $_SESSION['id'] = $row['id'];
         $_SESSION['mail'] = $mail;
         $_SESSION['password'] = md5($mdp);
         $_SESSION['categorie'] = $row['categorie'];
@@ -108,7 +108,9 @@ else if($action == 'a_change_password')
 }
 else if($action == 'a_log_out')
 {
+    $lang = $_SESSION['lang'];
     $_SESSION = array();
+    $_SESSION['lang'] = $lang;
     header('Location: user_space.php');
 }
 else if($action == 'a_delete_account')
@@ -155,7 +157,11 @@ else if($action == 'a_activate_account')
             echo 'Requête : ' . $query . '<br/>';
             exit();
         }
+        $query = 'SELECT id FROM user WHERE mail=\'' . $_POST['mail'] . '\'';
+        $dbResult = mysqli_query($dbLink, $query);
+        $row = mysqli_fetch_assoc($dbResult);
         $_SESSION = array();
+        $_SESSION['id'] = $row['id'];
         $_SESSION['mail'] = $_POST['mail'];
         $_SESSION['password'] = md5($_POST['mdp']);
         $_SESSION['pseudo'] = $_POST['pseudo'];

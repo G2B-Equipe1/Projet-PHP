@@ -1,6 +1,11 @@
 <?php
 
 function start_page() {
+    session_start();
+    if(!isset($_SESSION['lang']))
+        $_SESSION['lang'] = 'en_US';
+    if(isset($_GET['lang']))
+        $_SESSION['lang'] = $_GET['lang'];
     ?>
     <!DOCTYPE>
     <html>
@@ -20,16 +25,8 @@ function start_page() {
 }
 
 function set_gettext() {
-    if  ($_GET["lang"] == "fr") {
-        $lang = 'fr_FR';
-        $filename = 'fr_FR';
-    } else if  ($_GET["lang"] == "en") {
-        $lang = 'en_US';
-        $filename = 'en_US';
-    } else {
-        $lang = 'fr_FR';
-        $filename = 'fr_FR';
-    }
+    $lang = $_SESSION['lang'];
+    $filename = $_SESSION['lang'];
     putenv("LC_ALL=$lang");
     setlocale(LC_ALL, $lang);
     bindtextdomain($filename, 'lang');
@@ -42,14 +39,13 @@ function nav_bar() {
     <nav class="navbar navbar-inverse">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a class="navbar-brand" href="<?php echo 'index.php?lang=' . $_GET['lang'] ?>">Virtuo Linguo</a>
+                <a class="navbar-brand" href="<?php echo 'index.php' ?>">Virtuo Linguo</a>
             </div>
             <ul class="nav navbar-nav">
-                <li><a href="<?php echo 'about.php?lang=' . $_GET['lang'] ?>"><?php echo _('About')?></a></li>
-                <li><a href="<?php echo 'translation.php?lang=' . $_GET['lang'] ?>"><?php echo _('Translation')?></a></li>
-                <li><a href="<?php echo 'translator.php?lang=' . $_GET['lang'] ?>"
-                        style="display:<?php if($_SESSION['categorie'] == "translator" || $_SESSION['categorie'] == "administrator") echo ''; else echo 'none';?>">
-                    <?php echo _('Translator')?></a></li>
+
+                <li><a href="<?php echo 'about.php' ?>"><?php echo _('About')?></a></li>
+                <li><a href="<?php echo 'translation.php' ?>"><?php echo _('Translation')?></a></li>
+
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <form class="navbar-form navbar-left" action="/action_page.php">
@@ -61,12 +57,10 @@ function nav_bar() {
                 <li><a href="user_space.php"><span class="glyphicon glyphicon-user"></span> <?php echo _('User')?></a></li>
                 <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-flag"></span> <?php echo _('Language')?></a>
                     <ul class="dropdown-menu">
-                        <li><a href="<?php $query = $_GET; $query['lang'] = 'en';
-                            $query_result = http_build_query($query);
-                            echo $_SERVER['PHP_SELF'] . '?' . $query_result ?>"><?php echo _('English')?></a></li>
-                        <li><a href="<?php $query = $_GET; $query['lang'] = 'fr';
-                            $query_result = http_build_query($query);
-                            echo $_SERVER['PHP_SELF'] . '?' . $query_result ?>"><?php echo _('French')?></a></li>
+                        <li><a href="<?php
+                            echo $_SERVER['PHP_SELF'] . '?lang=en_US' ;  ?>"><?php echo _('English')?></a></li>
+                        <li><a href="<?php
+                            echo $_SERVER['PHP_SELF'] . '?lang=fr_FR';  ?>"><?php echo _('French')?></a></li>
                     </ul>
                 </li>
             </ul>
