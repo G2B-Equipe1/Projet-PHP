@@ -42,8 +42,10 @@ function nav_bar() {
                 <a class="navbar-brand" href="<?php echo 'index.php' ?>">Virtuo Linguo</a>
             </div>
             <ul class="nav navbar-nav">
+
                 <li><a href="<?php echo 'about.php' ?>"><?php echo _('About')?></a></li>
                 <li><a href="<?php echo 'translation.php' ?>"><?php echo _('Translation')?></a></li>
+
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <form class="navbar-form navbar-left" action="/action_page.php">

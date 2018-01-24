@@ -78,7 +78,7 @@
             <form action="data-processing.php" method="post">
                 <input type="submit" name="action" value="<?php echo _('Change to standard') ?>">
                 <input type="submit" name="action" value="<?php echo _('Change to premium') ?>">
-                <input type="submit" name="action" value="<?php echo _('Change to traductor') ?>">
+                <input type="submit" name="action" value="<?php echo _('Change to translator') ?>">
                 <input type="submit" name="action" value="<?php echo _('Change to administrator') ?>">
             </form>
 
