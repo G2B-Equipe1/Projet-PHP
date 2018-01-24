@@ -6,7 +6,7 @@ if(strpos($_GET['to_translate'], "'") !== FALSE)
 
 if($_GET['to'] == $_GET['from'] ){
     $_SESSION['samelang'] = 'Ne pas selectionner deux fois la même langue <br>';
-    header($_SESSION['found']? 'Location: ask_translation.php' : 'Location: translation.php');
+    header('Location: translation.php');
     exit();
 }
 
@@ -135,5 +135,7 @@ if( $_SESSION['resultat'][0] != 'U'  ){
         $_SESSION['ask_trad'] = '<a href="ask_translation.php" class="btn">Demander une traduction</a>';
     }
 }
+
+header('Location: translation.php');
 
 ?>
