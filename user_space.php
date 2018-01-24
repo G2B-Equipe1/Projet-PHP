@@ -74,13 +74,6 @@
             <?php echo _('Your E-mail : ') . $_SESSION['mail'] ?><br>
             <?php echo _('Your User-name : ') . $_SESSION['pseudo'] ?><br>
             <?php echo _('Your grade : ') . $_SESSION['categorie'] ?><br>
-            <?php echo _('Change grade : ') ?><br>
-            <form action="data-processing.php" method="post">
-                <input type="submit" name="action" value="<?php echo _('Change to standard') ?>">
-                <input type="submit" name="action" value="<?php echo _('Change to premium') ?>">
-                <input type="submit" name="action" value="<?php echo _('Change to translator') ?>">
-                <input type="submit" name="action" value="<?php echo _('Change to administrator') ?>">
-            </form>
 
             <button href="#" onclick="toggleDisplay(changemdp);return false;" ><?php echo _('Change password')?></button>
             <div id="changemdp" style="display:none;">
