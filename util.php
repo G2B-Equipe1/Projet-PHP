@@ -48,14 +48,9 @@ function nav_bar() {
 
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <form class="navbar-form navbar-left" action="/action_page.php">
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Search">
-                    </div>
-                    <button type="submit" class="btn btn-default">Submit</button>
-                </form>
                 <li><a href="user_space.php"><span class="glyphicon glyphicon-user"></span> <?php echo _('User')?></a></li>
-                <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-flag"></span> <?php echo _('Language')?></a>
+                <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <img src="<?php echo ($_SESSION['lang'] == 'fr_FR') ? 'img/fr.png' : 'img/en.png'?>" alt="flag"> <?php echo _('Language');?>
                     <ul class="dropdown-menu">
                         <li><a href="<?php
                             echo $_SERVER['PHP_SELF'] . '?lang=en_US' ;  ?>"><?php echo _('English')?></a></li>
