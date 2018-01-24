@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="cb8a0fa5-a95b-45c8-98c1-65f6f5394f64" name="PRojet" url="http://adriencros.alwaysdata.net ">
+        <fileTransfer host="ssh-adriencros.alwaysdata.net" port="22" rootFolder="/home/adriencros/" accessType="SFTP">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" />
+          </advancedOptions>
+          <option name="port" value="22" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
