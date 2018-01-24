@@ -47,7 +47,7 @@ $_SESSION['samelang'] = '';
 echo $_SESSION['add_success'];
 $_SESSION['add_success'] = '';
 
- echo 'Toutes les demandes de traductions en cours : <br>';
+echo 'Toutes les demandes de traductions en cours : <br>';
 check_requests();
 
 $query = 'SELECT *
@@ -68,20 +68,19 @@ while ($dbRow = mysqli_fetch_assoc($dbResult)) {
                         </form>' . '<br>';
 }
 ?>
-<br>Exporter une langue
-            <form action="get_translation-processing.php" method="post">
-                <select name="language">
-                    <option value="english"><?php echo _('English');?></option>
-<option value="french"><?php echo _('French');?></option>
-</select>
-<input type="hidden" name="action" value="export">
-<input type="submit" value=<?php echo _('Export traduction');?>/>
-</form>
-<a href="<?php echo isset($_SESSION['tradfilename']) ? $_SESSION['tradfilename'] : "#"?>"
-   style="display:<?php echo isset($_SESSION['tradfilename']) ? '' : 'none'; unset($_SESSION['tradfilename'])?>;"
-   download>
-    <?php echo _('Download')?>
-</a><br>
+    <br>Exporter une langue
+    <form action="get_translation-processing.php" method="post">
+        <select name="language">
+            <?php set_options($_SESSION['exported_lang']); ?>
+        </select>
+        <input type="hidden" name="action" value="export">
+        <input type="submit" value=<?php echo _('Export traduction');?>/>
+    </form>
+    <a href="<?php echo isset($_SESSION['tradfilename']) ? $_SESSION['tradfilename'] : "#"?>"
+       style="display:<?php echo isset($_SESSION['tradfilename']) ? '' : 'none'; unset($_SESSION['tradfilename'])?>;"
+       download>
+        <?php echo _('Download')?>
+    </a><br>
 
 <?php echo '<br>Traductions présentes en base de donnée : <br><br>';
 

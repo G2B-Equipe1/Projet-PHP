@@ -1,27 +1,18 @@
 <?php
 session_start();
 
-if(!isset($_GET['from']) || !isset($_GET['to']) || !isset($_GET['to_translate'])){
-    header('Location: translation.php');
-    exit();
-}
-
 if(strpos($_GET['to_translate'], "'") !== FALSE)
     $_GET['to_translate'] = str_replace("'", "\'", $_GET['to_translate']);
 
 if($_GET['to'] == $_GET['from'] ){
     $_SESSION['samelang'] = 'Ne pas selectionner deux fois la même langue <br>';
-    header('Location: translation.php');
+    header($_SESSION['found']? 'Location: ask_translation.php' : 'Location: translation.php');
     exit();
 }
 
 /* Fonction permettant de chercher la traduction d'un mot dans la base de donnée
    Renvoie le résultat de la requete en tant que string */
-function search_translation() {
-
-    $from = $_GET['from'];
-    $to = $_GET['to'];
-    $to_translate = $_GET['to_translate'];
+function search_translation($from, $to, $to_translate) {
 
     mb_strtolower($to_translate);
 
@@ -134,7 +125,7 @@ $_SESSION['to_translate'] = $to_translate;
 
 // Action a suivre suivant les différents utilisateurs
 
-$_SESSION['resultat'] = search_translation();
+$_SESSION['resultat'] = search_translation($_GET['from'],$_GET['to'], $_GET['to_translate']);
 if( $_SESSION['resultat'][0] != 'U'  ){
     if ($_SESSION['categorie'] == 'Premium' ) {
         $_SESSION['ask_trad'] = '<a href="ask_translation.php"class="btn">Demander une traduction</a>';
@@ -144,8 +135,5 @@ if( $_SESSION['resultat'][0] != 'U'  ){
         $_SESSION['ask_trad'] = '<a href="ask_translation.php" class="btn">Demander une traduction</a>';
     }
 }
-
-
-header('Location: translation.php');
 
 ?>
