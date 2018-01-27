@@ -54,7 +54,7 @@ if (!isset($_SESSION['categorie']) ||  $_SESSION['categorie'] != 'Premium' && $_
     </div>
 
     <div class="container">
-        <?php echo $_SESSION['resultat']; unset($_SESSION['resultat']); unset($_SESSION['found']);?>
+        <?php if (isset($_SESSION['resultat'])) {echo $_SESSION['resultat'];} unset($_SESSION['resultat']); unset($_SESSION['found']);?>
     </div>
 
 
