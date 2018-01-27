@@ -10,6 +10,33 @@ if($_GET['to'] == $_GET['from'] ){
     exit();
 }
 
+function search_user($id) {
+    // Connexion à la base de donnée
+    $dbLink = mysqli_connect("mysql-projet-php-g2b-equipe1.alwaysdata.net", "149737_user", "joyeuxnoel")
+    or die('Erreur de connexion au serveur : ' . mysqli_connect_error());
+
+    mysqli_select_db($dbLink , "projet-php-g2b-equipe1_database")
+    or die('Erreur dans la sélection de la base : ' . mysqli_error($dbLink));
+
+    $query = 'SELECT pseudo FROM user WHERE id='.$id;
+
+    if(!($dbResult = mysqli_query($dbLink, $query)))
+    {
+        echo 'Erreur dans requête<br />';
+// Affiche le type d'erreur.
+        echo 'Erreur : ' . mysqli_error($dbLink) . '<br/>';
+// Affiche la requête envoyée.
+        echo 'Requête : ' . $query . '<br/>';
+        exit();
+    }
+
+
+    while ($dbRow = mysqli_fetch_assoc($dbResult)) {
+        $query_result = $dbRow['pseudo'];
+    }
+    return $query_result;
+}
+
 /* Fonction permettant de chercher la traduction d'un mot dans la base de donnée
    Renvoie le résultat de la requete en tant que string */
 function search_translation($from, $to, $to_translate) {
@@ -41,14 +68,27 @@ function search_translation($from, $to, $to_translate) {
             exit();
         }
 
-        $query_result = null;
+        $query_result = '<table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Traducteur</th>
+                                    <th scope="col">Traduction</th>
+                                    <th scope="col">Date</th>
+                                </tr>
+                            </thead>
+                            <tbody>';
         if (mysqli_num_rows($dbResult) == 0) {
             return $query_result = '<p> Woops, nous n\'avons pas de traduction de \''.$to_translate.'\' en '.$to.'. </p>';
         }
         while ($dbRow = mysqli_fetch_assoc($dbResult)) {
-            $rowResult = 'User n°'.$dbRow['user_id'].' "propose" '.$dbRow['translation'].' (ajouté le '.$dbRow['date'].')</br>';
+            $rowResult =    '<tr>
+                                <td>'.search_user($dbRow['user_id']).'</td>
+                                <td>'.$dbRow['translation'].'</td>
+                                <td>'.$dbRow['date'].'</td>
+                             </tr>';
             $query_result = $query_result . $rowResult . "\n";
         }
+        $query_result = $query_result . '</tbody></table>';
         return $query_result;
     }
 
@@ -69,14 +109,27 @@ function search_translation($from, $to, $to_translate) {
             exit();
         }
 
-        $query_result = null;
+        $query_result = '<table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Traducteur</th>
+                                    <th scope="col">Traduction</th>
+                                    <th scope="col">Date</th>
+                                </tr>
+                            </thead>
+                            <tbody>';
         if (mysqli_num_rows($dbResult) == 0) {
             return $query_result = '<p> Woops, nous n\'avons pas de traduction de \''.$to_translate.'\' en '.$to.'. </p>';
         }
         while ($dbRow = mysqli_fetch_assoc($dbResult)) {
-            $rowResult = 'User n°'.$dbRow['user_id'].' "propose" '.$dbRow['word'].' (ajouté le '.$dbRow['date'].')</br>';
+            $rowResult =    '<tr>
+                                <td>'.search_user($dbRow['user_id']).'</td>
+                                <td>'.$dbRow['word'].'</td>
+                                <td>'.$dbRow['date'].'</td>
+                             </tr>';
             $query_result = $query_result . $rowResult . "\n";
         }
+        $query_result = $query_result . '</tbody></table>';
         return $query_result;
     }
 
@@ -103,10 +156,24 @@ function search_translation($from, $to, $to_translate) {
         if (mysqli_num_rows($dbResult) == 0) {
             return $query_result = '<p> Woops, nous n\'avons pas de traduction de \''.$to_translate.'\' en '.$to.'. </p>';
         }
+        $query_result = '<table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Traducteur</th>
+                                    <th scope="col">Traduction</th>
+                                    <th scope="col">Date</th>
+                                </tr>
+                            </thead>
+                            <tbody>';
         while ($dbRow = mysqli_fetch_assoc($dbResult)) {
-            $rowResult = 'User n°' . $dbRow['user_id'] . ' "propose" ' . $dbRow['translation'] . ' (ajouté le ' . $dbRow['date'] . ')</br>';
+            $rowResult =    '<tr>
+                                <td>' . search_user($dbRow['user_id']) . '</td>
+                                <td>' . $dbRow['translation'] . '</td>
+                                <td>' . $dbRow['date'] . '</td>
+                             </tr>';
             $query_result = $query_result . $rowResult . "\n";
         }
+        $query_result = $query_result . '</tbody></table>';
         return $query_result;
     }
 }
@@ -126,15 +193,16 @@ $_SESSION['to_translate'] = $to_translate;
 // Action a suivre suivant les différents utilisateurs
 
 $_SESSION['resultat'] = search_translation($_GET['from'],$_GET['to'], $_GET['to_translate']);
-if( $_SESSION['resultat'][0] != 'U'  ){
-    if ($_SESSION['categorie'] == 'Premium' ) {
-        $_SESSION['ask_trad'] = '<a href="ask_translation.php"class="btn">Demander une traduction</a>';
-    }
-    else if ($_SESSION['categorie'] == 'Admin' || $_SESSION['categorie'] == 'Trad') {
-        $_SESSION['get_trad'] = '<a href="get_translation.php" class="btn">Donner une traduction</a>';
-        $_SESSION['ask_trad'] = '<a href="ask_translation.php" class="btn">Demander une traduction</a>';
-    }
-}
+
+//if( $_SESSION['resultat'][0] != 'U'  ){
+//    if ($_SESSION['categorie'] == 'Premium' ) {
+//        $_SESSION['ask_trad'] = '<a href="ask_translation.php"class="btn">Demander une traduction</a>';
+//    }
+//    else if ($_SESSION['categorie'] == 'Admin' || $_SESSION['categorie'] == 'Trad') {
+//        $_SESSION['get_trad'] = '<a href="get_translation.php" class="btn">Donner une traduction</a>';
+//        $_SESSION['ask_trad'] = '<a href="ask_translation.php" class="btn">Demander une traduction</a>';
+//    }
+//}
 
 header('Location: translation.php');
 
