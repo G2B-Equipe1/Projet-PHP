@@ -85,8 +85,8 @@ while ($dbRow = mysqli_fetch_assoc($dbResult)) {
                                 <input type="hidden" name="word" value="' . $dbRow['word'] .'">
                                 <input type="hidden" name="from_lang" value="' . $dbRow['from_lang'] .'">
                                 <input type="hidden" name="to_lang" value="' . $dbRow['to_lang'] .'">
-                                <input type="submit" name="action" value="Résoudre">
-                                <input type="submit" name="action" value="Refuser">
+                                <input class="btn btn-success" type="submit" name="action" value="Résoudre">
+                                <input class="btn btn-danger" type="submit" name="action" value="Refuser">
                         </form>
                 </td>
             </tr>';
@@ -138,8 +138,8 @@ while ($dbRow = mysqli_fetch_assoc($dbResult)){
                                 <input type="hidden" name="word" value="' . $dbRow['word'] .'">
                                 <input type="hidden" name="translation" value="' . $dbRow['translation'] .'">
                                 <input type="hidden" name="lang" value="' . $dbRow['lang'] .'">
-                                <input type="submit" name="action" value="Modifier">
-                                <input type="submit" name="action" value="Supprimer">
+                                <input class="btn btn-warning" type="submit" name="action" value="Modifier">
+                                <input class="btn btn-danger" type="submit" name="action" value="Supprimer">
                         </form>
                 </td>
             </tr>';
