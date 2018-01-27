@@ -48,6 +48,13 @@ function nav_bar() {
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="user_space.php"><span class="glyphicon glyphicon-user"></span> <?php echo _('User')?></a></li>
+                <?php
+                if (isset($_SESSION['categorie']) && $_SESSION['categorie'] == 'Admin') {
+                    $tmp = _('Work Space');
+                    echo '<li><a href="get_translation.php"><span class="glyphicon glyphicon-cog"></span> '.$tmp.'</a></li>';
+                    unset($tmp);
+                }
+                ?>
                 <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         <img src="<?php echo ($_SESSION['lang'] == 'fr_FR') ? 'img/fr.png' : 'img/en.png'?>" class="flag" alt="flag"> <?php echo _('Language');?>
                     <ul class="dropdown-menu">
