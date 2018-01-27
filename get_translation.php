@@ -113,7 +113,7 @@ while ($dbRow = mysqli_fetch_assoc($dbResult)) {
             <div class="page-header"><h2>Traductions présentes en base de donnée</h2> </div>
 
 <?php
-$query = 'SELECT * FROM translation';
+$query = 'SELECT * FROM translation ORDER BY lang';
 $dbResult = mysqli_query($dbLink, $query);
 ?>
 
