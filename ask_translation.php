@@ -18,22 +18,22 @@ if (!isset($_SESSION['categorie']) ||  $_SESSION['categorie'] != 'Premium' && $_
                 Recherche d'une traduction avec tri par pertinance :
                 <form class="form-inline" action="ask_translation-processing.php" method="post">
                     <div class="form-group">
-                        <select class="form-control" name="from"> <?php set_options($_SESSION['from']); ?> </select>
-                        <input class="form-control" type="text" name="to_find"/>
+                        <select class="form-control" name="from"> <?php if (isset($_SESSION['from'])) {set_options($_SESSION['from']);} else {set_options('english');} ?> </select>
+                        <input class="form-control" type="text" name="to_find" <?php if (isset($_SESSION['found'])) {echo 'placeholder="'.$_SESSION['found'].'"';}?>/>
                     </div>
                     <input class="btn btn-default" type="submit" name="action" value="Rechercher"/>
                 </form>
                 <?php if (isset($_SESSION['found'])) {echo '<div class="alert alert-info"> Mot le plux proche : ' . $_SESSION['found'].'</div>';} ?>
-                <form class="form-inline" action="translation-processing.php" method="post">
+                <form class="form-inline" action="ask_translation-processing.php" method="post">
                     <input type="hidden" name="from" value="<?php if (isset($_SESSION['from'])) {echo $_SESSION['from'];} ?>"/>
                     <input type="hidden" name="to_translate" value="<?php if (isset($_SESSION['found'])) {echo $_SESSION['found'];} ?>"/>
+                    <input type="hidden" name="prenium-request" value="true"/>
 
-                    <select class="form-control" name="to"> <?php set_options($_SESSION['to']); ?> </select>
+                    <select class="form-control" name="to"> <?php if (isset($_SESSION['to'])) {set_options($_SESSION['to']);} else {set_options('french');} ?> </select>
 
                     <input class="btn btn-primary" type="submit" name="action" value="Traduire"/>
 
                 </form>
-                <? echo $_SESSION['resultat']; unset($_SESSION['resultat']); unset($_SESSION['found']);?>
             </div>
 
             <div class="col-sm-6">
@@ -51,6 +51,10 @@ if (!isset($_SESSION['categorie']) ||  $_SESSION['categorie'] != 'Premium' && $_
                 </form>
             </div>
         </div>
+    </div>
+
+    <div class="container">
+        <?php echo $_SESSION['resultat']; unset($_SESSION['resultat']); unset($_SESSION['found']);?>
     </div>
 
 
