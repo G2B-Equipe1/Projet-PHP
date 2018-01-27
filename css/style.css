@@ -1,5 +1,10 @@
 /* BARRE DE NAVIGATION */
 
+.flag {
+    height : 1.4em;
+    width : auto;
+}
+
 /* CORPS DE PAGE */
 
 .article-img-overlay{

@@ -5,7 +5,7 @@ if(strpos($_GET['to_translate'], "'") !== FALSE)
     $_GET['to_translate'] = str_replace("'", "\'", $_GET['to_translate']);
 
 if($_GET['to'] == $_GET['from'] ){
-    $_SESSION['samelang'] = 'Ne pas selectionner deux fois la même langue <br>';
+    $_SESSION['samelang'] = '<p> Ne pas selectionner deux fois la même langue </p>';
     header('Location: translation.php');
     exit();
 }
@@ -46,7 +46,7 @@ function search_translation($from, $to, $to_translate) {
             return $query_result = '<p> Woops, nous n\'avons pas de traduction de \''.$to_translate.'\' en '.$to.'. </p>';
         }
         while ($dbRow = mysqli_fetch_assoc($dbResult)) {
-            $rowResult = 'User n°'.$dbRow['user_id'].' propose '.$dbRow['translation'].' (ajouté le '.$dbRow['date'].') Evaluée à '.$dbRow['notation'].' par '.$dbRow['nb_notation'].' personnes </br>';
+            $rowResult = 'User n°'.$dbRow['user_id'].' "propose" '.$dbRow['translation'].' (ajouté le '.$dbRow['date'].')</br>';
             $query_result = $query_result . $rowResult . "\n";
         }
         return $query_result;
@@ -74,7 +74,7 @@ function search_translation($from, $to, $to_translate) {
             return $query_result = '<p> Woops, nous n\'avons pas de traduction de \''.$to_translate.'\' en '.$to.'. </p>';
         }
         while ($dbRow = mysqli_fetch_assoc($dbResult)) {
-            $rowResult = 'User n°'.$dbRow['user_id'].' propose '.$dbRow['word'].' (ajouté le '.$dbRow['date'].') Evaluée à '.$dbRow['notation'].' par '.$dbRow['nb_notation'].' personnes </br>';
+            $rowResult = 'User n°'.$dbRow['user_id'].' "propose" '.$dbRow['word'].' (ajouté le '.$dbRow['date'].')</br>';
             $query_result = $query_result . $rowResult . "\n";
         }
         return $query_result;
@@ -104,7 +104,7 @@ function search_translation($from, $to, $to_translate) {
             return $query_result = '<p> Woops, nous n\'avons pas de traduction de \''.$to_translate.'\' en '.$to.'. </p>';
         }
         while ($dbRow = mysqli_fetch_assoc($dbResult)) {
-            $rowResult = 'User n°' . $dbRow['user_id'] . ' propose ' . $dbRow['translation'] . ' (ajouté le ' . $dbRow['date'] . ') Evaluée à ' . $dbRow['notation'] . ' par ' . $dbRow['nb_notation'] . ' personnes </br>';
+            $rowResult = 'User n°' . $dbRow['user_id'] . ' "propose" ' . $dbRow['translation'] . ' (ajouté le ' . $dbRow['date'] . ')</br>';
             $query_result = $query_result . $rowResult . "\n";
         }
         return $query_result;
