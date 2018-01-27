@@ -1,7 +1,6 @@
 <?php
 
 function start_page() {
-    session_start();
     if(!isset($_SESSION['lang']))
         $_SESSION['lang'] = 'en_US';
     if(isset($_GET['lang']))

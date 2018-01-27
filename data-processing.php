@@ -75,6 +75,7 @@ else if ($action == 'a_log_in')
 }
 else if($action == 'a_change_password')
 {
+    $_SESSION['checker'] = true;
     if( md5($_POST['ancienmdp']) === $_SESSION['password'] ){
         if($_POST['nouveaumdp'] ===  $_POST['confirmationmdp'] )
         {
@@ -115,6 +116,7 @@ else if($action == 'a_log_out')
 }
 else if($action == 'a_delete_account')
 {
+    $_SESSION['checker2'] = true;
     if(md5($_POST['mdp']) === $_SESSION['password'])
     {
         $query = 'DELETE FROM user WHERE email = \'' . $_SESSION['mail'] . '\'';

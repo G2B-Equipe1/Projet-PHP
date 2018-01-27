@@ -3,7 +3,6 @@ require 'base.php';
 include_once 'langues.php';
 include 'util.php';
 session_start();
-
 start_page();
 nav_bar();
 ?>
