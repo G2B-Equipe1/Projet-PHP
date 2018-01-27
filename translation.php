@@ -45,9 +45,9 @@ if (isset($_SESSION['ask_trad'])) {
         echo $_SESSION['ask_trad'];
         $_SESSION['ask_trad'] = null;
 }
-if (isset($_SESSION['categorie']) && ($_SESSION['categorie'] == 'Admin' || $_SESSION['categorie'] == 'Trad' || $_SESSION['categorie'] == 'Premium')){
+if (isset($_SESSION['categorie']) && $_SESSION['categorie'] == 'Premium'){
     echo '</br><h3><a href="ask_translation.php" class="label label-success">Vos avantages</a><small> Détecter la langue d\'un mot / Demander une traduction /  Voir mon historique de demandes de traductions</small></h3>';
-} else if (isset($_SESSION['categorie']) && ($_SESSION['categorie'] == 'Admin' || $_SESSION['categorie'] == 'Trad')){
+} else if (isset($_SESSION['categorie']) && $_SESSION['categorie'] == 'Admin'){
     echo '</br><h3><a href="ask_translation.php" class="label label-success">Vos avantages</a><small> Détecter la langue d\'un mot / Demander une traduction /  Voir mon historique de demandes de traductions</small></h3>';
     echo '</br><h3><a href="get_translation.php" class="label label-success">Vos outils</a><small> Ajouter une nouvelle traduction / Gérer les demandes de traduction / Modifier une traduction existante </small></h3>';
 } else if (isset($_SESSION['categorie']) && $_SESSION['categorie'] == 'Standard') {
