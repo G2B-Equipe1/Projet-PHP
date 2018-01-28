@@ -10,6 +10,18 @@ include('modeles/base.php');
 start_page();
 nav_bar();
 
+?>
+
+<form action="admin-processing.php" method="post">
+    Nom de la langue en français : <input type="text" name="fr">
+    Nom de la langue en anglais : <input type="text" name="en">
+    Nom de la langue dans sa propre langue : <input type="text" name="new">
+    <input type="hidden" name="action" value="Ajouter une langue">
+    <input type="submit" value="Add lang" >
+</form>
+
+<?php
+
 echo 'Liste des utilisateurs enregistrés sur le site : <br> <div style="font-family: monospace;"><div style=" white-space: pre;">'
         . str_pad('E-mail', 40, ' ', STR_PAD_BOTH) . '|'
         . str_pad('Pseudo', 30, ' ', STR_PAD_BOTH) . '|'
