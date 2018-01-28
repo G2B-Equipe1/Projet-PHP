@@ -27,7 +27,7 @@ Ce site permet:
 --> De chercher la traduction d'un mot en donnant sa langue d'origine et en donnant la langue dans laquelle on veut qu'il soit traduit
 	- De facon limite à une recherche toutes les 10 minutes pour des utilisateurs non connectes
 	- De facon illimite pour les utilisateur connectes en temps qu'utilisateur standard
-	- De facon illimite pour les utilisateur connectes en temps qu'utilisateur prenium ou administrateur
+	- De facon illimite pour les utilisateur connectes en temps qu'utilisateur prenium, traducteurs ou administrateur
 		-- Les utilisateurs preniums ont la possibilite de faire une recherche d'un mot avec un tri par pertinence
 			--- L'utilisateur rentre la langue d'origine du mot qu'il cherche
 			--- L'utilisateur rentre un mot dans la zone de saisie de texte
@@ -51,6 +51,10 @@ Ce site permet:
 			--- Utilisateur Prenium
 			--- Utilisateur Admin
 			--- Utilisateur Trad
+	    -- Il pourra également ajouter une nouvelle langue à celles déjà présentes sur le site en renseignant :
+	        --- Le nom de cette langue en français
+	        --- Le nom de cette langue en anglais
+	        --- Le nom de cette langue dans sa propre langue
 --> De gerer les demandes de tradution
 	- Un utilisateur connecte en temps qu'administrateur aura acces a un espace 'Translator work place' depuis la barre de navigation
 		-- Il pourra enregistrer un nouvelle traduction d'un mot en donnant sa langue d'origine, et sa traduction dans une langue qu'il devra aussi indiquer
