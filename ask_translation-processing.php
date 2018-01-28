@@ -15,11 +15,11 @@ function search_user($id) {
 
     if(!($dbResult = mysqli_query($dbLink, $query)))
     {
-        echo 'Erreur dans requête<br />';
+        echo _('Erreur dans requête') .'<br />';
 // Affiche le type d'erreur.
-        echo 'Erreur : ' . mysqli_error($dbLink) . '<br/>';
+        echo _('Erreur : ') . mysqli_error($dbLink) . '<br/>';
 // Affiche la requête envoyée.
-        echo 'Requête : ' . $query . '<br/>';
+        echo _('Requête : ') . $query . '<br/>';
         exit();
     }
 
@@ -56,11 +56,11 @@ function search_translation($from, $to, $to_translate) {
 
         if(!($dbResult = mysqli_query($dbLink, $query)))
         {
-            echo 'Erreur dans requête<br />';
+            echo _('Erreur dans requête') .'<br />';
 // Affiche le type d'erreur.
-            echo 'Erreur : ' . mysqli_error($dbLink) . '<br/>';
+            echo _('Erreur : ') . mysqli_error($dbLink) . '<br/>';
 // Affiche la requête envoyée.
-            echo 'Requête : ' . $query . '<br/>';
+            echo _('Requête : ') . $query . '<br/>';
             exit();
         }
 
@@ -74,7 +74,7 @@ function search_translation($from, $to, $to_translate) {
                             </thead>
                             <tbody>';
         if (mysqli_num_rows($dbResult) == 0) {
-            return $query_result = '<p> Woops, nous n\'avons pas de traduction de \''.$to_translate.'\' en '.$to.'. </p>';
+            return $query_result = '<p> Woops, nous n\'avons pas de traduction de '.$to_translate.'\' en '.$to.'. </p>';
         }
         while ($dbRow = mysqli_fetch_assoc($dbResult)) {
             $rowResult =    '<tr>
@@ -115,7 +115,7 @@ function search_translation($from, $to, $to_translate) {
                             </thead>
                             <tbody>';
         if (mysqli_num_rows($dbResult) == 0) {
-            return $query_result = '<p> Woops, nous n\'avons pas de traduction de \''.$to_translate.'\' en '.$to.'. </p>';
+            return $query_result = '<p> Woops, nous n\'avons pas de traduction de '.$to_translate.'\' en '.$to.'. </p>';
         }
         while ($dbRow = mysqli_fetch_assoc($dbResult)) {
             $rowResult =    '<tr>
@@ -150,7 +150,7 @@ function search_translation($from, $to, $to_translate) {
 
         $query_result = null;
         if (mysqli_num_rows($dbResult) == 0) {
-            return $query_result = '<p> Woops, nous n\'avons pas de traduction de \''.$to_translate.'\' en '.$to.'. </p>';
+            return $query_result = '<p> Woops, nous n\'avons pas de traduction de '.$to_translate.'\' en '.$to.'. </p>';
         }
         $query_result = '<table class="table">
                             <thead>
@@ -226,16 +226,16 @@ if(isset($_POST['action'])) {
               WHERE word=\'' . $_POST['to_ask'] . '\' OR translation=\'' . $_POST['to_ask'] . '\'';
 
         if (!($dbResult = mysqli_query($dbLink, $query))) {
-            echo 'Erreur dans requête<br />';
+            echo _('Erreur dans requête') .'<br />';
 // Affiche le type d'erreur.
-            echo 'Erreur : ' . mysqli_error($dbLink) . '<br/>';
+            echo _('Erreur : ') . mysqli_error($dbLink) . '<br/>';
 // Affiche la requête envoyée.
-            echo 'Requête : ' . $query . '<br/>';
+            echo _('Requête : ') . $query . '<br/>';
             exit();
         }
 
         if (mysqli_num_rows($dbResult) == 0) {
-            $_SESSION['detectlang'] = ' Nous n\'avons pas de traduction de \'' . $_POST['to_ask'] . '\' en base de données <br> <br>';
+            $_SESSION['detectlang'] = _(' Nous n\'avons pas de traduction de') . ' \'' . $_POST['to_ask'] . '\' ' . _('en base de données') .'<br> <br>';
             header('Location: ask_translation.php');
             exit();
         }
@@ -256,7 +256,7 @@ if(strpos($_GET['to_ask'], "'") !== FALSE)
     $_GET['to_ask'] = str_replace("'", "\'", $_GET['to_ask']);
 
 if($_GET['to'] == $_GET['from'] ){
-    $_SESSION['samelang'] = 'Ne pas selectionner deux fois la même langue <br> ';
+    $_SESSION['samelang'] = _('Ne pas selectionner deux fois la même langue') .' <br> ';
     header('Location: ask_translation.php');
     exit();
 }

@@ -20,7 +20,7 @@ nav_bar();
             <?php
             if(!isset($_SESSION['resolve_trad']) && !isset($_SESSION['resolve_trad2']) && !isset($_SESSION['modiftrad'])){
                 $_SESSION['simpletrad'] = true;
-                echo 'Entrer une nouvelle traduction dans la base de données : ';
+                echo _('Entrer une nouvelle traduction dans la base de données : ');
                 form_insert_word($_SESSION['to_translate'],'english', 'french', true);
 
 }
@@ -56,7 +56,7 @@ echo $_SESSION['samelang'];
 
 ?>
         </div>
-        <div class="page-header"><h2>Toutes les demandes de traductions en cours : </h2></div>
+        <div class="page-header"><h2><?php echo _('Toutes les demandes de traductions en cours :')?> </h2></div>
 
 <?php
 
@@ -103,7 +103,7 @@ while ($dbRow = mysqli_fetch_assoc($dbResult)) {
 
 
 <?php export(); ?>
-<div class="page-header"><h2>Traductions présentes en base de donnée</h2> </div>
+<div class="page-header"><h2><?php echo _('Traductions présentes en base de donnée')?></h2> </div>
 
 <?php
 

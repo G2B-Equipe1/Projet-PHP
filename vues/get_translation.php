@@ -3,7 +3,7 @@ include_once ('modeles/langues.php');
 
 function export() {?>
     <div class="jumbotron">
-        <h2>Exporter une langue</h2>
+        <h2><?php echo _('Exporter une langue')?></h2>
         <form class="form-inline" action="get_translation-processing.php" method="post">
             <select class="form-control" name="language">
                 <?php set_options($_SESSION['exported_lang']); ?>

@@ -11,7 +11,8 @@ function translation_body() { ?>
                         <select class="form-control" name="to">
                         <?php set_options($_SESSION['to']); ?>
                     </select>
-                    <input class="btn btn-primary" type="submit" name="action" value="translate"/>
+                    <input type="hidden" name="action" value="translate"/>
+                    <input class="btn btn-primary" type="submit" value="<?php echo _('translate')?>"/>
                 </form>
             </div>
             <div class="page-header">
@@ -34,18 +35,18 @@ if (isset($_SESSION['resultat'])) {
 
 
 function avantages_prenium() {
-    echo '<br><h3><a href="ask_translation.php" class="label label-success">Vos avantages premium</a><small> Détecter la langue d\'un mot / Demander une traduction /  Voir mon historique de demandes de traductions</small></h3>';
+    echo '<br><h3><a href="ask_translation.php" class="label label-success">'. _('Vos avantages premium') .'</a><small> '. _('Détecter la langue d\'un mot / Demander une traduction /  Voir mon historique de demandes de traductions') . '</small></h3>';
 }
 
 function standart() {
-    echo '<p>Vous voulez détecter la langue d\'un mot ou encore demander une traduction ?</p>';
-    echo '</br><p> Demandez à devenir un de nos membres Prenium a nos admins </p>';
-    echo '<h3><a href="about.php" class="label label-warning"> It\'s free! </a></h3>';
+    echo '<p>' . _('Vous voulez détecter la langue d\'un mot ou encore demander une traduction ?') .'</p>';
+    echo '</br><p> '. _('Demandez à devenir un de nos membres Prenium a nos admins'). ' </p>';
+    echo '<h3><a href="about.php" class="label label-warning"> '. _('It\'s free!') . ' </a></h3>';
 }
 
 function pas_connecte() {
-    echo '<p>Vous voulez détecter la langue d\'un mot ou encore demander une traduction ?</p>';
-    echo '<p> Inscrivez vous et devenez un de nos membres Prenium </p>';
-    echo '<h3><a href="user_space.php" class="label label-warning"> It\'s new and free! </a></h3>';
+    echo '<p>'. _('Vous voulez détecter la langue d\'un mot ou encore demander une traduction ?'). '</p>';
+    echo '<p> '. _('Inscrivez vous et devenez un de nos membres Prenium\''). ' </p>';
+    echo '<h3><a href="user_space.php" class="label label-warning"> '. _('It\'s new and free!'). ' </a></h3>';
 }
 

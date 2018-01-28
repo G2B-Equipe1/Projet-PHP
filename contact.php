@@ -30,13 +30,13 @@ if ($resp != null && $resp->success) {?>
     <form method="post" action="contact-processing.php">
         <h3>Contacter <?php echo $_POST["mail"]?></h3><br/>
         <input type="hidden" name="mail" value="<?php echo $_POST["mail"]?>"/>
-        <label for="ameliorer">Comment pensez-vous que je pourrais améliorer mon site ?</label><br />
+        <label for="ameliorer"><?php echo _('Comment pensez-vous que je pourrais améliorer mon site ?')?></label><br />
         <textarea name="ameliorer" id="ameliorer"></textarea>
-        <input type="submit" value="envoyer">
+        <input type="submit" value="<?php echo _('envoyer')?>">
     </form>
 <?php }
 
-echo '<a href="contact.php">Retour</a>';
+echo '<a href="contact.php">' . _('Retour').'</a>';
 
 end_page();
 ?>

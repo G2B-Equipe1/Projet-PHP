@@ -90,11 +90,11 @@ else if($action == 'a_change_password')
                     '\' WHERE email = \'' . $_SESSION['mail'] . '\'';
             if(!($dbResult = mysqli_query($dbLink, $query)))
             {
-                echo 'Erreur dans requête<br />';
+                echo _('Erreur dans requête') .'<br />';
                 // Affiche le type d'erreur.
-                echo 'Erreur : ' . mysqli_error($dbLink) . '<br/>';
+                echo _('Erreur : ') . mysqli_error($dbLink) . '<br/>';
                 // Affiche la requête envoyée.
-                echo 'Requête : ' . $query . '<br/>';
+                echo _('Requête : ') . $query . '<br/>';
                 exit();
             }
             $_SESSION['password'] = md5($_POST['nouveaumdp']);
@@ -129,16 +129,16 @@ else if($action == 'a_delete_account')
         $query = 'DELETE FROM user WHERE email = \'' . $_SESSION['mail'] . '\'';
         if(!($dbResult = mysqli_query($dbLink, $query)))
         {
-            echo 'Erreur dans requête<br />';
+            echo _('Erreur dans requête') .'<br />';
             // Affiche le type d'erreur.
-            echo 'Erreur : ' . mysqli_error($dbLink) . '<br/>';
+            echo _('Erreur : ') . mysqli_error($dbLink) . '<br/>';
             // Affiche la requête envoyée.
-            echo 'Requête : ' . $query . '<br/>';
+            echo _('Requête : ') . $query . '<br/>';
             exit();
         }
         $_SESSION = array();
-        echo 'Compte supprimé avec succès<br />';
-        echo '<a href="index.php">Revenir à l\'acceuil</a>';
+        echo _('Compte supprimé avec succès') .'<br />';
+        echo '<a href="index.php">' . _('Revenir à l\'acceuil') .'</a>';
         exit();
 
     }
@@ -162,11 +162,11 @@ else if($action == 'a_activate_account')
 
         if(!($dbResult = mysqli_query($dbLink, $query)))
         {
-            echo 'Erreur dans requête<br />';
+            echo _('Erreur dans requête') .'<br />';
             // Affiche le type d'erreur.
-            echo 'Erreur : ' . mysqli_error($dbLink) . '<br/>';
+            echo _('Erreur : ') . mysqli_error($dbLink) . '<br/>';
             // Affiche la requête envoyée.
-            echo 'Requête : ' . $query . '<br/>';
+            echo _('Requête : ') . $query . '<br/>';
             exit();
         }
         $query = 'SELECT id FROM user WHERE mail=\'' . $_POST['mail'] . '\'';
@@ -199,6 +199,6 @@ else if($action == 'a_cancel_activation')
 }
 else
 {
-    echo 'L\'action demandée n\'existe pas';
+    echo _('L\'action demandée n\'existe pas');
     exit();
 }

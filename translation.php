@@ -10,8 +10,8 @@ start_page();
 nav_bar();
 
 if (isset($_SESSION['non-log']) && !empty($_SESSION['non-log'])) {
-    echo 'Cela fait moins de 10 minute que vous avez effectué votre dernière traduction<br>
-Si vous voulez en faire autant que vous voulez, veuilez vous connecter.';
+    echo _('Cela fait moins de 10 minute que vous avez effectué votre dernière traduction') .'<br>'
+. _('Si vous voulez en faire autant que vous voulez, veuilez vous connecter.');
 
 }
 else {

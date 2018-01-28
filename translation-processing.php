@@ -5,7 +5,7 @@ if(strpos($_GET['to_translate'], "'") !== FALSE)
     $_GET['to_translate'] = str_replace("'", "\'", $_GET['to_translate']);
 
 if($_GET['to'] == $_GET['from'] ){
-    $_SESSION['samelang'] = '<p> Ne pas selectionner deux fois la même langue </p>';
+    $_SESSION['samelang'] = '<p> ' ._('Ne pas selectionner deux fois la même langue') . ' </p>';
     header('Location: translation.php');
     exit();
 }
@@ -22,11 +22,11 @@ function search_user($id) {
 
     if(!($dbResult = mysqli_query($dbLink, $query)))
     {
-        echo 'Erreur dans requête<br />';
+        echo _('Erreur dans requête') . '<br />';
 // Affiche le type d'erreur.
-        echo 'Erreur : ' . mysqli_error($dbLink) . '<br/>';
+        echo _('Erreur : ') . mysqli_error($dbLink) . '<br/>';
 // Affiche la requête envoyée.
-        echo 'Requête : ' . $query . '<br/>';
+        echo _('Requête : ') . $query . '<br/>';
         exit();
     }
 
@@ -69,25 +69,25 @@ function search_translation($from, $to, $to_translate) {
 
         if(!($dbResult = mysqli_query($dbLink, $query)))
         {
-            echo 'Erreur dans requête<br />';
+            echo _('Erreur dans requête') .'<br />';
 // Affiche le type d'erreur.
-            echo 'Erreur : ' . mysqli_error($dbLink) . '<br/>';
+            echo _('Erreur : ') . mysqli_error($dbLink) . '<br/>';
 // Affiche la requête envoyée.
-            echo 'Requête : ' . $query . '<br/>';
+            echo _('Requête : ') . $query . '<br/>';
             exit();
         }
 
         $query_result = '<table class="table">
                             <thead>
                                 <tr>
-                                    <th scope="col">Traducteur</th>
-                                    <th scope="col">Traduction</th>
-                                    <th scope="col">Date</th>
+                                    <th scope="col">'. _('Traducteur') .'</th>
+                                    <th scope="col">'. _('Traduction') . '</th>
+                                    <th scope="col">'. _('Date') . '</th>
                                 </tr>
                             </thead>
                             <tbody>';
         if (mysqli_num_rows($dbResult) == 0) {
-            return $query_result = '<p> Woops, nous n\'avons pas de traduction de \''.$to_translate.'\' en '.$to.'. </p>';
+            return $query_result = '<p> '. _('Woops, nous n\'avons pas de traduction de ') .$to_translate.'\' en '.$to.'. </p>';
         }
         while ($dbRow = mysqli_fetch_assoc($dbResult)) {
             $rowResult =    '<tr>
@@ -110,25 +110,25 @@ function search_translation($from, $to, $to_translate) {
 
         if(!($dbResult = mysqli_query($dbLink, $query)))
         {
-            echo 'Erreur dans requête<br />';
+            echo _('Erreur dans requête') . '<br />';
 // Affiche le type d'erreur.
-            echo 'Erreur : ' . mysqli_error($dbLink) . '<br/>';
+            echo _('Erreur : ') . mysqli_error($dbLink) . '<br/>';
 // Affiche la requête envoyée.
-            echo 'Requête : ' . $query . '<br/>';
+            echo _('Requête : ') . $query . '<br/>';
             exit();
         }
 
         $query_result = '<table class="table">
                             <thead>
                                 <tr>
-                                    <th scope="col">Traducteur</th>
-                                    <th scope="col">Traduction</th>
-                                    <th scope="col">Date</th>
+                                    <th scope="col">'. _('Traducteur') .'</th>
+                                    <th scope="col">'. _('Traduction') . '</th>
+                                    <th scope="col">'. _('Date') . '</th>
                                 </tr>
                             </thead>
                             <tbody>';
         if (mysqli_num_rows($dbResult) == 0) {
-            return $query_result = '<p> Woops, nous n\'avons pas de traduction de \''.$to_translate.'\' en '.$to.'. </p>';
+            return $query_result = '<p> '. _('Woops, nous n\'avons pas de traduction de ') .$to_translate.'\' en '.$to.'. </p>';
         }
         while ($dbRow = mysqli_fetch_assoc($dbResult)) {
             $rowResult =    '<tr>
@@ -153,24 +153,24 @@ function search_translation($from, $to, $to_translate) {
                                    AND translation = \'' . $to_translate . '\')';
 
         if (!($dbResult = mysqli_query($dbLink, $query))) {
-            echo 'Erreur dans requête<br />';
+            echo _('Erreur dans requête') . '<br />';
 // Affiche le type d'erreur.
-            echo 'Erreur : ' . mysqli_error($dbLink) . '<br/>';
+            echo _('Erreur : ') . mysqli_error($dbLink) . '<br/>';
 // Affiche la requête envoyée.
-            echo 'Requête : ' . $query . '<br/>';
+            echo _('Requête : ') . $query . '<br/>';
             exit();
         }
 
         $query_result = null;
         if (mysqli_num_rows($dbResult) == 0) {
-            return $query_result = '<p> Woops, nous n\'avons pas de traduction de \''.$to_translate.'\' en '.$to.'. </p>';
+            return $query_result = '<p> '. _('Woops, nous n\'avons pas de traduction de ') .$to_translate.'\' en '.$to.'. </p>';
         }
         $query_result = '<table class="table">
                             <thead>
                                 <tr>
-                                    <th scope="col">Traducteur</th>
-                                    <th scope="col">Traduction</th>
-                                    <th scope="col">Date</th>
+                                    <th scope="col">'. _('Traducteur') .'</th>
+                                    <th scope="col">'. _('Traduction') . '</th>
+                                    <th scope="col">'. _('Date') . '</th>
                                 </tr>
                             </thead>
                             <tbody>';

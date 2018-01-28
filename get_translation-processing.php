@@ -68,11 +68,11 @@ else if($action == 'New translation'){
 
         if(!($dbResult = mysqli_query($dbLink, $query)))
         {
-            echo 'Erreur dans requête<br />';
+            echo _('Erreur dans requête') .'<br />';
             // Affiche le type d'erreur.
-            echo 'Erreur : ' . mysqli_error($dbLink) . '<br/>';
+            echo _('Erreur : ') . mysqli_error($dbLink) . '<br/>';
             // Affiche la requête envoyée.
-            echo 'Requête : ' . $query . '<br/>';
+            echo _('Requête : ') . $query . '<br/>';
             exit();
         }
         $_SESSION['to_translate'] =  $_POST['to_translate'];
@@ -88,11 +88,11 @@ else if($action == 'New translation'){
 
         if(!($dbResult = mysqli_query($dbLink, $query)))
         {
-            echo 'Erreur dans requête<br />';
+            echo _('Erreur dans requête') .'<br />';
             // Affiche le type d'erreur.
-            echo 'Erreur : ' . mysqli_error($dbLink) . '<br/>';
+            echo _('Erreur : ') . mysqli_error($dbLink) . '<br/>';
             // Affiche la requête envoyée.
-            echo 'Requête : ' . $query . '<br/>';
+            echo _('Requête : ') . $query . '<br/>';
             exit();
         }
         $_SESSION['to_translate'] =  $_POST['to_translate'];
@@ -101,9 +101,9 @@ else if($action == 'New translation'){
         header('Location: get_translation.php');
     }
     else{
-        $restrad = 'Résoudre la demande de traduction suivante : <b>' . $_POST['to_translate'] .
-            '</b> de la langue <b>' . $_POST['from'] . '</b> à la langue <b>' . $_POST['to'] . '</b>';
-        $restrad .= '<br>Pour cela, remplissez les deux traductions suivantes : <br>';
+        $restrad = _('Résoudre la demande de traduction suivante :') .' <b>' . $_POST['to_translate'] .
+            '</b> '. _('de la langue') .' <b>' . $_POST['from'] . '</b> '. ('à la langue').' <b>' . $_POST['to'] . '</b>';
+        $restrad .= '<br>'. ('Pour cela, remplissez les deux traductions suivantes : ').'<br>';
         $_SESSION['resolve_trad2'] = $restrad;
         $_SESSION['tradtemp'] = '';
         $_SESSION['from'] = $_POST['from'];
@@ -119,15 +119,15 @@ else if($action == 'New translation'){
 else if($action == 'Résoudre'){
     check_requests();
     unset($_SESSION['resolve_trad2']);
-    $restrad = 'Résoudre la demande de traduction suivante : <b>' . $_POST['word'] .
-        '</b> de la langue <b>' . $_POST['from_lang'] . '</b> à la langue <b>' . $_POST['to_lang'] . '</b>';
+    $restrad = _('Résoudre la demande de traduction suivante :') .' <b>' . $_POST['word'] .
+        '</b>'. _('de la langue') .' <b>' . $_POST['from_lang'] . '</b> '. _('à la langue'). ' <b>' . $_POST['to_lang'] . '</b>';
     if($_POST['from_lang'] == 'english' || $_POST['to_lang'] == 'english' ){
         $_SESSION['resolve_trad'] = $restrad;
         $_SESSION['from'] = $_POST['from_lang'];
         $_SESSION['to'] = $_POST['to_lang'];
     }
     else{
-        $restrad .= '<br>Pour cela, remplissez les deux traductions suivantes : <br>';
+        $restrad .= '<br>' . _('Pour cela, remplissez les deux traductions suivantes :') .' <br>';
         $_SESSION['resolve_trad2'] = $restrad;
         $_SESSION['tradtemp'] = '';
         $_SESSION['from'] = $_POST['from_lang'];
@@ -141,7 +141,7 @@ else if($action == 'Résoudre'){
 }
 else if($action == 'Première étape'){
     if($_POST['to'] == $_POST['from'] ){
-        $_SESSION['samelang'] = 'Ne pas selectionner deux fois la même langue <br> ';
+        $_SESSION['samelang'] = _('Ne pas selectionner deux fois la même langue') .' <br> ';
         header('Location: get_translation.php');
         exit();
     }
@@ -152,12 +152,12 @@ else if($action == 'Première étape'){
 }
 else if($action == 'Seconde étape'){
     if($_POST['to'] == $_POST['from'] ){
-        $_SESSION['samelang'] = 'Ne pas selectionner deux fois la même langue <br> ';
+        $_SESSION['samelang'] = _('Ne pas selectionner deux fois la même langue') .' <br> ';
         header('Location: get_translation.php');
         exit();
     }
     if($_SESSION['tradtemp'] == ''){
-        $_SESSION['firstfirst'] = '<b>Vous devez d\'abord valider la première étape</b><br>';
+        $_SESSION['firstfirst'] = '<b>'. _('Vous devez d\'abord valider la première étape') .'</b><br>';
         header('Location: get_translation.php');
         exit();
     }
@@ -167,11 +167,11 @@ else if($action == 'Seconde étape'){
         $_SESSION['to_translate'] . '\', \'' .$_SESSION['from'] . '\', \'' . $today . '\' )' ;
     if(!($dbResult = mysqli_query($dbLink, $query)))
     {
-        echo 'Erreur dans requête<br />';
+        echo _('Erreur dans requête') . '<br />';
         // Affiche le type d'erreur.
-        echo 'Erreur : ' . mysqli_error($dbLink) . '<br/>';
+        echo _('Erreur : ') . mysqli_error($dbLink) . '<br/>';
         // Affiche la requête envoyée.
-        echo 'Requête : ' . $query . '<br/>';
+        echo _('Requête : ') . $query . '<br/>';
         exit();
     }
     $query = 'INSERT INTO translation (user_id, word, translation, lang, date)
@@ -179,14 +179,14 @@ else if($action == 'Seconde étape'){
         $_POST['translation'] . '\', \'' .$_SESSION['to2'] . '\', \'' . $today . '\' )' ;
     if(!($dbResult = mysqli_query($dbLink, $query)))
     {
-        echo 'Erreur dans requête<br />';
+        echo _('Erreur dans requête') . '<br />';
         // Affiche le type d'erreur.
-        echo 'Erreur : ' . mysqli_error($dbLink) . '<br/>';
+        echo _('Erreur : ') . mysqli_error($dbLink) . '<br/>';
         // Affiche la requête envoyée.
-        echo 'Requête : ' . $query . '<br/>';
+        echo _('Requête : ') . $query . '<br/>';
         exit();
     }
-    $_SESSION['add_success'] = 'Traduction ajoutée avec succes <br> <br>';
+    $_SESSION['add_success'] = _('Traduction ajoutée avec succes <br> <br>');
     unset($_SESSION['resolve_trad2']);
     header('Location: get_translation.php');
 }
@@ -195,11 +195,11 @@ else if($action == 'Refuser'){
     $query = 'UPDATE translation_request SET state = \'refusé\' WHERE id = \'' . $_POST['id'] . '\'';
     if(!($dbResult = mysqli_query($dbLink, $query)))
     {
-        echo 'Erreur dans requête<br />';
+        echo _('Erreur dans requête') . '<br />';
         // Affiche le type d'erreur.
-        echo 'Erreur : ' . mysqli_error($dbLink) . '<br/>';
+        echo _('Erreur : ') . mysqli_error($dbLink) . '<br/>';
         // Affiche la requête envoyée.
-        echo 'Requête : ' . $query . '<br/>';
+        echo _('Requête : ') . $query . '<br/>';
         exit();
     }
     header('Location: get_translation.php');
@@ -210,8 +210,8 @@ else if($action == 'Modifier'){
 
     unset($_SESSION['resolve_trad2']);
     $_POST['word']= mysqli_real_escape_string($dbLink, $_POST['word']);
-    $_SESSION['modiftrad'] = 'Modifier la traduction existante suivante : <b>' . $_POST['word'] .
-        '</b> en <b>' . $_POST['lang'] . '</b> donne <b>' . $_POST['translation'] . '</b>';
+    $_SESSION['modiftrad'] = _('Modifier la traduction existante suivante :') .' <b>' . $_POST['word'] .
+        '</b>'. _(' en ') .'<b>' . $_POST['lang'] . '</b> '. _('donne') . ' <b>' . $_POST['translation'] . '</b>';
     $_SESSION['modifid'] = $_POST['id'];
     $_SESSION['from'] = 'english';
     $_SESSION['to'] = $_POST['lang'];
@@ -224,11 +224,11 @@ else if($action == 'Modifier traduction'){
         '\' WHERE trad_id = \'' . $_SESSION['modifid'] . '\'';
     if(!($dbResult = mysqli_query($dbLink, $query)))
     {
-        echo 'Erreur dans requête<br />';
+        echo _('Erreur dans requête') . '<br />';
         // Affiche le type d'erreur.
-        echo 'Erreur : ' . mysqli_error($dbLink) . '<br/>';
+        echo _('Erreur : ') . mysqli_error($dbLink) . '<br/>';
         // Affiche la requête envoyée.
-        echo 'Requête : ' . $query . '<br/>';
+        echo _('Requête : ') . $query . '<br/>';
         exit();
     }
     header('Location: get_translation.php');
@@ -239,11 +239,11 @@ else if($action == 'Supprimer'){
     $query = 'DELETE FROM translation WHERE trad_id = \'' . $_POST['id'] . '\'';
     if(!($dbResult = mysqli_query($dbLink, $query)))
     {
-        echo 'Erreur dans requête<br />';
+        echo _('Erreur dans requête') . '<br />';
         // Affiche le type d'erreur.
-        echo 'Erreur : ' . mysqli_error($dbLink) . '<br/>';
+        echo _('Erreur : ') . mysqli_error($dbLink) . '<br/>';
         // Affiche la requête envoyée.
-        echo 'Requête : ' . $query . '<br/>';
+        echo _('Requête : ') . $query . '<br/>';
         exit();
     }
     header('Location: get_translation.php');

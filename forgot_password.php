@@ -11,7 +11,8 @@ else if($_GET['verifMail'] == 'unknownMail')
 ?>
 
 <form method="post" action="processing_password.php">
-    <p>Veuillez renseigner votre adresse mail pour l'envoi d'un lien de réinitialisation.</p>
+    <p><?php echo _('Veuillez renseigner votre adresse mail pour l\'envoi d\'un lien de réinitialisation.')?></p>
     <input type="text" name="mail" placeholder="xxxxxxx@exemple.com" required>
-    <input type="submit" name="action" value="envoyer"/>
+    <input type="hidden" name="action" value="envoyer"/>
+    <input type="submit" value="<?php echo _('envoyer')?>"/>
 </form>

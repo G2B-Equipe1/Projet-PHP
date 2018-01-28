@@ -10,7 +10,7 @@ include('modeles/base.php');
 start_page();
 nav_bar();
 
-echo 'Liste des utilisateurs enregistrés sur le site : <br> <div style="font-family: monospace;"><div style=" white-space: pre;">'
+echo _('Liste des utilisateurs enregistrés sur le site :') .' <br> <div style="font-family: monospace;"><div style=" white-space: pre;">'
         . str_pad('E-mail', 40, ' ', STR_PAD_BOTH) . '|'
         . str_pad('Pseudo', 30, ' ', STR_PAD_BOTH) . '|'
         . str_pad('Date inscription', 20, ' ', STR_PAD_BOTH) . '|'
@@ -20,8 +20,8 @@ $query = 'SELECT * FROM user ';
 
 if(!($dbResult = mysqli_query($dbLink, $query)))
 {
-    echo 'Erreur dans la requete<br />';
-    echo '<a href="user_space.php">Revenir à l\'authetification</a>';
+    echo _('Erreur dans la requete') .'<br />';
+    echo '<a href="user_space.php">' ._('Revenir à l\'authetification') .'</a>';
     exit();
 }
 

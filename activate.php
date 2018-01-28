@@ -33,15 +33,15 @@ session_start();
 start_page();
 nav_bar();
 
-echo 'Vous avez reçu un mail contenant un code valable 5 minutes pour activer votre compte. Si vous n\'avez pas activé
-votre compte dans ce temps, vous devrez réitérer l\'inscription.';
+echo _('Vous avez reçu un mail contenant un code valable 5 minutes pour activer votre compte. Si vous n\'avez pas activé
+votre compte dans ce temps, vous devrez réitérer l\'inscription.');
 
 activation($code, $mail, $pseudo, $mdp);
 
 ?>
 <p style="display:<?php echo isset($_SESSION['wrongcode']) ? '' : 'none';
 unset($_SESSION['wrongcode']) ?>;">
-    Le code d'activation est incorrect.
+    <?php echo _('Le code d\'activation est incorrect.')?>
 </p>
 
 <?php annuler();

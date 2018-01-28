@@ -43,16 +43,16 @@ function nav_bar() {
             </div>
             <ul class="nav navbar-nav">
 
-                <li><a href="<?php echo 'about.php' ?>"><?php echo _('About')?></a></li>
-                <li><a href="<?php echo 'translation.php' ?>"><?php echo _('Translation')?></a></li>
+                <li><a href="<?php echo 'about.php' ?>"><?php echo _('A propos')?></a></li>
+                <li><a href="<?php echo 'translation.php' ?>"><?php echo _('Traduction')?></a></li>
 
             </ul>
             <ul class="nav navbar-nav navbar-right">
 
-                <li><a href="user_space.php"><span class="glyphicon glyphicon-user"></span> <?php echo _('User')?></a></li>
+                <li><a href="user_space.php"><span class="glyphicon glyphicon-user"></span> <?php echo _('Compte')?></a></li>
                 <?php
                 if (isset($_SESSION['categorie']) && ($_SESSION['categorie'] == 'Trad' || $_SESSION['categorie'] == 'Admin')) {
-                    $tmp = _('Translator work place');
+                    $tmp = _('Espace traducteur');
                     echo '<li><a href="get_translation.php"><span class="glyphicon glyphicon-cog"></span> '.$tmp.'</a></li>';
                     unset($tmp);
                 }
@@ -68,9 +68,9 @@ function nav_bar() {
                     </a>
                     <ul class="dropdown-menu">
                         <li><a href="<?php
-                            echo $_SERVER['PHP_SELF'] . '?lang=en_US' ;  ?>"><?php echo _('English')?></a></li>
+                            echo $_SERVER['PHP_SELF'] . '?lang=en_US' ;  ?>"><?php echo _('Anglais')?></a></li>
                         <li><a href="<?php
-                            echo $_SERVER['PHP_SELF'] . '?lang=fr_FR';  ?>"><?php echo _('French')?></a></li>
+                            echo $_SERVER['PHP_SELF'] . '?lang=fr_FR';  ?>"><?php echo _('Français')?></a></li>
                     </ul>
                 </li>
             </ul>
@@ -87,8 +87,8 @@ function confirm_mail($to, $pseudo, $code) {
     $headers = 'From: Name <' . $from . '>' . "\n";
     $headers .= 'Return-Path: <' . $reply . '>' . "\n";
     $headers .= 'Content-type: text/plain; charset=utf-8';
-    $message = "Salutations  $pseudo ! \n Voici le code à copier/coller sur la page d'activation du mail : 
-         $code \n A très vite sur notre site ! \n\n";
+    $message = '"'. _('Salutations '). $pseudo . '! \n ' . _('Voici le code à copier/coller sur la page d\'activation du mail') . ': ' .
+         $code . '\n' . _(' A très vite sur notre site') . ' ! \n\n"';
 
     mail($to, $subject, $message, $headers);
 }

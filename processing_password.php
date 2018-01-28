@@ -19,7 +19,7 @@ else {
         $expire = time() + 1800;
         $queryAddToken = 'INSERT INTO tokens (idUser, token, expire) VALUES (\'' . $idUser . '\', \'' . $token . '\', \'' . $expire . '\')';
         if((!$result = mysqli_query($dbLink, $queryAddToken))) {
-            echo 'La requete ajout token a foiré';
+            echo _('La requete ajout token a foiré');
         }
         $to = $mail;
         $from = 'no-reply@truc.com';
@@ -27,7 +27,7 @@ else {
         $text_message = 'Cliquez sur le lien suivant pour accéder a la page de réinitailisation de mot de passe:' . "\n";
         $text_message .= 'http://projet-php-g2b-equipe1.alwaysdata.net/edit_password.php?token=' . $token;
         if (!send_mail($to, $from, $subject, $text_message))
-            echo 'message pas envoyé';
+            echo _('message pas envoyé');
     }
 }
 header('location: forgot_password.php?verifMail=' . $verifMail);

@@ -24,7 +24,7 @@ detect_lang();
 ?>
     <div class="container">
         <div class="page-header" style="margin-top: 0">
-            <h1 style="margin-top: 0"><span class="glyphicon glyphicon-list-alt"></span>  Historique de mes demandes</h1>
+            <h1 style="margin-top: 0"><span class="glyphicon glyphicon-list-alt"></span>  <?php echo _('Historique de mes demandes')?></h1>
         </div>
         <?php
 
@@ -33,12 +33,12 @@ detect_lang();
           WHERE user_id=\''.$_SESSION['id'].'\'';
         $dbResult = mysqli_query($dbLink, $query);
         if (mysqli_num_rows($dbResult) == 0) {
-            echo $query_result = '<div class="alert alert-info"><p> Vous n\'avez encore fais aucune demande </p></div>';
+            echo $query_result = '<div class="alert alert-info"><p> '. _('Vous n\'avez encore fais aucune demande'). ' </p></div>';
         } else {
             while ($dbRow = mysqli_fetch_assoc($dbResult)) {
-                echo 'Demande de traduction du mot ' . $dbRow['word'] .
-                    ' de la langue ' . $dbRow['from_lang'] . ' à la langue ' . $dbRow['to_lang'] .
-                    ', statut : ' . $dbRow['state'] . '<br>';
+                echo _('Demande de traduction du mot ') . $dbRow['word'] .
+                    _(' de la langue ') . $dbRow['from_lang'] . _(' à la langue ') . $dbRow['to_lang'] .
+                    ', '. _('statut : ') . $dbRow['state'] . '<br>';
             }
         }
 
