@@ -1,6 +1,6 @@
 <?php
 session_start();
-require ('base.php');
+include('modeles/base.php');
 if(!isset($_SESSION['categorie']) || $_SESSION['categorie'] != 'Admin' )
 {
 

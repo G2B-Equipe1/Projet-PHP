@@ -13,9 +13,10 @@ function start_page() {
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="../css/style.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/4.0.0/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+        <script src="https://www.google.com/recaptcha/api.js"></script>
     </head>
 
     <body>
@@ -47,7 +48,7 @@ function nav_bar() {
 
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="user_space.php"><span class="glyphicon glyphicon-user"></span> <?php echo _('User')?></a></li>
+                <li><a href="../user_space.php"><span class="glyphicon glyphicon-user"></span> <?php echo _('User')?></a></li>
                 <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         <img src="<?php echo ($_SESSION['lang'] == 'fr_FR') ? 'img/fr.png' : 'img/en.png'?>" class="flag" alt="flag"> <?php echo _('Language');?>
                     <ul class="dropdown-menu">

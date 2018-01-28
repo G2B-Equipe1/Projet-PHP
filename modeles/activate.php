@@ -31,19 +31,27 @@ $mail = array_pop($pieces);
 session_start();
 start_page();
 nav_bar();
-
-echo 'Vous avez reçu un mail contenant un code valable 5 minutes pour activer votre compte. Si vous n\'avez pas activé
-votre compte dans ce temps, vous devrez réitérer l\'inscription.';
-
-activation($code, $mail, $pseudo, $mdp);
-
 ?>
+Vous avez reçu un mail contenant un code valable 5 minutes pour activer votre compte. Si vous n'avez pas activé
+votre compte dans ce temps, vous devrez réitérer l'inscription.
+
+<form action="../data-processing.php" method="post">
+    <label> Entrez le code ici : <input type="text" name="code"></label>
+    <input type="hidden" name="realcode" value="<?php echo $code; ?>">
+    <input type="hidden" name="mail" value="<?php echo $mail; ?>">
+    <input type="hidden" name="pseudo" value="<?php echo $pseudo; ?>">
+    <input type="hidden" name="mdp" value="<?php echo $mdp; ?>">
+    <input type="hidden" name="action" value="a_activate_account">
+    <input type="submit" value="<?php echo _('Activate account') ?>">
+</form>
+
 <p style="display:<?php echo isset($_SESSION['wrongcode']) ? '' : 'none';
 unset($_SESSION['wrongcode']) ?>;">
     Le code d'activation est incorrect.
 </p>
 
-<?php annuler();
-
-
+<form action="../data-processing.php" method="post">
+    <input type="hidden" name="action" value="a_cancel_activation">
+    <input type="submit" value="Annuler l'activation">
+</form>
 

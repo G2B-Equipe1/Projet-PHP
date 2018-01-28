@@ -1,5 +1,5 @@
 <?php
-require 'base.php';
+include_once 'modeles/base.php';
 session_start();
 $action = $_POST['action'];
 

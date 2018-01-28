@@ -35,7 +35,7 @@ function set_word ($word) {
 }
 
 function form_insert_word($word, $from, $to){
-    ?><form action="get_translation-processing.php" method="post">
+    ?><form action="../get_translation-processing.php" method="post">
         Mot en  <?= $from ?> :
         <input type="hidden" name="from" value="<?= $from ?>">
         <input type="text" name="to_translate" <?=  set_word($word) ?>/>

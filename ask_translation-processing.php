@@ -1,6 +1,6 @@
 <?php
 session_start();
-require 'base.php';
+include_once 'modeles/base.php';
 
 if(isset($_POST['action'])) {
     if ($_POST['action'] == 'Rechercher') { // tri par pertinnance
