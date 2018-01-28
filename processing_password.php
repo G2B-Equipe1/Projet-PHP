@@ -25,7 +25,7 @@ else {
         $from = 'no-reply@truc.com';
         $subject = 'Mot de passe oublié';
         $text_message = 'Cliquez sur le lien suivant pour accéder a la page de réinitailisation de mot de passe:' . "\n";
-        $text_message .= 'http://test-jdbc-yael.alwaysdata.net/edit_password.php?token=' . $token;
+        $text_message .= 'http://projet-php-g2b-equipe1.alwaysdata.net/edit_password.php?token=' . $token;
         if (!send_mail($to, $from, $subject, $text_message))
             echo 'message pas envoyé';
     }
