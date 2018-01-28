@@ -5,44 +5,19 @@
     width : auto;
 }
 
+/* Supression du border-radius et du margin-bottom de la navbar bootstrap */
+.navbar {
+    margin-bottom: 0;
+    border-radius: 0;
+}
+
 /* CORPS DE PAGE */
-
-.article-img-overlay{
-    position: relative;
-}
-
-.article-img-overlay:hover .overlay {
-    opacity: 1;
-}
-
-.overlay {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 100%;
-    width: 100%;
-    opacity: 0;
-    transition: .5s ease;
-    background-color: rgba(245,222,179,0.5); /* WHEAT */
-    border-radius: 0.25em;
-}
-
-.overlay-text {
-    opacity: 1;
-    color: white;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-}
 
 /* ABOUT */
 
 .card {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    margin-bottom: 2em;
 }
 
 .about-crew-member {
@@ -55,16 +30,14 @@
     display: table;
 }
 
+.about-name {
+    color: grey;
+    margin-bottom: 0;
+}
+
 .about-title {
     color: grey;
-}
-
-.about-descitpion {
-    font-size: 3vmin;
-}
-
-.about-mail {
-    font-size: 5vmin;
+    margin-top: 0;
 }
 
 /* BODY MIN-HEIGHT */
@@ -80,6 +53,8 @@ body {
     margin: auto;
     min-height:200px;
 }
+
+/* Enlever le texte du caroussel quand l'écran est plus petit que 600 pixels de largeur */
 @media (max-width: 600px) {
     .carousel-caption {
         display: none;
@@ -90,5 +65,6 @@ body {
 
 footer {
     height: 3em;
-    background-color: rgb(34,34,34);
+    background-color: #f2f2f2;
+    padding: 25px;
 }
