@@ -1,0 +1,789 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: 2018-01-28 23:46+0100\n"
+"PO-Revision-Date: 2018-01-28 23:49+0100\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: en_US\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.0.5\n"
+"X-Poedit-Basepath: ../../..\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Poedit-KeywordsList: _\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: activate.php:36
+msgid ""
+"Vous avez reçu un mail contenant un code valable 5 minutes pour activer "
+"votre compte. Si vous n'avez pas activé\n"
+"votre compte dans ce temps, vous devrez réitérer l'inscription."
+msgstr ""
+
+#: activate.php:44
+msgid "Le code d'activation est incorrect."
+msgstr ""
+
+#: admin-processing.php:21 ask_translation-processing.php:18
+#: ask_translation-processing.php:59 ask_translation-processing.php:229
+#: data-processing.php:93 data-processing.php:132 data-processing.php:165
+#: get_translation-processing.php:71 get_translation-processing.php:91
+#: get_translation-processing.php:170 get_translation-processing.php:182
+#: get_translation-processing.php:198 get_translation-processing.php:227
+#: get_translation-processing.php:242 translation-processing.php:25
+#: translation-processing.php:72 translation-processing.php:113
+#: translation-processing.php:156
+msgid "Erreur dans requête"
+msgstr ""
+
+#: admin-processing.php:23 ask_translation-processing.php:20
+#: ask_translation-processing.php:61 ask_translation-processing.php:231
+#: data-processing.php:95 data-processing.php:134 data-processing.php:167
+#: get_translation-processing.php:73 get_translation-processing.php:93
+#: get_translation-processing.php:172 get_translation-processing.php:184
+#: get_translation-processing.php:200 get_translation-processing.php:229
+#: get_translation-processing.php:244 translation-processing.php:27
+#: translation-processing.php:74 translation-processing.php:115
+#: translation-processing.php:158
+msgid "Erreur : "
+msgstr ""
+
+#: admin-processing.php:25 ask_translation-processing.php:22
+#: ask_translation-processing.php:63 ask_translation-processing.php:233
+#: data-processing.php:97 data-processing.php:136 data-processing.php:169
+#: get_translation-processing.php:75 get_translation-processing.php:95
+#: get_translation-processing.php:174 get_translation-processing.php:186
+#: get_translation-processing.php:202 get_translation-processing.php:231
+#: get_translation-processing.php:246 translation-processing.php:29
+#: translation-processing.php:76 translation-processing.php:117
+#: translation-processing.php:160
+msgid "Requête : "
+msgstr ""
+
+#: admin-processing.php:33
+msgid "Erreur : aucune action de type : "
+msgstr ""
+
+#: admin-processing.php:33
+msgid " dans le fichier admin_processing.php"
+msgstr ""
+
+#: admin.php:13
+msgid "Liste des utilisateurs enregistrés sur le site :"
+msgstr ""
+
+#: admin.php:23
+msgid "Erreur dans la requete"
+msgstr ""
+
+#: admin.php:24
+msgid "Revenir à l'authetification"
+msgstr ""
+
+#: ask_translation-processing.php:238
+#, fuzzy
+#| msgid "Woops, nous n'avons pas de traduction de '"
+msgid " Nous n'avons pas de traduction de"
+msgstr "Woops, we don't have the traduction of"
+
+#: ask_translation-processing.php:238
+msgid "en base de données"
+msgstr ""
+
+#: ask_translation-processing.php:259 get_translation-processing.php:144
+#: get_translation-processing.php:155 translation-processing.php:8
+msgid "Ne pas selectionner deux fois la même langue"
+msgstr ""
+
+#: ask_translation.php:27
+msgid "Historique de mes demandes"
+msgstr ""
+
+#: ask_translation.php:36
+msgid "Vous n'avez encore fais aucune demande"
+msgstr ""
+
+#: ask_translation.php:39
+msgid "Demande de traduction du mot "
+msgstr ""
+
+#: ask_translation.php:40
+msgid " de la langue "
+msgstr ""
+
+#: ask_translation.php:40
+msgid " à la langue "
+msgstr ""
+
+#: ask_translation.php:41
+msgid "statut : "
+msgstr ""
+
+#: contact.php:33
+msgid "Comment pensez-vous que je pourrais améliorer mon site ?"
+msgstr ""
+
+#: contact.php:35 forgot_password.php:17
+msgid "envoyer"
+msgstr "send"
+
+#: contact.php:39
+msgid "Retour"
+msgstr "Return"
+
+#: data-processing.php:140
+msgid "Compte supprimé avec succès"
+msgstr "Account deletion succes"
+
+#: data-processing.php:141
+msgid "Revenir à l'acceuil"
+msgstr "Return to home"
+
+#: data-processing.php:202
+msgid "L'action demandée n'existe pas"
+msgstr ""
+
+#: edit_password.php:14
+msgid "Nouveau mot de passe :"
+msgstr "New password"
+
+#: edit_password.php:15
+msgid "retapez le nouveau mot de passe :"
+msgstr "new password verification :"
+
+#: edit_password.php:17
+msgid "modifier"
+msgstr "change"
+
+#: forgot_password.php:14
+#, fuzzy
+#| msgid "Veuillez renseigner votre adresse mail pour l"
+msgid ""
+"Veuillez renseigner votre adresse mail pour l'envoi d'un lien de "
+"réinitialisation."
+msgstr "Please tape your e-mail for the"
+
+#: get_translation-processing.php:104 get_translation-processing.php:122
+msgid "Résoudre la demande de traduction suivante :"
+msgstr ""
+
+#: get_translation-processing.php:105 get_translation-processing.php:123
+msgid "de la langue"
+msgstr "from the language"
+
+#: get_translation-processing.php:123
+msgid "à la langue"
+msgstr "to the language"
+
+#: get_translation-processing.php:130
+msgid "Pour cela, remplissez les deux traductions suivantes :"
+msgstr ""
+
+#: get_translation-processing.php:160
+msgid "Vous devez d'abord valider la première étape"
+msgstr ""
+
+#: get_translation-processing.php:189
+msgid "Traduction ajoutée avec succes <br> <br>"
+msgstr ""
+
+#: get_translation-processing.php:213
+msgid "Modifier la traduction existante suivante :"
+msgstr ""
+
+#: get_translation-processing.php:214
+msgid " en <b>"
+msgstr ""
+
+#: get_translation-processing.php:214
+msgid "donne"
+msgstr ""
+
+#: get_translation.php:23
+msgid "Entrer une nouvelle traduction dans la base de données : "
+msgstr ""
+
+#: get_translation.php:59
+msgid "Toutes les demandes de traductions en cours :"
+msgstr ""
+
+#: get_translation.php:106
+msgid "Traductions présentes en base de donnée"
+msgstr ""
+
+#: modeles/activate.php:45 vues/activate.php:11
+#, fuzzy
+#| msgid "Delete my account"
+msgid "Activate account"
+msgstr "Delete my account"
+
+#: password_reinitialisation.php:10
+msgid "La requete token a foiré."
+msgstr ""
+
+#: password_reinitialisation.php:15 password_reinitialisation.php:28
+msgid "La requete de suppression du token a foiré."
+msgstr ""
+
+#: password_reinitialisation.php:25
+msgid "La requete de modification de mot de passe a echoué."
+msgstr ""
+
+#: processing_password.php:22
+msgid "La requete ajout token a foiré"
+msgstr ""
+
+#: processing_password.php:30
+msgid "message pas envoyé"
+msgstr ""
+
+#: translation-processing.php:83 translation-processing.php:124
+#: translation-processing.php:171
+msgid "Traducteur"
+msgstr "Translator"
+
+#: translation-processing.php:84 translation-processing.php:125
+#: translation-processing.php:172 vues/util.php:47
+msgid "Traduction"
+msgstr "Translation"
+
+#: translation-processing.php:85 translation-processing.php:126
+#: translation-processing.php:173
+msgid "Date"
+msgstr ""
+
+#: translation-processing.php:90 translation-processing.php:131
+#: translation-processing.php:166
+#, fuzzy
+#| msgid "Woops, nous n'avons pas de traduction de '"
+msgid "Woops, nous n'avons pas de traduction de "
+msgstr "Woops, we don't have the traduction of"
+
+#: translation.php:13
+msgid ""
+"Cela fait moins de 10 minute que vous avez effectué votre dernière traduction"
+msgstr "There is less than 10 minute since you ask your last translation"
+
+#: translation.php:14
+msgid "Si vous voulez en faire autant que vous voulez, veuilez vous connecter."
+msgstr "If you want to translate as you want , pleas log in."
+
+#: vues/about.php:11 vues/about.php:27 vues/about.php:43 vues/about.php:60
+#: vues/about.php:76
+msgid "Fondateur"
+msgstr "Creator"
+
+#: vues/about.php:12
+msgid "Le meilleur ami du programmeur"
+msgstr ""
+
+#: vues/about.php:16 vues/about.php:32 vues/about.php:48 vues/about.php:65
+#: vues/about.php:81
+msgid "Contact"
+msgstr "Contact"
+
+#: vues/about.php:28
+msgid "Discret mais efficace quand il veut"
+msgstr ""
+
+#: vues/about.php:44
+msgid "Un peu trop rapide et élégant"
+msgstr ""
+
+#: vues/about.php:61
+msgid "Lent à la détente mais adorable"
+msgstr ""
+
+#: vues/about.php:77
+msgid "Toujours là même quand il est pas là"
+msgstr ""
+
+#: vues/activate.php:5
+msgid "Entrez le code ici :"
+msgstr ""
+
+#: vues/activate.php:18
+msgid "Annuler l'activation"
+msgstr ""
+
+#: vues/ask_translation.php:7
+msgid "Recherche d'une traduction avec tri par pertinance :"
+msgstr ""
+
+#: vues/ask_translation.php:14
+msgid "Rechercher"
+msgstr ""
+
+#: vues/ask_translation.php:16
+#, fuzzy
+#| msgid "New password : "
+msgid "Mot le plux proche : "
+msgstr "New password : "
+
+#: vues/ask_translation.php:25
+#, fuzzy
+#| msgid "Traducteur"
+msgid "Traduire"
+msgstr "Translator"
+
+#: vues/ask_translation.php:34
+msgid "Demander une traduction inexistante :"
+msgstr ""
+
+#: vues/ask_translation.php:45
+#, fuzzy
+#| msgid "envoyer"
+msgid "Envoyer"
+msgstr "send"
+
+#: vues/ask_translation.php:58
+msgid "Detecter une langue :"
+msgstr ""
+
+#: vues/ask_translation.php:62
+msgid "Détecter langue"
+msgstr ""
+
+#: vues/get_translation.php:6
+msgid "Exporter une langue"
+msgstr ""
+
+#: vues/get_translation.php:12
+msgid "Export traduction"
+msgstr ""
+
+#: vues/get_translation.php:17
+msgid "Download"
+msgstr ""
+
+#: vues/index.php:17
+#, fuzzy
+#| msgid "Collaborative"
+msgid "Collaboratif"
+msgstr "Collaborative"
+
+#: vues/index.php:19
+msgid ""
+"Faite vous aidez de nos traducteurs pour vous aidez dans la rédaction de "
+"document.\n"
+"                            Toujours à l'écoute, ils vous donnerons des "
+"définitions adaptées a vos besoins dans les plus bref délai.\n"
+"                            Nous somme toujours à l'écoute pour n'importe "
+"quel de vos problème de traduction"
+msgstr ""
+
+#: vues/index.php:29
+msgid "Simple"
+msgstr "Simple"
+
+#: vues/index.php:31
+msgid ""
+"Profitez d'une interface simple et intuitive qui vous aidera dans n'importe "
+"quel projet personnel comme professionnel.\n"
+"                            Soyez plus rapide dans vos rédactions gràce à "
+"Virtuo Linguo et écrivez des documents de meilleur qualité grâce aux "
+"multiples définitions qui vous osnt données."
+msgstr ""
+
+#: vues/index.php:40
+msgid "Partout"
+msgstr ""
+
+#: vues/index.php:42
+msgid ""
+"Notre site est 100% responsive et peut vous aidez n'importe où que vous "
+"soyez et n'importe quand pour peu que vous ayez une connexion internet.\n"
+"                            Soyez sur que nous vous aiderons peu importe "
+"votre nationnalité et nous angageons a vous aidez dans n'importe quelle "
+"circonstance."
+msgstr ""
+
+#: vues/index.php:63
+msgid "Nos service et nos offres"
+msgstr ""
+
+#: vues/index.php:67
+msgid "Nos services"
+msgstr ""
+
+#: vues/index.php:71
+msgid "Vos avantages"
+msgstr ""
+
+#: vues/index.php:75
+msgid "Nos traducteurs"
+msgstr ""
+
+#: vues/index.php:83
+msgid ""
+"Nous vous proposons un service de recherche de traduction instantanée.\n"
+"                            Vous pourrez voir toutes les traductions dans "
+"une langue donné qui sont disponnibles d'un même mot.\n"
+"                            Cela vous aidera dans la rédaction de vos "
+"document personnel comme professionnels."
+msgstr ""
+
+#: vues/index.php:90
+msgid ""
+"Inscrivez-vous sur notre site pour voir profiter de cette fonctionnalité à "
+"volontés.\n"
+"                            Vous pourrez faire autant de recherche que vous "
+"le voulez sans contrainte de temps.\n"
+"                            Quoi de mieux pour travailler plus sereinnement "
+"et ainsi améliorer votre efficacité au travail ?"
+msgstr ""
+
+#: vues/index.php:99
+msgid ""
+"Nous vous proposons un service prenium qui vous garantira des résultat "
+"rapides et concret.\n"
+"                            Une traduction d'un mot n'existe pas ou une des "
+"traductions proposées ne vous satisfait pas plainement ?\n"
+"                            En tant qu'utilisateur prenium vous pourrez "
+"demander une traduction d'un mot a nos traducteur.\n"
+"                            Ils vous proposeront une nouvelle definition "
+"dans les plus bref délais."
+msgstr ""
+
+#: vues/index.php:107
+msgid ""
+"Vous avez une vague idée d'un mot que vous voulez utiliser mais ne "
+"connaissez pas précisément son orthographe?\n"
+"                            Vous pourrez utiliser notre barre recherche par "
+"pertinence pour vus aider.\n"
+"                            Mais encore si vous ne savez pas la langue "
+"d'origine d'un mot en particulier, vous pourrez l'obtenir avec notre "
+"detecteur de langue."
+msgstr ""
+
+#: vues/index.php:116
+msgid ""
+"Notre équipe de traducteur reste à votre écoute 24h/24 et 7jours/7 pour "
+"répondre a toutes vos questions.\n"
+"                            Ils pourront vous donner des traductions de mot "
+"en fonctions de vos demandes et modifier ou supprimer des définitions déjà "
+"existantes."
+msgstr ""
+
+#: vues/index.php:122
+msgid ""
+"Si les demandes de traductions sont trop répétitives ou encore trop "
+"incongru, vous pourrez recevoir un avertissement ou encore perdre votre "
+"status prenium."
+msgstr ""
+
+#: vues/translation.php:15
+msgid "translate"
+msgstr ""
+
+#: vues/translation.php:38
+msgid "Vos avantages premium"
+msgstr ""
+
+#: vues/translation.php:38
+msgid ""
+"Détecter la langue d'un mot / Demander une traduction /  Voir mon historique "
+"de demandes de traductions"
+msgstr ""
+
+#: vues/translation.php:42 vues/translation.php:48
+msgid ""
+"Vous voulez détecter la langue d'un mot ou encore demander une traduction ?"
+msgstr ""
+
+#: vues/translation.php:43
+msgid "Demandez à devenir un de nos membres Prenium a nos admins"
+msgstr ""
+
+#: vues/translation.php:44
+msgid "It's free!"
+msgstr ""
+
+#: vues/translation.php:49
+msgid "Inscrivez vous et devenez un de nos membres Prenium'"
+msgstr ""
+
+#: vues/translation.php:50
+msgid "It's new and free!"
+msgstr ""
+
+#: vues/user_space.php:9
+msgid "E-mail : "
+msgstr "E-mail : "
+
+#: vues/user_space.php:11
+msgid "We'll never share your email with anyone else."
+msgstr ""
+
+#: vues/user_space.php:14 vues/user_space.php:134
+#, fuzzy
+#| msgid "New password : "
+msgid "Mot de passe : "
+msgstr "New password : "
+
+#: vues/user_space.php:18
+msgid "Connection "
+msgstr ""
+
+#: vues/user_space.php:20
+msgid "Mot de passe oublié ?"
+msgstr ""
+
+#: vues/user_space.php:24
+msgid "Wrong e-mail or password"
+msgstr "Wrong e-mail and/or password"
+
+#: vues/user_space.php:31
+msgid "Pseudo"
+msgstr ""
+
+#: vues/user_space.php:35
+#, fuzzy
+#| msgid "E-mail : "
+msgid "E-mail"
+msgstr "E-mail : "
+
+#: vues/user_space.php:37
+msgid "Nous ne partagerons pas votre e-mail à qui que soit"
+msgstr "We will dont share your e-mail to everyone"
+
+#: vues/user_space.php:40
+msgid "Mot de passe"
+msgstr "Password"
+
+#: vues/user_space.php:44
+msgid "Repeter le mot de passe"
+msgstr "Password verification"
+
+#: vues/user_space.php:48
+msgid "Connection"
+msgstr "Log in"
+
+#: vues/user_space.php:53
+msgid "E-mail invalide"
+msgstr "Invalid e-mail"
+
+#: vues/user_space.php:58
+msgid "Pseudo déjà pris"
+msgstr "Username already taken"
+
+#: vues/user_space.php:63
+msgid "Le mot de passe ne doit pas être vide"
+msgstr "Password is empty"
+
+#: vues/user_space.php:68
+msgid "La verification du mot de passe a échoué"
+msgstr "Password verification have failed"
+
+#: vues/user_space.php:81
+msgid "Bienvenue sur notre site Web ! "
+msgstr "Welcome to our Web site"
+
+#: vues/user_space.php:86
+msgid "Espace personnel : "
+msgstr "Personal space"
+
+#: vues/user_space.php:89
+#, fuzzy
+#| msgid "Your E-mail : "
+msgid "Votre E-mail : "
+msgstr "Your E-mail : "
+
+#: vues/user_space.php:90
+msgid "Votre pseudo : "
+msgstr "Your username : "
+
+#: vues/user_space.php:91
+msgid "Votre categorie : "
+msgstr "Your grade : "
+
+#: vues/user_space.php:98
+msgid "Change password"
+msgstr "Change password"
+
+#: vues/user_space.php:103
+msgid "Mot de passe actuel : "
+msgstr "Actual password : "
+
+#: vues/user_space.php:105
+msgid "Nouveau mot de passe : "
+msgstr "New password : "
+
+#: vues/user_space.php:107
+msgid "Repeter le nouveau mot de passe"
+msgstr "New password verification"
+
+#: vues/user_space.php:111
+msgid "Changer le mot de passe"
+msgstr "Change password"
+
+#: vues/user_space.php:116
+msgid "Mot de passe changé avec succès"
+msgstr "Password verification succees"
+
+#: vues/user_space.php:120
+msgid "Mauvais mot de passe actuel"
+msgstr "Wrong actual password"
+
+#: vues/user_space.php:124
+msgid "La verification du nouveau mot de passe a échoué"
+msgstr "The password verification have failed"
+
+#: vues/user_space.php:129
+msgid "Delete my account"
+msgstr "Delete my account"
+
+#: vues/user_space.php:140
+msgid "Mauvais mot de passe"
+msgstr "Wrong password"
+
+#: vues/user_space.php:143
+msgid "Supprimer"
+msgstr "Delete"
+
+#: vues/user_space.php:144
+msgid "Votre compte va être detruit pour toujours ! "
+msgstr "Your account will be destroy forever ! "
+
+#: vues/user_space.php:152
+msgid "Deconnection"
+msgstr "Log out"
+
+#: vues/util.php:46
+msgid "A propos"
+msgstr "About"
+
+#: vues/util.php:52
+msgid "Compte"
+msgstr "User"
+
+#: vues/util.php:55
+#, fuzzy
+#| msgid "Traducteur"
+msgid "Espace traducteur"
+msgstr "Translator"
+
+#: vues/util.php:60
+msgid "Administration"
+msgstr "Administration"
+
+#: vues/util.php:67
+msgid "Language"
+msgstr "Language"
+
+#: vues/util.php:71
+msgid "Anglais"
+msgstr "English"
+
+#: vues/util.php:73
+msgid "Français"
+msgstr "French"
+
+#: vues/util.php:90
+msgid "Salutations "
+msgstr "Hi "
+
+#: vues/util.php:90
+msgid "Voici le code à copier/coller sur la page d'activation du mail"
+msgstr "There is the code to copy/paste on the activation mail page"
+
+#: vues/util.php:91
+msgid " A très vite sur notre site"
+msgstr "See you next time !"
+
+#~ msgid "Translator work place"
+#~ msgstr "Translator work place"
+
+#~ msgid "Everywhere"
+#~ msgstr "Everywhere"
+
+#~ msgid "wtf"
+#~ msgstr "WHAT THE FUCK IS THIS SHIT ?!"
+
+#~ msgid "Password : "
+#~ msgstr "Password : "
+
+#~ msgid "Username : "
+#~ msgstr "Username : "
+
+#~ msgid "Password verification"
+#~ msgstr "Retype the password"
+
+#~ msgid "Invalid E-mail"
+#~ msgstr "Invalid E-mail"
+
+#~ msgid "Username already taken"
+#~ msgstr "Username already taken"
+
+#~ msgid "Password verification fail"
+#~ msgstr "The password don't match with its verification"
+
+#~ msgid "Personal space : "
+#~ msgstr "Personal space:"
+
+#~ msgid "Your User-name : "
+#~ msgstr "Your Username : "
+
+#~ msgid "Your grade : "
+#~ msgstr "Your grade : "
+
+#~ msgid "Change grade : "
+#~ msgstr "Change grade : "
+
+#~ msgid "Change to standard"
+#~ msgstr "Change to standard"
+
+#~ msgid "Change to traductor"
+#~ msgstr "Change to traductor"
+
+#~ msgid "Change to administrator"
+#~ msgstr "Change to administrator"
+
+#~ msgid "Actual password : "
+#~ msgstr "Actual password : "
+
+#~ msgid "New password verifiaction"
+#~ msgstr "Retype your new password  : "
+
+#~ msgid "Password change sucess"
+#~ msgstr "Password change successful"
+
+#~ msgid "Wrong old password"
+#~ msgstr "Wrong old password"
+
+#~ msgid "New password confirmation fail"
+#~ msgstr "The new password doesn't match with its verification"
+
+#~ msgid "Log out"
+#~ msgstr "Log out"
+
+#~ msgid "New password input : "
+#~ msgstr "Password : "
+
+#~ msgid "Wrong password"
+#~ msgstr "Wrong password"
+
+#~ msgid "Account deletion warning"
+#~ msgstr ""
+#~ "Be careful, this operation is irreversible,\n"
+#~ "  the deletion of the account and its data is final."
+
+#~ msgid "About"
+#~ msgstr "About"
+
+#~ msgid "User"
+#~ msgstr "User"
+
+#~ msgid "English"
+#~ msgstr "English"
+
+#~ msgid "French"
+#~ msgstr "French"
+
+#~ msgid "Home"
+#~ msgstr "Home"
+
+#~ msgid "test"
+#~ msgstr "this is a test"

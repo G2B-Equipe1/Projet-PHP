@@ -1,0 +1,70 @@
+/* BARRE DE NAVIGATION */
+
+.flag {
+    height : 1.4em;
+    width : auto;
+}
+
+/* Supression du border-radius et du margin-bottom de la navbar bootstrap */
+.navbar {
+    margin-bottom: 0;
+    border-radius: 0;
+}
+
+/* CORPS DE PAGE */
+
+/* ABOUT */
+
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    margin-bottom: 2em;
+}
+
+.about-crew-member {
+    padding: 0 16px;
+}
+
+.about-crew-member:after, row:after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.about-name {
+    color: grey;
+    margin-bottom: 0;
+}
+
+.about-title {
+    color: grey;
+    margin-top: 0;
+}
+
+/* BODY MIN-HEIGHT */
+
+body {
+    min-height: 100%;
+}
+
+/* CAROUSSEL */
+
+.carousel-inner img {
+    width: 100%; /* Set width to 100% */
+    margin: auto;
+    min-height:200px;
+}
+
+/* Enlever le texte du caroussel quand l'écran est plus petit que 600 pixels de largeur */
+@media (max-width: 600px) {
+    .carousel-caption {
+        display: none;
+    }
+}
+
+/* FOOTER */
+
+footer {
+    height: 3em;
+    background-color: #f2f2f2;
+    padding: 25px;
+}
