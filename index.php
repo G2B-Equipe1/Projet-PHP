@@ -7,7 +7,7 @@ start_page();
 
 nav_bar();
 
-coaroussel();
+caroussel();
 body();
 
 footer();

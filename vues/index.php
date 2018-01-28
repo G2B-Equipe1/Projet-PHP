@@ -1,6 +1,6 @@
 <?php
 
-function coaroussel () { ?>
+function caroussel () { ?>
         <div id="myCarousel" class="carousel slide" data-ride="carousel">
             <!-- INDICATEUR CAROUSSEL -->
             <ol class="carousel-indicators">
@@ -12,7 +12,7 @@ function coaroussel () { ?>
             <!-- CAROUSSEL CONTENT -->
             <div class="carousel-inner" role="listbox">
                 <div class="item active">
-                    <img src="../img/facebook-instagram-network-notebook.jpeg" alt="Image">
+                    <img src="img/facebook-instagram-network-notebook.jpeg" alt="Image">
                     <div class="carousel-caption">
                         <h3><?php echo _('Collaborative')?></h3>
                         <p>Ego vero sic intellego, Patres conscripti, nos hoc tempore in provinciis decernendis perpetuae pacis habere oportere rationem. Nam quis hoc non sentit omnia alia esse nobis vacua ab omni periculo atque etiam suspicione belli?</p>
@@ -20,15 +20,15 @@ function coaroussel () { ?>
                 </div>
 
                 <div class="item">
-                    <img src="../img/woman-writing-on-a-notebook.jpeg" alt="Image">
+                    <img src="img/woman-writing-on-a-notebook.jpeg" alt="Image">
                     <div class="carousel-caption">
                         <h3><?php echo _('Simple')?></h3>
-                        <p>Ego vero sic intellego, Patres conscripti, nos hoc tempore in provinciis decernendis perpetuae pacis habere oportere rationem. Nam quis hoc non sentit omnia alia esse nobis vacua ab omni periculo atque etiam suspicione belli?</p>
+                        <p> Profitez d'une interface simple et intuitive qui vous aidera dans n'importe quel projet personnel comme professionnel </p>
                     </div>
                 </div>
 
                 <div class="item">
-                    <img src="../img/stock-iphone-business-mobile.jpeg" alt="Image">
+                    <img src="img/stock-iphone-business-mobile.jpeg" alt="Image">
                     <div class="carousel-caption">
                         <h3><?php echo _('Everywhere')?></h3>
                         <p>Ego vero sic intellego, Patres conscripti, nos hoc tempore in provinciis decernendis perpetuae pacis habere oportere rationem. Nam quis hoc non sentit omnia alia esse nobis vacua ab omni periculo atque etiam suspicione belli?</p>
@@ -53,15 +53,15 @@ function body() {?>
             <h2><?php echo _('wtf')?></h2><br>
             <div class="row">
                 <div class="col-sm-4">
-                    <img src="../img/facebook-instagram-network-notebook.jpeg" class="img-responsive img-rounded" style="width:100%" alt="Image">
+                    <img src="img/facebook-instagram-network-notebook.jpeg" class="img-responsive img-rounded" style="width:100%" alt="Image">
                     <h3>Lorem ipsum</h3>
                 </div>
                 <div class="col-sm-4">
-                    <img src="../img/woman-writing-on-a-notebook.jpeg" class="img-responsive img-rounded" style="width:100%" alt="Image">
+                    <img src="img/woman-writing-on-a-notebook.jpeg" class="img-responsive img-rounded" style="width:100%" alt="Image">
                     <h3>Lorem ipsum</h3>
                 </div>
                 <div class="col-sm-4">
-                    <img src="../img/stock-iphone-business-mobile.jpeg" class="img-responsive img-runded" style="width:100%" alt="Image">
+                    <img src="img/stock-iphone-business-mobile.jpeg" class="img-responsive img-runded" style="width:100%" alt="Image">
                     <h3>Lorem Ipsum</h3>
                 </div>
             </div>
