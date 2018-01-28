@@ -51,9 +51,14 @@ function nav_bar() {
 
                 <li><a href="../user_space.php"><span class="glyphicon glyphicon-user"></span> <?php echo _('User')?></a></li>
                 <?php
+                if (isset($_SESSION['categorie']) && ($_SESSION['categorie'] == 'Trad' || $_SESSION['categorie'] == 'Admin')) {
+                    $tmp = _('Translator work place');
+                    echo '<li><a href="../get_translation.php"><span class="glyphicon glyphicon-cog"></span> '.$tmp.'</a></li>';
+                    unset($tmp);
+                }
                 if (isset($_SESSION['categorie']) && $_SESSION['categorie'] == 'Admin') {
-                    $tmp = _('Work Space');
-                    echo '<li><a href="get_translation.php"><span class="glyphicon glyphicon-cog"></span> '.$tmp.'</a></li>';
+                    $tmp = _('Administration');
+                    echo '<li><a href="../admin.php"><span class="glyphicon glyphicon-cog"></span> '.$tmp.'</a></li>';
                     unset($tmp);
                 }
                 ?>
@@ -61,7 +66,6 @@ function nav_bar() {
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         <img src="<?php echo ($_SESSION['lang'] == 'fr_FR') ? 'img/fr.png' : 'img/en.png'?>" class="flag" alt="flag"/> <?php echo _('Language');?>
                     </a>
-                    
                     <ul class="dropdown-menu">
                         <li><a href="<?php
                             echo $_SERVER['PHP_SELF'] . '?lang=en_US' ;  ?>"><?php echo _('English')?></a></li>

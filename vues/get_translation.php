@@ -1,5 +1,5 @@
 <?php
-include ('modeles/langues.php');
+include_once ('modeles/langues.php');
 session_start();
 
 function export() {?>

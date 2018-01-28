@@ -57,6 +57,7 @@ echo $_SESSION['samelang'];
         <div class="page-header"><h2>Toutes les demandes de traductions en cours : </h2></div>
 
 <?php
+
 check_requests();
 
 $query = 'SELECT *

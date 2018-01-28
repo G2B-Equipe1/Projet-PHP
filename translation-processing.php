@@ -41,6 +41,8 @@ function search_user($id) {
    Renvoie le résultat de la requete en tant que string */
 function search_translation($from, $to, $to_translate) {
 
+    setcookie("timer","non-log",time()+600);
+
     mb_strtolower($to_translate);
 
     // Connexion à la base de donnée
@@ -53,7 +55,6 @@ function search_translation($from, $to, $to_translate) {
     // Requetes a effectue suivant les cas :
     // cas de demande de traduction d'un mot anglais vers n'importe quelle langue
     if ($from == 'english' && $to != 'english') {
-
         $query = 'SELECT user_id, translation, word, date, notation, nb_notation
               FROM translation
               WHERE word=\''.$to_translate.'\' AND lang=\''.$to.'\'' ;
