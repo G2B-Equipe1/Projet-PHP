@@ -1,6 +1,7 @@
 <?php
-include_once 'vues/util.php';
 session_start();
+include_once 'vues/util.php';
+
 start_page();
 nav_bar();
 include_once 'recaptchalib.php';

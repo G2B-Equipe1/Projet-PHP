@@ -1,5 +1,4 @@
 <?php
-session_start();
 
 function translation_body() { ?>
         <div class="container">

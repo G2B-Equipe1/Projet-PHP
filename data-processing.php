@@ -1,6 +1,7 @@
 <?php
-include_once 'modeles/base.php';
 session_start();
+include_once 'modeles/base.php';
+
 $action = $_POST['action'];
 
 if($action == 'a_sign_in')

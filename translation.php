@@ -1,9 +1,10 @@
 <?php
+session_start();
 include_once 'vues/util.php';
 include ('modeles/base.php');
 include ('modeles/langues.php');
 include_once 'vues/translation.php';
-session_start();
+
 
 start_page();
 nav_bar();

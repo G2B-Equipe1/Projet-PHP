@@ -1,6 +1,5 @@
 <?php
 include_once ('modeles/langues.php');
-session_start();
 
 function export() {?>
     <div class="jumbotron">
