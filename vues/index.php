@@ -99,20 +99,28 @@ function body() {?>
                             Nous vous proposons un service prenium qui vous garantira des résultat rapides et concret.
                             Une traduction d'un mot n'existe pas ou une des traductions proposées ne vous satisfait pas plainement ?
                             En tant qu'utilisateur prenium vous pourrez demander une traduction d'un mot a nos traducteur.
+                            Ils vous proposeront une nouvelle definition dans les plus bref délais.
                         </p>
                     </div>
                     <div class="well">
                         <p>
-                            
+                            Vous avez une vague idée d'un mot que vous voulez utiliser mais ne connaissez pas précisément son orthographe?
+                            Vous pourrez utiliser notre barre recherche par pertinence pour vus aider.
+                            Mais encore si vous ne savez pas la langue d'origine d'un mot en particulier, vous pourrez l'obtenir avec notre detecteur de langue.
                         </p>
                     </div>
                 </div>
                 <div class="col-sm-4 align-self-center">
                     <div class="well">
-                        <p>Ego vero sic intellego, Patres conscripti, nos hoc tempore in provinciis decernendis perpetuae pacis habere oportere rationem. Nam quis hoc non sentit omnia alia esse nobis vacua ab omni periculo atque etiam suspicione belli?</p>
+                        <p>
+                            Notre équipe de traducteur reste à votre écoute 24h/24 et 7jours/7 pour répondre a toutes vos questions.
+                            Ils pourront vous donner des traductions de mot en fonctions de vos demandes et modifier ou supprimer des définitions déjà existantes.
+                        </p>
                     </div>
                     <div class="well">
-                        <p>Ego vero sic intellego, Patres conscripti, nos hoc tempore in provinciis decernendis perpetuae pacis habere oportere rationem. Nam quis hoc non sentit omnia alia esse nobis vacua ab omni periculo atque etiam suspicione belli?</p>
+                        <p>
+                            Si les demandes de traductions sont trop répétitives ou encore trop incongru, vous pourrez recevoir un avertissement ou encore perdre votre status prenium.
+                        </p>
                     </div>
                 </div>
             </div>
