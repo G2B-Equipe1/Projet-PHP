@@ -40,6 +40,7 @@ nav_bar();
                 echo $_SESSION['firstfirst'];
                 $_SESSION['firstfirst'] = '';
                 $_SESSION['simpletrad'] = true;
+                unset($_SESSION['resolve_trad2']);
             }
             else if(isset($_SESSION['modiftrad'])){
                 echo $_SESSION['modiftrad'];

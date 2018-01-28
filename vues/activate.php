@@ -1,7 +1,7 @@
 <?php
 
 function activation($code, $mail, $pseudo, $mdp) {?>
-<form action="../data-processing.php" method="post">
+<form action="data-processing.php" method="post">
     <label> Entrez le code ici : <input type="text" name="code"></label>
     <input type="hidden" name="realcode" value="<?php echo $code; ?>">
     <input type="hidden" name="mail" value="<?php echo $mail; ?>">
@@ -13,7 +13,7 @@ function activation($code, $mail, $pseudo, $mdp) {?>
 <?php }
 
 function annuler () { ?>
-<form action="../data-processing.php" method="post">
+<form action="data-processing.php" method="post">
     <input type="hidden" name="action" value="a_cancel_activation">
     <input type="submit" value="Annuler l'activation">
 </form>

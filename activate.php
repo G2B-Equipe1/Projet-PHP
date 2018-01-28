@@ -1,5 +1,6 @@
 <?php
 include_once 'vues/util.php';
+include_once 'vues/activate.php';
 session_start();
 if(!isset($_COOKIE['confirmail']))
 {

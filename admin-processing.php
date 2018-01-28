@@ -14,6 +14,8 @@ if(isset($_POST['mail']))
     else if(isset($_POST['traducteur'])) $cat = $_POST['traducteur'];
     else if(isset($_POST['administrateur'])) $cat = $_POST['administrateur'];
 
+    $_POST['mail'] = mysqli_real_escape_string($dbLink, $_POST['mail']);
+
     $query = 'UPDATE user SET categorie = \'' . $cat .
         '\' WHERE email = \'' . $_POST['mail'] . '\'';
     if(!($dbResult = mysqli_query($dbLink, $query)))

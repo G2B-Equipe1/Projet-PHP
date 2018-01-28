@@ -8,7 +8,7 @@ session_start();
 start_page();
 nav_bar();
 
-if (!isset($_SESSION['categorie']) && $_COOKIE["timer"]) {
+if (isset($_SESSION['non-log']) && !empty($_SESSION['non-log'])) {
     echo 'Cela fait moins de 10 minute que vous avez effectué votre dernière traduction<br>
 Si vous voulez en faire autant que vous voulez, veuilez vous connecter.';
 
@@ -32,7 +32,7 @@ else {
     else
         pas_connecte();
 
-    echo '</div></br></br>';
+    echo '</div><br><br>';
 }
 
 footer();

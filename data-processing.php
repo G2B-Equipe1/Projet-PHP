@@ -5,23 +5,33 @@ $action = $_POST['action'];
 
 if($action == 'a_sign_in')
 {
+    $_POST['mail'] = mysqli_real_escape_string($dbLink, $_POST['mail']);
     if(!mysqli_num_rows(mysqli_query($dbLink, 'SELECT email FROM user WHERE email = \''. $_POST['mail']. '\''))
         && preg_match("/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,})$/i", $_POST['mail'] ))
     {
+        $_POST['pseudo'] = mysqli_real_escape_string($dbLink, $_POST['pseudo']);
         if(!mysqli_num_rows(mysqli_query($dbLink, 'SELECT email FROM user WHERE pseudo = \''. $_POST['pseudo']. '\'')))
         {
-            if($_POST['mdp'] === $_POST['confirmationmdp'])
+            if(!empty($_POST['mdp']))
             {
-                $_SESSION = array();
-                $_SESSION['mailtemp'] = $_POST['mail'];
-                $_SESSION['pseudotemp'] = $_POST['pseudo'];
-                $_SESSION['mdptemp'] = $_POST['mdp'];
-                $_SESSION["valid_until"] = time() + 60 * 5;
-                header('Location: activate.php');
+                if($_POST['mdp'] === $_POST['confirmationmdp'])
+                {
+                    $_SESSION = array();
+                    $_SESSION['mailtemp'] = $_POST['mail'];
+                    $_SESSION['pseudotemp'] = $_POST['pseudo'];
+                    $_SESSION['mdptemp'] = $_POST['mdp'];
+                    $_SESSION["valid_until"] = time() + 60 * 5;
+                    header('Location: activate.php');
+                }
+                else
+                {
+                    $_SESSION['mauvaismdp'] = '';
+                    header('Location: user_space.php');
+                }
             }
             else
             {
-                $_SESSION['mauvaismdp'] = '';
+                $_SESSION['mdpempty'] = '';
                 header('Location: user_space.php');
             }
         }
@@ -40,16 +50,11 @@ if($action == 'a_sign_in')
 }
 else if ($action == 'a_log_in')
 {
-    $mail = $_POST['id'];
-    $mdp = $_POST['mdp'];
+    $mail = mysqli_real_escape_string($dbLink, $_POST['id']) ;
+    $mdp = mysqli_real_escape_string($dbLink, $_POST['mdp']);
     $query = 'SELECT * FROM user WHERE email = \'' . $mail . '\'';
 
-    if(!($dbResult = mysqli_query($dbLink, $query)))
-    {
-        echo 'Erreur dans la requete<br />';
-        echo '<a href="user_space.php">Revenir à l\'authetification</a>';
-        exit();
-    }
+    $dbResult = mysqli_query($dbLink, $query);
 
     if(!mysqli_num_rows($dbResult))
     {
@@ -78,6 +83,8 @@ else if($action == 'a_change_password')
     if( md5($_POST['ancienmdp']) === $_SESSION['password'] ){
         if($_POST['nouveaumdp'] ===  $_POST['confirmationmdp'] )
         {
+            $_POST['nouveaumdp'] = mysqli_real_escape_string($dbLink, $_POST['nouveaumdp']);
+            $_SESSION['mail'] = mysqli_real_escape_string($dbLink, $_SESSION['mail']);
             $query = 'UPDATE user SET mdp = \'' . md5($_POST['nouveaumdp']) .
                     '\' WHERE email = \'' . $_SESSION['mail'] . '\'';
             if(!($dbResult = mysqli_query($dbLink, $query)))
@@ -117,6 +124,7 @@ else if($action == 'a_delete_account')
 {
     if(md5($_POST['mdp']) === $_SESSION['password'])
     {
+        $_SESSION['mail'] = mysqli_real_escape_string($dbLink, $_SESSION['mail']);
         $query = 'DELETE FROM user WHERE email = \'' . $_SESSION['mail'] . '\'';
         if(!($dbResult = mysqli_query($dbLink, $query)))
         {
@@ -144,9 +152,12 @@ else if($action == 'a_activate_account')
     if($_POST['code'] === $_POST['realcode'])
     {
         $today = date('Y-m-d');
+        $_POST['mail'] = mysqli_real_escape_string($dbLink, $_POST['mail']);
+        $_POST['pseudo'] = mysqli_real_escape_string($dbLink, $_POST['pseudo']);
+        $_POST['mdp'] = mysqli_real_escape_string($dbLink, $_POST['mdp']);
         $query = 'INSERT INTO user (email, pseudo, mdp, date, categorie ) 
                       VALUES (\'' . $_POST['mail'] . '\', \'' . $_POST['pseudo'] . '\', \''
-            . md5($_POST['mdp']) . '\', \'' . $today . '\', \'standard\' )';
+            . md5($_POST['mdp']) . '\', \'' . $today . '\', \'Standard\' )';
 
         if(!($dbResult = mysqli_query($dbLink, $query)))
         {

@@ -28,14 +28,14 @@ if (isset($_SESSION['resultat'])) {
 }
 ?>
 
-                </br>
+                <br>
             </div>
             <?php }
 
 
 
 function avantages_prenium() {
-    echo '</br><h3><a href="ask_translation.php" class="label label-success">Vos avantages premium</a><small> Détecter la langue d\'un mot / Demander une traduction /  Voir mon historique de demandes de traductions</small></h3>';
+    echo '<br><h3><a href="ask_translation.php" class="label label-success">Vos avantages premium</a><small> Détecter la langue d\'un mot / Demander une traduction /  Voir mon historique de demandes de traductions</small></h3>';
 }
 
 function standart() {

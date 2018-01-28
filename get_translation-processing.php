@@ -7,14 +7,15 @@ if (!isset($_SESSION['categorie']) || $_SESSION['categorie'] != 'Admin' && $_SES
     exit();
 }
 
+$_POST['to_translate']= mysqli_real_escape_string($dbLink, $_POST['to_translate']);
+$_POST['translation']= mysqli_real_escape_string($dbLink, $_POST['translation']);
 
-
+/*
 if(strpos($_POST['to_translate'], "'") !== FALSE)
     $_POST['to_translate'] = str_replace("'", "\'", $_POST['to_translate']);
 if(strpos($_POST['translation'], "'") !== FALSE)
     $_POST['translation'] = str_replace("'", "\'", $_POST['translation']);
-
-
+*/
 
 
 $action = $_POST['action'];
@@ -92,6 +93,16 @@ else if($action == 'New translation'){
         header('Location: get_translation.php');
     }
     else{
+        $restrad = 'Résoudre la demande de traduction suivante : <b>' . $_POST['to_translate'] .
+            '</b> de la langue <b>' . $_POST['from'] . '</b> à la langue <b>' . $_POST['to'] . '</b>';
+        $restrad .= '<br>Pour cela, remplissez les deux traductions suivantes : <br>';
+        $_SESSION['resolve_trad2'] = $restrad;
+        $_SESSION['tradtemp'] = '';
+        $_SESSION['from'] = $_POST['from'];
+        $_SESSION['from2'] = 'english';
+        $_SESSION['to'] = 'english';
+        $_SESSION['to2'] = $_POST['to'];
+        $_SESSION['to_translate'] = $_POST['to_translate'];
         header('Location: get_translation.php');
         exit();
     }
@@ -127,6 +138,7 @@ else if($action == 'Première étape'){
         exit();
     }
     $_SESSION['tradtemp'] = $_POST['translation'];
+    $_SESSION['resolve_trad2'] = '';
     header('Location: get_translation.php');
     exit();
 }
@@ -189,6 +201,7 @@ else if($action == 'Refuser'){
 else if($action == 'Modifier'){
 
     unset($_SESSION['resolve_trad2']);
+    $_POST['word']= mysqli_real_escape_string($dbLink, $_POST['word']);
     $_SESSION['modiftrad'] = 'Modifier la traduction existante suivante : <b>' . $_POST['word'] .
         '</b> en <b>' . $_POST['lang'] . '</b> donne <b>' . $_POST['translation'] . '</b>';
     $_SESSION['modifid'] = $_POST['id'];

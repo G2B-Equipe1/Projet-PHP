@@ -40,10 +40,14 @@ function search_user($id) {
 /* Fonction permettant de chercher la traduction d'un mot dans la base de donnée
    Renvoie le résultat de la requete en tant que string */
 function search_translation($from, $to, $to_translate) {
+    if(isset($_COOKIE['timer']) && !isset($_SESSION['categorie'])){
+        $_SESSION['non-log'] = '!';
+        header('Location: translation.php');
+        exit();
+    }
 
     setcookie("timer","non-log",time()+600);
 
-    mb_strtolower($to_translate);
 
     // Connexion à la base de donnée
     $dbLink = mysqli_connect("mysql-projet-php-g2b-equipe1.alwaysdata.net", "149737_user", "joyeuxnoel")
@@ -51,6 +55,10 @@ function search_translation($from, $to, $to_translate) {
 
     mysqli_select_db($dbLink , "projet-php-g2b-equipe1_database")
     or die('Erreur dans la sélection de la base : ' . mysqli_error($dbLink));
+
+    $to_translate= mysqli_real_escape_string($dbLink, $to_translate);
+
+    mb_strtolower($to_translate);
 
     // Requetes a effectue suivant les cas :
     // cas de demande de traduction d'un mot anglais vers n'importe quelle langue

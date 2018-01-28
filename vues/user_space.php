@@ -18,6 +18,7 @@ function connexion () {?>
                     <input type="hidden" name="action" value="a_log_in">
                     <input class="btn btn-primary" type="submit" value="<?php echo _('Log in ')?>"/>
                 </form>
+                <a href="forgot_password.php">Mot de passe oublié ?</a>
                 </p>
                 <div class="alert alert-danger" style="display:<?php echo isset($_SESSION['connexionfailed']) ? '' : 'none';
                 unset($_SESSION['connexionfailed']) ?>;">
@@ -58,6 +59,11 @@ function connexion () {?>
                     <?php echo _('Username already taken') ?>
                 </div>
 
+                <div class="alert alert-danger" role="alert" style="display:<?php echo isset($_SESSION['mdpempty']) ? '' : 'none';
+                unset($_SESSION['mdpempty']) ?>;">
+                    <?php echo _('Password must not be empty') ?>
+                </div>
+
                 <div class="alert alert-danger" role="alert" style="display:<?php echo isset($_SESSION['mauvaismdp']) ? '' : 'none';
                 unset($_SESSION['mauvaismdp']) ?>;">
                     <?php echo _('Password verification fail') ?>
@@ -92,7 +98,7 @@ function  user_information_and_actions() {?>
                     <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
                         <a class="btn btn-primary btn-lg" href="#" data-toggle="collapse" data-target="#change_pwd"><?php echo _('Change password')?></a>
                         <div id="change_pwd" class="collapse <?php if (isset($_SESSION['checker'])) { if ($_SESSION['checker'] == true) { unset($_SESSION['checker']); echo 'in';}}?>">
-                            <form action="../data-processing.php" method="post">
+                            <form action="data-processing.php" method="post">
                                 <div class="form-group">
                                     </br>
                                     <label><?php echo _('Actual password : ') ?></label>

@@ -34,8 +34,6 @@ function search_user($id) {
    Renvoie le résultat de la requete en tant que string */
 function search_translation($from, $to, $to_translate) {
 
-    mb_strtolower($to_translate);
-
     // Connexion à la base de donnée
     $dbLink = mysqli_connect("mysql-projet-php-g2b-equipe1.alwaysdata.net", "149737_user", "joyeuxnoel")
     or die('Erreur de connexion au serveur : ' . mysqli_connect_error());
@@ -43,10 +41,15 @@ function search_translation($from, $to, $to_translate) {
     mysqli_select_db($dbLink , "projet-php-g2b-equipe1_database")
     or die('Erreur dans la sélection de la base : ' . mysqli_error($dbLink));
 
+    $to_translate= mysqli_real_escape_string($dbLink, $to_translate);
+
+    mb_strtolower($to_translate);
+
     // Requetes a effectue suivant les cas :
     // cas de demande de traduction d'un mot anglais vers n'importe quelle langue
     if ($from == 'english' && $to != 'english') {
 
+        $to_translate= mysqli_real_escape_string($dbLink, $to_translate);
         $query = 'SELECT user_id, translation, word, date, notation, nb_notation
               FROM translation
               WHERE word=\''.$to_translate.'\' AND lang=\''.$to.'\'' ;
@@ -216,6 +219,8 @@ if(isset($_POST['action'])) {
 
     else {
         $_SESSION['to_translate'] = $_POST['to_ask'];
+        $_POST['to_ask']= mysqli_real_escape_string($dbLink, $_POST['to_ask']);
+
         $query = 'SELECT *
               FROM translation
               WHERE word=\'' . $_POST['to_ask'] . '\' OR translation=\'' . $_POST['to_ask'] . '\'';
@@ -253,14 +258,10 @@ if(strpos($_GET['to_ask'], "'") !== FALSE)
 if($_GET['to'] == $_GET['from'] ){
     $_SESSION['samelang'] = 'Ne pas selectionner deux fois la même langue <br> ';
     header('Location: ask_translation.php');
-
     exit();
 }
 
-
-$from = $_GET['from'];
-$to = $_GET['to'];
-$to_translate = $_GET['to_ask'];
+$_GET['to_ask']= mysqli_real_escape_string($dbLink, $_GET['to_ask']);
 
 $query = 'INSERT INTO translation_request (user_id, word, from_lang, to_lang, state ) 
                       VALUES (\'' . $_SESSION['id'] . '\', \'' . $_GET['to_ask'] . '\', \''
