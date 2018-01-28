@@ -5,7 +5,7 @@ function connexion () {?>
     <div class="container-fluid section">
         <section class="row">
             <article class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-                <form action="../data-processing.php" method="post">
+                <form action="data-processing.php" method="post">
                     <div class="form-group">
                         <label><?php echo _('E-mail : ') ?></label>
                         <input class="form-control" type="email" name="id"/>
@@ -26,7 +26,7 @@ function connexion () {?>
             </article>
 
             <article class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-                <form action="../data-processing.php" method="post">
+                <form action="data-processing.php" method="post">
                     <div class="form-group">
                         <label><?php echo _('Username')?></label>
                         <input class="form-control" type="text" name="pseudo"/>
@@ -123,7 +123,7 @@ function  user_information_and_actions() {?>
                     <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
                         <a class="btn btn-warning btn-lg" data-toggle="collapse" data-target="#delete" href="#"><?php echo _('Delete my account')?></a>
                         <div id="delete" class="collapse <?php if (isset($_SESSION['checker2'])) { if ($_SESSION['checker2'] == true) { unset($_SESSION['checker2']); echo 'in';}}?>">
-                            <form action="../data-processing.php" method="post">
+                            <form action="data-processing.php" method="post">
                                 <div class="form-group">
                                     </br>
                                     <label><?php echo _('Password : ') ?></label>
@@ -142,7 +142,7 @@ function  user_information_and_actions() {?>
                     </div>
 
                     <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-                        <form action="../data-processing.php" method="post" >
+                        <form action="data-processing.php" method="post" >
                             <input type="hidden" name="action" value="a_log_out">
                             <input class="btn btn-primary btn-lg" type="submit" value="<?php echo _('Log out')?>">
                         </form>
@@ -154,5 +154,4 @@ function  user_information_and_actions() {?>
     <?php }
 
 
-end_page();
 ?>
