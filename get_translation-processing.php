@@ -35,9 +35,16 @@ if($action == "export") {
  \"Content-Type: text/plain; charset=UTF-8\\n\"
  \"Content-Transfer-Encoding: 8bit\\n\"\n\n";
     fwrite ($handle, $head);
-    $translations = mysqli_query($dbLink, 'SELECT word, translation FROM translation WHERE lang= "' . $_POST["language"] . '"');
+    if ($_POST['language']=='english') {
+        $translations = mysqli_query($dbLink, 'SELECT word FROM translation');
+        $search = 'word';
+    }
+    else {
+        $translations = mysqli_query($dbLink, 'SELECT word, translation FROM translation WHERE lang= "' . $_POST["language"] . '"');
+        $search = 'translation';
+    }
     while ($row = mysqli_fetch_assoc($translations)) {
-        $trad = 'msgid "' . $row['word'] . "\"\nmsgstr \"" . $row['translation'] . "\"\n\n" ;
+        $trad = 'msgid "' . $row['word'] . "\"\nmsgstr \"" . $row[$search] . "\"\n\n" ;
         fwrite ($handle, $trad);
     }
     fclose($handle);
