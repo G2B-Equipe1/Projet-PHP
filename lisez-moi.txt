@@ -1,0 +1,120 @@
+###############################
+#### VIRTUO LINGUO PROJECT ####
+###############################
+
+
+# Nom de l'équipe : Virtuo Team
+
+# Membres : 	Romain COLLONA-DISTRIA
+		Adrien CROS
+		Antonin GABORIAU
+		Romain GIUNTINI
+		Yaël HOARAU
+
+# index du site : 	http://projet-php-g2b-equipe1.alwaysdata.net/
+
+##################################
+# Présentation du projet réalisé :
+
+Nous avons réaliser un site internet de traduction que nous avaons décidé d'appeler "Virtuo Linguo".
+
+Ce site permet:
+--> De s'y inscrire
+	- En donnant 
+		-- un identifiant (textuel)
+		-- un email (qui devra être confirmé via l'enoye d'un code de confirmation)
+		-- un mot de passe (qui devra être vérifier par une double saisie)
+--> De chercher la traduction d'un mot en donnant sa langue d'oriine et en donnant la langue dans laquelle on veut qu'il soit traduit
+	- De façon limitée a une recherche toutes les 10 minutes pour des utilisateurs non connectées
+	- De façon illimité pour les utilisateur connectés en temps qu'utilisateur standard
+	- De façon illimité pour les utilisateur connectés en temps qu'utilisateur prenium ou administrateur
+		-- Les utilisateur prenium on la possibilité de faire une recherche d'un mot avec un tri par pertinence
+			--- L'utilisateur rentre la langue d'origine du mot qu'il cherche
+			--- L'utilisateur rentre un mot dans la zone de saisie de texte
+			--- Quand il demande une recherche, on lui donne le mot de notre base de donnée qui s'en approche le plus
+			--- On lui propose alors de traduire ce mot dans une langue qu'il aura choisit
+		-- Ils pourront aussi faire une demande de traduction pour un mot dont il devront donner sa langue d'origine
+			--- Quand l'utilisateur envoie sa demande, elle est stocké dans notre base de donné dans la table 'translation_request'
+		-- Ils pourront détecter la langue d'un mot
+			--- L'utilisateur le mot et la détection lui affiche un message lui rendant la langue d'origine de son mot
+--> D'envoyer des message aux administrateurs
+	- Pour demander une augmentation des privilèges
+	- Pour envoyer des avis du site
+--> De gérer les utilisateur
+	- Un utilisateur connécté en temps qu'administrateur aura accès à un espace 'Administration' depuis la barre de navigation
+		-- Il pourra consulter la liste de l'ensemble des utilisateur et leur données
+			--- Leur email
+			--- Leur pseudo
+			--- Leur date d'inscription
+		-- Il pourra les promouvoir ou les rétrograder vers n'importe quelle place parmis 
+			--- Utilisateur standard
+			--- Utilisateur Prenium
+			--- Utilisateur Admin
+			--- Utilisateur Trad
+--> De gérer les demandes de tradution
+	- Un utilisateur connecté en temps qu'administrateur aura accès à un espace 'Translator work place' depuis la barre de navigation
+		-- Il pourra enregistrer un nouvelle traduction d'un mot en donnant sa langue d'origine, et sa traduction dans une langue qu'il devra aussi indiquer
+			--- Cette action insert une nouvelle traduction stocké dans notre base de donnée dans la table 'translation'
+		-- Il pourra consulter toutes les demande de traduction
+			--- Voir quel utilisateur fait une demande, pour quel mot, et dans quelle langue il veut que ce mot soit traduit
+			--- Accepter de traduire ce mot
+				---- Cette action rempli automatiquement la zone d'enregistrement d'une nouvelle traduction
+			--- refuser de traduire ce mot
+				---- Cette action suprimme la demande émise de notre base de données de la table 'translation_request'
+		-- Il pourra exporte les traduction des mot vers une langue donnée
+			--- Cela crée un fichier .po contenant toutes les traduction vers une langue disponible
+		-- Il pourra consulter toutes les traduction présentes dans la base de données
+			--- Le mot englais d'origine
+			--- La langue de traduction
+			--- Sa traduction
+			--- Choisir de suprimer ou de modifier cette traduction
+				---- ces action aportent des changement dans notre base de données dans la table 'translation'
+--> Changer la langue du site
+	- N'importe quel utilisateur peut changer la langue du site en selectionnant la langue voulue parmis les choix proposé en appuyant sur le boutton de la barre de navigation 'Language'
+
+##############################
+# Choix techniques du projet :
+
+	- Bootstrap 3.3.7 : faciliter et accélérer la mise en place de la mise en page du site internet
+	- reCaptcha : donner une sécurité supléménetaire à notre site internet
+
+#####################################
+# Configuration logicielle minimale :
+	
+	- Connexion internet (sinon pas de mise en page)
+	- Firefox 8.0 Window 7
+	- Chrome 9.0 Window 7
+
+############################
+# Configuration conseillée :
+
+	- Connexion internet (sinon pas de mise en page)
+	- Firefox 57.0.4 Window 7
+
+#########################################
+# Identifiant de connexion disponnibles :
+
+	- compte standard :	mail# 	test.standard@mail.fr
+				mdp# 	standard
+
+	- compte prenium :	mail#	test.prenium@mail.fr
+				mdp#	prenium
+
+	- compte administateur :	mail#	test.admin@mail.fr
+					mdp#	admin
+
+################################################
+# Identifiant de connexion à la base de donnée :
+	
+	- Hôte : 'mysql-projet-php-g2b-equipe1.alwaysdata.net'
+
+	- User : '149737_user'
+
+	- Pwd :	 'joyeuxnoel'
+
+	Accès à PhpMyAdmin : https://phpmyadmin.alwaysdata.com/ (utiliser l'utilisateur et le password donné précédemment)
+
+##########
+# GitHub : 	
+
+	- https://github.com/G2B-Equipe1

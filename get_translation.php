@@ -1,9 +1,10 @@
 <?php
+session_start();
 include_once 'modeles/base.php';
 include_once 'vues/util.php';
 include_once 'modeles/langues.php';
 include_once 'vues/get_translation.php';
-session_start();
+
 
 // Sécurité pour savoir si utilisateur admin
 if (!isset($_SESSION['categorie']) || $_SESSION['categorie'] != 'Admin' && $_SESSION['categorie'] != 'Trad') {

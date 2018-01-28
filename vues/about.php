@@ -11,7 +11,7 @@ function about_body () {?>
                             <h3 class="about-title">Fondateur</h3>
                             <p> Le meilleur ami du programmeur </p>
                             <p><b>antonin.GABORIAU@etu.univ-amu.fr</b></p>
-                        <form action="../contact.php" method="post">
+                        <form action="contact.php" method="post">
                             <input type="hidden" name="mail" value="antonin.GABORIAU@etu.univ-amu.fr"/>
                             <button class="btn btn-primary"  type="submit" name="action" value="Contact">Contact</button>
                         </form>
@@ -27,7 +27,7 @@ function about_body () {?>
                             <h3 class="about-title">Fondateur</h3>
                             <p> Discret mais efficace quand il veut</p>
                             <p><b>yael.hoarau@etu.univ-amu.fr</b></p>
-                            <form action="../contact.php" method="post">
+                            <form action="contact.php" method="post">
                                 <input type="hidden" name="mail" value="yael.hoarau@etu.univ-amu.fr"/>
                                 <button class="btn btn-primary"  type="submit" name="action" value="Contact">Contact</button>
                             </form>
@@ -43,7 +43,7 @@ function about_body () {?>
                             <h3 class="about-title">Fondateur</h3>
                             <p> Un peu trop rapide et élégant </p>
                             <p><b>romain.giuntini@etu.univ-amu.fr</b></p>
-                            <form action="../contact.php" method="post">
+                            <form action="contact.php" method="post">
                                 <input type="hidden" name="mail" value="romain.giuntini@etu.univ-amu.fr"/>
                                 <button class="btn btn-primary" type="submit" name="action" value="Contact">Contact</button>
                             </form>
@@ -60,7 +60,7 @@ function about_body () {?>
                             <h3 class="about-title">Fondateur</h3>
                             <p> Lent à la détente mais adorable </p>
                             <p><b>adrien.cros.1@etu.univ-amu.fr</b></p>
-                            <form action="../contact.php" method="post">
+                            <form action="contact.php" method="post">
                                 <input type="hidden" name="mail" value="adrien.cros.1@etu.univ-amu.fr"/>
                                 <button class="btn btn-primary" type="submit" name="action" value="Contact">Contact</button>
                             </form>
@@ -76,7 +76,7 @@ function about_body () {?>
                             <h3 class="about-title">Fondateur</h3>
                             <p> Toujours là même quand il est pas là </p>
                             <p><b>romain.COLONNA-DISTRIA@etu.univ-amu.fr</b></p>
-                            <form action="../contact.php" method="post">
+                            <form action="contact.php" method="post">
                                 <input type="hidden" name="mail" value="romain.COLONNA-DISTRIA@etu.univ-amu.fr"/>
                                 <button class="btn btn-primary" type="submit" name="action" value="Contact">Contact</button>
                             </form>

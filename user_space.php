@@ -1,4 +1,5 @@
 <?php
+session_start();
 if(isset($_COOKIE['confirmail']))
 {
     header('Location : activate.php');
@@ -6,7 +7,7 @@ if(isset($_COOKIE['confirmail']))
 include_once 'vues/util.php';
 include_once 'modeles/base.php';
 include_once 'vues/user_space.php';
-session_start();
+
 start_page();
 nav_bar();
 

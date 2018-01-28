@@ -1,5 +1,4 @@
 <?php
-session_start();
 
 function connexion () {?>
     <div class="container-fluid section">

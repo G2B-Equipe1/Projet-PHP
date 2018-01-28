@@ -1,7 +1,8 @@
 <?php
+session_start();
 include_once 'modeles/base.php';
 include_once 'modeles/langues.php';
-session_start();
+
 if (!isset($_SESSION['categorie']) || $_SESSION['categorie'] != 'Admin' && $_SESSION['categorie'] != 'Trad') {
     header('Location: translation.php');
     exit();

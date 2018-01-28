@@ -1,6 +1,6 @@
 <?php
-include_once 'vues/util.php';
 session_start();
+include_once 'vues/util.php';
 if(!isset($_COOKIE['confirmail']))
 {
     if(!isset($_SESSION['mailtemp']) || $_SESSION['valid_until'] < time())
