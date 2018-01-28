@@ -1,5 +1,5 @@
 <?php
-include 'util.php';
+include 'vues/util.php';
 start_page();
 nav_bar();
 if($_GET['verifPasswrds'] == 'goodPasswrds')
