@@ -5,8 +5,8 @@ include_once 'vues/util.php';
 start_page();
 nav_bar();
 include_once 'recaptchalib.php';
-$siteKey = '6LezG0EUAAAAAL0VeS0SwgOaO0bFQLa0dTjmEgE2'; // votre clé publique
-$secret = '6LezG0EUAAAAAOvt1kWCqSIHMecBhbyW8QowMBC8'; // votre clé privée
+$siteKey = '6LcP_UIUAAAAAB4p1SzoNWybruZfFZDhdQ90CJhY'; // votre clé publique
+$secret = '6LcP_UIUAAAAACzhwgmENQqXDfad184PRLLSWK1c'; // votre clé privée
 
 
 $reCaptcha = new ReCaptcha($secret);
