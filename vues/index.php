@@ -12,10 +12,14 @@ function caroussel () { ?>
             <!-- CAROUSSEL CONTENT -->
             <div class="carousel-inner" role="listbox">
                 <div class="item active">
-                    <img src="img/facebook-instagram-network-notebook.jpeg" alt="Image">
+                    <img src="img/collaborative.jpeg" alt="Image">
                     <div class="carousel-caption">
                         <h3><?php echo _('Collaborative')?></h3>
-                        <p>Ego vero sic intellego, Patres conscripti, nos hoc tempore in provinciis decernendis perpetuae pacis habere oportere rationem. Nam quis hoc non sentit omnia alia esse nobis vacua ab omni periculo atque etiam suspicione belli?</p>
+                        <p>
+                            Faite vous aidez de nos traducteurs pour vous aidez dans la rédaction de document.
+                            Toujours à l'écoute, ils vous donnerons des définitions adaptées a vos besoins dans les plus bref délai.
+                            Nous somme toujours à l'écoute pour n'importe quel de vos problème de traduction
+                        </p>
                     </div>
                 </div>
 
@@ -23,7 +27,10 @@ function caroussel () { ?>
                     <img src="img/woman-writing-on-a-notebook.jpeg" alt="Image">
                     <div class="carousel-caption">
                         <h3><?php echo _('Simple')?></h3>
-                        <p> Profitez d'une interface simple et intuitive qui vous aidera dans n'importe quel projet personnel comme professionnel </p>
+                        <p>
+                            Profitez d'une interface simple et intuitive qui vous aidera dans n'importe quel projet personnel comme professionnel.
+                            Soyez plus rapide dans vos rédactions gràce à Virtuo Linguo et écrivez des documents de meilleur qualité grâce aux multiples définitions qui vous osnt données.
+                        </p>
                     </div>
                 </div>
 
@@ -31,7 +38,10 @@ function caroussel () { ?>
                     <img src="img/stock-iphone-business-mobile.jpeg" alt="Image">
                     <div class="carousel-caption">
                         <h3><?php echo _('Everywhere')?></h3>
-                        <p>Ego vero sic intellego, Patres conscripti, nos hoc tempore in provinciis decernendis perpetuae pacis habere oportere rationem. Nam quis hoc non sentit omnia alia esse nobis vacua ab omni periculo atque etiam suspicione belli?</p>
+                        <p>
+                            Notre site est 100% responsive et peut vous aidez n'importe où que vous soyez et n'importe quand pour peu que vous ayez une connexion internet.
+                            Soyez sur que nous vous aiderons peu importe votre nationnalité et nous angageons a vous aidez dans n'importe quelle circonstance.
+                        </p>
                     </div>
                 </div>
             </div>
@@ -50,37 +60,51 @@ function caroussel () { ?>
 
 function body() {?>
         <div class="container text-center">
-            <h2><?php echo _('wtf')?></h2><br>
+            <h2><?php echo _('Nos service et nos offres')?></h2><br>
             <div class="row">
                 <div class="col-sm-4">
-                    <img src="img/facebook-instagram-network-notebook.jpeg" class="img-responsive img-rounded" style="width:100%" alt="Image">
-                    <h3>Lorem ipsum</h3>
+                    <img src="img/user-you.jpeg" class="img-responsive img-rounded" style="width:100%" alt="Image">
+                    <h3>Nos services</h3>
                 </div>
                 <div class="col-sm-4">
-                    <img src="img/woman-writing-on-a-notebook.jpeg" class="img-responsive img-rounded" style="width:100%" alt="Image">
-                    <h3>Lorem ipsum</h3>
+                    <img src="img/john-mee.jpg" class="img-responsive img-rounded" style="width:100%" alt="Image">
+                    <h3>Vos avantages</h3>
                 </div>
                 <div class="col-sm-4">
-                    <img src="img/stock-iphone-business-mobile.jpeg" class="img-responsive img-runded" style="width:100%" alt="Image">
-                    <h3>Lorem Ipsum</h3>
+                    <img src="img/helena-lopes.jpg" class="img-responsive img-rounded" style="width:100%" alt="Image">
+                    <h3>Nos traducteurs</h3>
                 </div>
             </div>
 
             <div class="row">
                 <div class="col-sm-4 align-self-center">
                     <div class="well">
-                        <p>Ego vero sic intellego, Patres conscripti, nos hoc tempore in provinciis decernendis perpetuae pacis habere oportere rationem. Nam quis hoc non sentit omnia alia esse nobis vacua ab omni periculo atque etiam suspicione belli?</p>
+                        <p>
+                            Nous vous proposons un service de recherche de traduction instantanée.
+                            Vous pourrez voir toutes les traductions dans une langue donné qui sont disponnibles d'un même mot.
+                            Cela vous aidera dans la rédaction de vos document personnel comme professionnels.
+                        </p>
                     </div>
                     <div class="well">
-                        <p>Ego vero sic intellego, Patres conscripti, nos hoc tempore in provinciis decernendis perpetuae pacis habere oportere rationem. Nam quis hoc non sentit omnia alia esse nobis vacua ab omni periculo atque etiam suspicione belli?</p>
+                        <p>
+                            Inscrivez-vous sur notre site pour voir profiter de cette fonctionnalité à volontés.
+                            Vous pourrez faire autant de recherche que vous le voulez sans contrainte de temps.
+                            Quoi de mieux pour travailler plus sereinnement et ainsi améliorer votre efficacité au travail ?
+                        </p>
                     </div>
                 </div>
                 <div class="col-sm-4 align-self-center">
                     <div class="well">
-                        <p>Ego vero sic intellego, Patres conscripti, nos hoc tempore in provinciis decernendis perpetuae pacis habere oportere rationem. Nam quis hoc non sentit omnia alia esse nobis vacua ab omni periculo atque etiam suspicione belli?</p>
+                        <p>
+                            Nous vous proposons un service prenium qui vous garantira des résultat rapides et concret.
+                            Une traduction d'un mot n'existe pas ou une des traductions proposées ne vous satisfait pas plainement ?
+                            En tant qu'utilisateur prenium vous pourrez demander une traduction d'un mot a nos traducteur.
+                        </p>
                     </div>
                     <div class="well">
-                        <p>Ego vero sic intellego, Patres conscripti, nos hoc tempore in provinciis decernendis perpetuae pacis habere oportere rationem. Nam quis hoc non sentit omnia alia esse nobis vacua ab omni periculo atque etiam suspicione belli?</p>
+                        <p>
+                            
+                        </p>
                     </div>
                 </div>
                 <div class="col-sm-4 align-self-center">
