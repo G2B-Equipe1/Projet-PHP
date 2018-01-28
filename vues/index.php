@@ -12,7 +12,7 @@ function caroussel () { ?>
             <!-- CAROUSSEL CONTENT -->
             <div class="carousel-inner" role="listbox">
                 <div class="item active">
-                    <img src="img/collaborative.jpeg" alt="Image">
+                    <img src="https://image.noelshack.com/fichiers/2018/04/7/1517175494-collaborative.jpeg" alt="Image">
                     <div class="carousel-caption">
                         <h3><?php echo _('Collaboratif')?></h3>
                         <p>
@@ -24,7 +24,7 @@ function caroussel () { ?>
                 </div>
 
                 <div class="item">
-                    <img src="img/woman-writing-on-a-notebook.jpeg" alt="Image">
+                    <img src="https://image.noelshack.com/fichiers/2018/04/7/1517176056-woman-writing-on-a-notebook.jpeg" alt="Image">
                     <div class="carousel-caption">
                         <h3><?php echo _('Simple')?></h3>
                         <p>
@@ -35,7 +35,7 @@ function caroussel () { ?>
                 </div>
 
                 <div class="item">
-                    <img src="img/stock-iphone-business-mobile.jpeg" alt="Image">
+                    <img src="https://image.noelshack.com/fichiers/2018/04/7/1517175406-stock-iphone-business-mobile.jpeg" alt="Image">
                     <div class="carousel-caption">
                         <h3><?php echo _('Partout')?></h3>
                         <p>
@@ -63,16 +63,21 @@ function body() {?>
             <h2><?php echo _('Nos service et nos offres')?></h2><br>
             <div class="row">
                 <div class="col-sm-4">
-                    <img src="img/user-you.jpeg" class="img-responsive img-rounded" style="width:100%" alt="Image">
+
+
+                    <img src="https://image.noelshack.com/fichiers/2018/04/7/1517176073-user-you.jpg" class="img-responsive img-rounded" style="width:100%" alt="Image">
                     <h3><?php echo _('Nos services')?></h3>
+
                 </div>
                 <div class="col-sm-4">
                     <img src="img/john-mee.jpg" class="img-responsive img-rounded" style="width:100%" alt="Image">
                     <h3><?php echo _('Vos avantages')?></h3>
                 </div>
                 <div class="col-sm-4">
-                    <img src="img/helena-lopes.jpg" class="img-responsive img-rounded" style="width:100%" alt="Image">
+
+                    <img src="https://image.noelshack.com/fichiers/2018/04/7/1517176366-helena-lopes.jpg" class="img-responsive img-rounded" style="width:100%" alt="Image">
                     <h3><?php echo _('Nos traducteurs')?></h3>
+
                 </div>
             </div>
 

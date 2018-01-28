@@ -11,7 +11,7 @@
 		Romain GIUNTINI
 		Yaël HOARAU
 
-# index du site : 	http://projet-php-g2b-equipe1.alwaysdata.net/
+# index du site : 	http://projet-php-g2b-vituo-linguo.alwaysdata.net/
 
 ##################################
 # Présentation du projet réalisé :
@@ -90,6 +90,13 @@ Ce site permet:
 
 	- Connexion internet (sinon pas de mise en page)
 	- Firefox 57.0.4 Window 7
+
+######################################
+# Identifiant Hebergeur - Alwaysdata :
+
+	- email : voo1v@wimsg.com
+
+	- mdp : /85xvh+45
 
 #########################################
 # Identifiant de connexion disponnibles :

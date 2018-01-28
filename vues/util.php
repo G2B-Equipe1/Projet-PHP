@@ -6,8 +6,8 @@ function start_page() {
     if(isset($_GET['lang']))
         $_SESSION['lang'] = $_GET['lang'];
     ?>
-    <!DOCTYPE>
-    <html>
+    <!DOCTYPE html>
+    <html lang="<?= ($_SESSION['lang'] == 'en_US' ? 'en' : 'fr')  ?>">
     <head>
         <title>Vituo Linguo</title>
         <meta charset="utf-8">
