@@ -9,6 +9,7 @@ include_once 'vues/user_space.php';
 session_start();
 start_page();
 nav_bar();
+
 if(!isset($_SESSION['mail'])) {
     connexion();
 }

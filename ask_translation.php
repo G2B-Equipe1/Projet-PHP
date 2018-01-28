@@ -12,6 +12,7 @@ if (!isset($_SESSION['categorie']) ||  $_SESSION['categorie'] != 'Premium' && $_
     exit();
 }
 
+
 pertinance();
 
 ask_translation();

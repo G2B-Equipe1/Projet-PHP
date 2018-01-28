@@ -27,31 +27,25 @@ function connexion () {?>
 
             <article class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                 <form action="../data-processing.php" method="post">
-                    <div class="form-group row">
-                        <label class="col-sm-2 col-form-label"><?php echo _('Username')?></label>
-                        <div class="col-sm-10">
-                            <input class="form-control" type="text" name="pseudo"/>
-                        </div>
+                    <div class="form-group">
+                        <label><?php echo _('Username')?></label>
+                        <input class="form-control" type="text" name="pseudo"/>
                     </div>
-                    <div class="form-group row">
+                    <div class="form-group">
                         <label class="col-sm-2 col-form-label"><?php echo _('E-mail')?></label>
-                        <div class="col-sm-10">
-                            <input class="form-control" type="text" name="mail"/>
-                            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-                        </div>
+                        <input class="form-control" type="text" name="mail"/>
+                        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
                     </div>
-                    <div class="form-row">
-                        <div class="form-group col-md-6">
-                            <label><?php echo _('Password')?></label>
-                            <input class="form-control" type="password" name="mdp"/>
-                        </div>
-                        <div class="form-group col-md-6">
-                            <label><?php echo _('Password verification')?></label>
-                            <input class="form-control" type="password" name="confirmationmdp"/>
-                        </div>
+                    <div class="form-group">
+                        <label><?php echo _('Password')?></label>
+                        <input class="form-control" type="password" name="mdp"/>
+                    </div>
+                    <div class="from-group">
+                        <label><?php echo _('Password verification')?></label>
+                        <input class="form-control" type="password" name="confirmationmdp"/>
                     </div>
                     <input type="hidden" name="action" value="a_sign_in">
-                    <input class="btn btn-primary" type="submit" value="<?php echo _('Sign in ')?>"/>
+                    <input class="btn btn-primary" type="submit" value="<?php echo _('Sign in ')?>" style="margin-top: 1em"/>
                 </form>
 
                 <div class="alert alert-danger" role="alert" style="display:<?php echo isset($_SESSION['mailpris']) ? '' : 'none';

@@ -35,23 +35,24 @@ function set_word ($word) {
 }
 
 function form_insert_word($word, $from, $to){
-    ?><form action="../get_translation-processing.php" method="post">
-        Mot en  <?= $from ?> :
+    ?><form class="form-inline" action="get_translation-processing.php" method="post">
+        <label> Mot <?= $word ?> en  <?= $from ?> </label>
+
         <input type="hidden" name="from" value="<?= $from ?>">
-        <input type="text" name="to_translate" <?=  set_word($word) ?>/>
+        <input class="form-control" type="text" name="to_translate" placeholder="Give traduction here"/>
         Traduction dans la langue
-        <?php   ( $_SESSION['modiftrad'] ?   : $select = true);
+        <?php  if (isset($_SESSION['modiftrad'])) {( $_SESSION['modiftrad'] ?   : $select = true);
         if ($select) { ?>
-        <select name="to">
+        <select class="form-control" name="to">
             <?= set_options($to); ?>
         </select>
          <?php } else echo $_SESSION['to']; ?>
           :
-        <input type="text" name="translation"/>
+        <input class="form-control" type="text" name="translation"/>
         <?php echo ($_SESSION['modiftrad'] ? '<input type="submit" name="action" value="Modifier traduction"/>' :
         ($_SESSION['simpletrad'] ? '<input type="submit" name="action" value="New translation"/>' :
             ($_SESSION['firsttrad'] ? '<input type="submit" name="action" value="Première étape"/>' :
-                '<input type="submit" name="action" value="Seconde étape"/>' )) )  ?>
+                '<input type="submit" name="action" value="Seconde étape"/>' )) ); }  ?>
     </form>
 <?php
 }
