@@ -20,13 +20,13 @@ nav_bar();
             if(!isset($_SESSION['resolve_trad']) && !isset($_SESSION['resolve_trad2']) && !isset($_SESSION['modiftrad'])){
                 $_SESSION['simpletrad'] = true;
                 echo 'Entrer une nouvelle traduction dans la base de données : ';
-                form_insert_word($_SESSION['to_translate'],'english', 'french');
+                form_insert_word($_SESSION['to_translate'],'english', 'french', true);
 
 }
             else if(isset($_SESSION['resolve_trad'])){
                 $_SESSION['simpletrad'] = true;
                 echo $_SESSION['resolve_trad'];
-                form_insert_word($_SESSION['to_translate'],$_SESSION['from'], $_SESSION['to']);
+                form_insert_word($_SESSION['to_translate'],$_SESSION['from'], $_SESSION['to'], false);
                 unset($_SESSION['resolve_trad']);
             }
             else if(isset($_SESSION['resolve_trad2'])){
@@ -34,16 +34,16 @@ nav_bar();
                 $_SESSION['firsttrad'] = true;
                 echo $_SESSION['resolve_trad2'];
                 if($_SESSION['tradtemp'] == '')
-                    form_insert_word($_SESSION['to_translate'],$_SESSION['from'], $_SESSION['to']);
+                    form_insert_word($_SESSION['to_translate'],$_SESSION['from'], $_SESSION['to'], false);
                 $_SESSION['firsttrad'] = false;
-                form_insert_word($_SESSION['tradtemp'],$_SESSION['from2'], $_SESSION['to2']);
+                form_insert_word($_SESSION['tradtemp'],$_SESSION['from2'], $_SESSION['to2'], false);
                 echo $_SESSION['firstfirst'];
                 $_SESSION['firstfirst'] = '';
                 $_SESSION['simpletrad'] = true;
             }
             else if(isset($_SESSION['modiftrad'])){
                 echo $_SESSION['modiftrad'];
-                form_insert_word($_SESSION['to_translate'],$_SESSION['from'], $_SESSION['to']);
+                form_insert_word($_SESSION['to_translate'],$_SESSION['from'], $_SESSION['to'], false);
                 unset($_SESSION['modiftrad']);
             }
 
@@ -93,14 +93,18 @@ while ($dbRow = mysqli_fetch_assoc($dbResult)) {
                 </td>
             </tr>';
 }
+
+
 ?>
+            </tbody>
+        </table>
 
-export();
 
-
+<?php export(); ?>
 <div class="page-header"><h2>Traductions présentes en base de donnée</h2> </div>
 
 <?php
+
 $query = 'SELECT * FROM translation ORDER BY lang';
 $dbResult = mysqli_query($dbLink, $query);
 ?>

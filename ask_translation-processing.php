@@ -173,6 +173,8 @@ function search_translation($from, $to, $to_translate) {
 
 if(isset($_POST['action'])) {
     if ($_POST['action'] == 'Rechercher') { // tri par pertinnance
+        $_SESSION['from'] = $_POST['from'];
+
 
         if ($_POST['from'] == 'english')
             $query = 'SELECT DISTINCT word FROM translation';
@@ -204,12 +206,11 @@ if(isset($_POST['action'])) {
             }
             $_SESSION['found'] = $best_word;
         }
-
         header('Location: ask_translation.php');
     }
 
     else if ($_POST['action'] == 'Traduire') {
-        $_SESSION['resultat'] = search_translation($_POST['from'],$_POST['to'],$_SESSION['found']);
+        $_SESSION['resultat'] = search_translation($_POST['from'],$_POST['to'],$_POST['to_translate']);
         header('Location: ask_translation.php');
     }
 

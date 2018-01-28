@@ -34,25 +34,33 @@ function set_word ($word) {
     }
 }
 
-function form_insert_word($word, $from, $to){
+function form_insert_word($word, $from, $to, $modifiable){
     ?><form class="form-inline" action="get_translation-processing.php" method="post">
+        <?php if($modifiable){
+            ?> Mot
+            <input class="form-control" type="text" name="to_translate" placeholder="Give word to translate"/> en
+             <select class="form-control" name="from">
+                <?php set_options($_SESSION['from']); ?>
+            </select>
+                <?php
+    } else {?>
         <label> Mot <?= $word ?> en  <?= $from ?> </label>
-
+        <input type="hidden" name="to_translate" value="<?= $word ?>">
         <input type="hidden" name="from" value="<?= $from ?>">
-        <input class="form-control" type="text" name="to_translate" placeholder="Give traduction here"/>
-        Traduction dans la langue
-        <?php  if (isset($_SESSION['modiftrad'])) {( $_SESSION['modiftrad'] ?   : $select = true);
-        if ($select) { ?>
+        <?php } ?> donne
+        <input class="form-control" type="text" name="translation" placeholder="Give traduction here"/>
+        en
+        <?php
+        if ($modifiable) { ?>
         <select class="form-control" name="to">
             <?= set_options($to); ?>
         </select>
-         <?php } else echo $_SESSION['to']; ?>
-          :
-        <input class="form-control" type="text" name="translation"/>
-        <?php echo ($_SESSION['modiftrad'] ? '<input type="submit" name="action" value="Modifier traduction"/>' :
+         <?php } else { echo $to; ?>
+            <input type="hidden" name="to" value="<?= $to ?>">
+        <?php } echo ($_SESSION['modiftrad'] ? '<input type="submit" name="action" value="Modifier traduction"/>' :
         ($_SESSION['simpletrad'] ? '<input type="submit" name="action" value="New translation"/>' :
             ($_SESSION['firsttrad'] ? '<input type="submit" name="action" value="Première étape"/>' :
-                '<input type="submit" name="action" value="Seconde étape"/>' )) ); }  ?>
+                '<input type="submit" name="action" value="Seconde étape"/>' )) );   ?>
     </form>
 <?php
 }

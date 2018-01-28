@@ -49,16 +49,16 @@ function nav_bar() {
             </ul>
             <ul class="nav navbar-nav navbar-right">
 
-                <li><a href="../user_space.php"><span class="glyphicon glyphicon-user"></span> <?php echo _('User')?></a></li>
+                <li><a href="user_space.php"><span class="glyphicon glyphicon-user"></span> <?php echo _('User')?></a></li>
                 <?php
                 if (isset($_SESSION['categorie']) && ($_SESSION['categorie'] == 'Trad' || $_SESSION['categorie'] == 'Admin')) {
                     $tmp = _('Translator work place');
-                    echo '<li><a href="../get_translation.php"><span class="glyphicon glyphicon-cog"></span> '.$tmp.'</a></li>';
+                    echo '<li><a href="get_translation.php"><span class="glyphicon glyphicon-cog"></span> '.$tmp.'</a></li>';
                     unset($tmp);
                 }
                 if (isset($_SESSION['categorie']) && $_SESSION['categorie'] == 'Admin') {
                     $tmp = _('Administration');
-                    echo '<li><a href="../admin.php"><span class="glyphicon glyphicon-cog"></span> '.$tmp.'</a></li>';
+                    echo '<li><a href="admin.php"><span class="glyphicon glyphicon-cog"></span> '.$tmp.'</a></li>';
                     unset($tmp);
                 }
                 ?>
