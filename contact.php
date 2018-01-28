@@ -36,7 +36,7 @@ if ($resp != null && $resp->success) {?>
     </form>
 <?php }
 
-echo '<a href="contact.php">Retour</a>';
+echo '<a href="about.php">Retour</a>';
 
 end_page();
 ?>
