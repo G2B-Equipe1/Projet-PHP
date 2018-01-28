@@ -18,15 +18,7 @@ if(isset($_POST['mail']))
 
     $query = 'UPDATE user SET categorie = \'' . $cat .
         '\' WHERE email = \'' . $_POST['mail'] . '\'';
-    if(!($dbResult = mysqli_query($dbLink, $query)))
-    {
-        echo 'Erreur dans requête<br />';
-        // Affiche le type d'erreur.
-        echo 'Erreur : ' . mysqli_error($dbLink) . '<br/>';
-        // Affiche la requête envoyée.
-        echo 'Requête : ' . $query . '<br/>';
-        exit();
-    }
+    mysqli_query($dbLink, $query);
     header('Location: admin.php');
     exit();
 }
@@ -36,29 +28,15 @@ else if (isset($_POST['new']) && !empty($_POST['new']) && isset($_POST['fr']) &&
                       VALUES (\'' . $_SESSION['id'] . '\', \'' . $_POST['en'] . '\', \''
         . $_POST['fr'] . '\', \'' . $today . '\', \'french\' )';
 
-    if(!($dbResult = mysqli_query($dbLink, $query)))
-    {
-        echo 'Erreur dans requête<br />';
-        // Affiche le type d'erreur.
-        echo 'Erreur : ' . mysqli_error($dbLink) . '<br/>';
-        // Affiche la requête envoyée.
-        echo 'Requête : ' . $query . '<br/>';
-        exit();
-    }
+    mysqli_query($dbLink, $query);
 
     $query = 'INSERT INTO translation (user_id, word, translation, date, lang ) 
                       VALUES (\'' . $_SESSION['id'] . '\', \'' . $_POST['en'] . '\', \''
         . $_POST['new'] . '\', \'' . $today . '\', \'' . $_POST['en'] .'\' )';
 
-    if(!($dbResult = mysqli_query($dbLink, $query)))
-    {
-        echo 'Erreur dans requête<br />';
-        // Affiche le type d'erreur.
-        echo 'Erreur : ' . mysqli_error($dbLink) . '<br/>';
-        // Affiche la requête envoyée.
-        echo 'Requête : ' . $query . '<br/>';
-        exit();
-    }
+    mysqli_query($dbLink, $query);
+
+    $_SESSION['newlangsucces'] = 'Nouvelle langue correctement ajoutée en base de données<br>';
     header('Location: admin.php');
     exit();
 }

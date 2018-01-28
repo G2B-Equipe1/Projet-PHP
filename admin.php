@@ -21,6 +21,10 @@ nav_bar();
 </form>
 
 <?php
+if(isset($_SESSION['newlangsucces'])){
+    echo $_SESSION['newlangsucces'];
+    unset($_SESSION['newlangsucces']);
+}
 
 echo 'Liste des utilisateurs enregistrés sur le site : <br> <div style="font-family: monospace;"><div style=" white-space: pre;">'
         . str_pad('E-mail', 40, ' ', STR_PAD_BOTH) . '|'
